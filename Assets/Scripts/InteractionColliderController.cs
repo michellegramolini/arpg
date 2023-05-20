@@ -7,7 +7,6 @@ public class InteractionColliderController : MonoBehaviour
 {
     private InputAction _interactAction;
     private PlayerInput _playerInput;
-    private PlayerController _playerController;
     private IInteractable _interactable;
 
     private void OnEnable()
@@ -25,22 +24,11 @@ public class InteractionColliderController : MonoBehaviour
     private void Awake()
     {
         _playerInput = GetComponentInParent<PlayerInput>();
-        _playerController = GetComponentInParent<PlayerController>();
         _interactAction = _playerInput.actions["Interact"];
     }
 
     private void Interact(InputAction.CallbackContext context)
     {
-        //if (_playerController.data.CanInteract)
-        //{
-        //    Debug.Log("called Interact on Player");
-
-        //    if (_interactable != null)
-        //    {
-        //        _interactable.Interact();
-        //    }
-        //}
-
         if (_interactable != null)
         {
             _interactable.Interact();
@@ -53,9 +41,11 @@ public class InteractionColliderController : MonoBehaviour
         {
             _interactable = interactable;
         }
-        else
-        {
-            _interactable = null;
-        }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _interactable = null;
+    }
+
 }

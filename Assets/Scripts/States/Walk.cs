@@ -23,7 +23,6 @@ public class Walk : State
             _player.SetState(_player.Idle);
         }
 
-
         Animate();
 
     }
@@ -33,42 +32,24 @@ public class Walk : State
         _player.rb.velocity = _player.walkSpeed * _player.moveVector;
     }
 
-
     private void Animate()
     {
-        if (_player.facingDirection == Vector2.right)
+        if (_player.moveVector.x > 0f)
         {
             _player.animationState.SetAnimationState("player_walk_right");
         }
-        else if (_player.facingDirection == Vector2.left)
+        else if (_player.moveVector.x < 0f)
         {
             _player.animationState.SetAnimationState("player_walk_left");
         }
-        else if (_player.facingDirection == Vector2.up)
+        else if (_player.moveVector.x == 0f && _player.moveVector.y > 0f)
         {
             _player.animationState.SetAnimationState("player_walk_up");
         }
-        else if (_player.facingDirection == Vector2.down)
+        else
         {
             _player.animationState.SetAnimationState("player_walk_down");
         }
-        else if (_player.facingDirection.x > 0f && _player.facingDirection.y > 0)
-        {
-            _player.animationState.SetAnimationState("player_walk_up_right");
-        }
-        else if (_player.facingDirection.x < 0f && _player.facingDirection.y > 0)
-        {
-            _player.animationState.SetAnimationState("player_walk_up_left");
-        }
-        else if (_player.facingDirection.x > 0f && _player.facingDirection.y < 0)
-        {
-            _player.animationState.SetAnimationState("player_walk_down_right");
-        }
-        else
-        {
-            _player.animationState.SetAnimationState("player_walk_down_left");
-        }
-
     }
 
 }

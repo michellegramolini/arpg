@@ -24,13 +24,17 @@ public class Stuff : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        TriggerDialogue();
+        if (gameObject.activeSelf)
+        {
+            TriggerDialogue();
 
-        int count = int.Parse(_counter.text) + 1;
-        // TODO: get the current count
-        _counter.text = count.ToString();
-        //TODO: object pooler
-        gameObject.SetActive(false);
+            int count = int.Parse(_counter.text) + 1;
+            // TODO: get the current count
+            _counter.text = count.ToString();
+            //TODO: object pooler
+            gameObject.SetActive(false);
+        }
+
     }
 
     private void TriggerDialogue()

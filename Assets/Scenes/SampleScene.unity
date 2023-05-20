@@ -4059,19 +4059,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 669750562, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_Size.x
-      value: 0.6443207
+      value: 0.99750686
       objectReference: {fileID: 0}
     - target: {fileID: 669750562, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_Size.y
-      value: 0.61163664
+      value: 0.9942553
       objectReference: {fileID: 0}
     - target: {fileID: 669750562, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_Offset.x
-      value: 0.016342044
+      value: -0.027806163
       objectReference: {fileID: 0}
     - target: {fileID: 669750562, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_Offset.y
-      value: 0.1941817
+      value: 0.0028723478
       objectReference: {fileID: 0}
     - target: {fileID: 3462501237082333890, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_RootOrder
@@ -4133,6 +4133,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3462501237082333893, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1251300523, guid: fb47f4d5e7e8f462ab8b4fb056a1a5e6, type: 3}
     - target: {fileID: 3462501237082333895, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_Size.y
       value: 0.23096359
