@@ -25,6 +25,11 @@ public class Walk : State
 
         Animate();
 
+        if (player.isShifting)
+        {
+            _player.SetState(_player.Run);
+        }
+
     }
 
     private void MovePlayer()

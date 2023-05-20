@@ -22,13 +22,19 @@ public class PlayerController : MonoBehaviour
     public BoxCollider2D col;
     private BoxCollider2D interactionCollider;
 
-    [Header("Movement")]
+    [Header("Inputs")]
     private InputAction _moveAction;
+    private InputAction _shiftAction;
 
+    [Header("Movement")]
     public Vector2 moveVector;
+    public float runSpeed;
     public float walkSpeed;
     public Vector2 idleVector;
     public Vector2 facingDirection;
+
+    [Header("Shifting")]
+    public bool isShifting;
 
     [Header("Interacting")]
     private Vector2 _detectionPoint;
@@ -39,12 +45,41 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")]
     public AnimationState animationState;
 
+    private void OnEnable()
+    {
+        _shiftAction.Enable();
+        _shiftAction.started += HitShift;
+        _shiftAction.canceled += CancelShift;
+    }
+
+    private void OnDisable()
+    {
+        _shiftAction.started -= HitShift;
+        _shiftAction.canceled -= CancelShift;
+        _shiftAction.Disable();
+    }
+
+    private void HitShift(InputAction.CallbackContext context)
+    {
+        isShifting = true;
+    }
+
+    private void CancelShift(InputAction.CallbackContext context)
+    {
+        isShifting = false;
+    }
+
     private void Awake()
     {
+        // Input
         _playerInput = GetComponent<PlayerInput>();
         _moveAction = _playerInput.actions["Move"];
+        _shiftAction = _playerInput.actions["Shift"];
+
+        // Collisions
         interactionCollider = transform.Find("InteractionCollider").GetComponent<BoxCollider2D>();
 
+        // Vector default for when there is no player movement input
         idleVector = new Vector2(0f, 0f);
 
         // start facing right
@@ -69,6 +104,10 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<BoxCollider2D>();
         animationState = gameObject.GetComponent<AnimationState>();
+
+        // Init values
+        walkSpeed = 4f;
+        runSpeed = 7f;
 
         // Init State
         currentState = Idle;
