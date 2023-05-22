@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Shoot Shoot;
     public Damaged Damaged;
     public Dead Dead;
+    public Jump Jump;
 
     [Header("Components")]
     public Rigidbody2D rb;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [Header("Inputs")]
     private InputAction _moveAction;
     private InputAction _shiftAction;
+    private InputAction _jumpAction;
 
     [Header("Movement")]
     public Vector2 moveVector;
@@ -32,6 +34,10 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed;
     public Vector2 idleVector;
     public Vector2 facingDirection;
+
+    [Header("Jump")]
+    public bool isJumping;
+    public Vector2 jumpVector;
 
     [Header("Shifting")]
     public bool isShifting;
@@ -50,12 +56,16 @@ public class PlayerController : MonoBehaviour
         _shiftAction.Enable();
         _shiftAction.started += HitShift;
         _shiftAction.canceled += CancelShift;
+        _jumpAction.started += HitJump;
+        _jumpAction.canceled += CancelJump;
     }
 
     private void OnDisable()
     {
         _shiftAction.started -= HitShift;
         _shiftAction.canceled -= CancelShift;
+        _jumpAction.started -= HitJump;
+        _jumpAction.canceled -= CancelJump;
         _shiftAction.Disable();
     }
 
@@ -69,12 +79,23 @@ public class PlayerController : MonoBehaviour
         isShifting = false;
     }
 
+    private void HitJump(InputAction.CallbackContext context)
+    {
+        isJumping = true;
+    }
+
+    private void CancelJump(InputAction.CallbackContext context)
+    {
+        isJumping = false;
+    }
+
     private void Awake()
     {
         // Input
         _playerInput = GetComponent<PlayerInput>();
         _moveAction = _playerInput.actions["Move"];
         _shiftAction = _playerInput.actions["Shift"];
+        _jumpAction = _playerInput.actions["Jump"];
 
         // Collisions
         interactionCollider = transform.Find("InteractionCollider").GetComponent<BoxCollider2D>();
@@ -99,6 +120,7 @@ public class PlayerController : MonoBehaviour
         Shoot = gameObject.AddComponent<Shoot>();
         Damaged = gameObject.AddComponent<Damaged>();
         Dead = gameObject.AddComponent<Dead>();
+        Jump = gameObject.AddComponent<Jump>();
 
         // Get components
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -108,6 +130,7 @@ public class PlayerController : MonoBehaviour
         // Init values
         walkSpeed = 4f;
         runSpeed = 7f;
+        jumpVector = new Vector2(0f, 5f);
 
         // Init State
         currentState = Idle;

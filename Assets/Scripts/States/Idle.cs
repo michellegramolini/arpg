@@ -23,6 +23,11 @@ public class Idle : State
             _player.SetState(_player.Walk);
         }
 
+        if (_player.isJumping)
+        {
+            _player.SetState(_player.Jump);
+        }
+
         Animate();
     }
 
