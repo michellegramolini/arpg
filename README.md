@@ -17,6 +17,8 @@ animations and animation controllers live here
 
 Graphics:
 all art asset .pngs live here, such as tilesets, character sprites, etc. 
+save tile palettes in Graphics/Palettes folder.
+save tiles in Graphics/Tiles folder.
 
 Prefabs:
 self-explanatory
