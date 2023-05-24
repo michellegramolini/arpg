@@ -20,4 +20,9 @@ public class Shoot : State
     {
         throw new System.NotImplementedException();
     }
+
+    public override void LateUpdateState(PlayerController player)
+    {
+
+    }
 }

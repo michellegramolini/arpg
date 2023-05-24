@@ -14,6 +14,8 @@ public class Walk : State
     public override void StartState(PlayerController player)
     {
         this._player = player;
+
+        Animate();
     }
 
     public override void UpdateState(PlayerController player)
@@ -23,13 +25,18 @@ public class Walk : State
             _player.SetState(_player.Idle);
         }
 
-        Animate();
+        //Animate();
 
         if (player.isShifting)
         {
             _player.SetState(_player.Run);
         }
 
+    }
+
+    public override void LateUpdateState(PlayerController player)
+    {
+        Animate();
     }
 
     private void MovePlayer()

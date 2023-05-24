@@ -9,6 +9,8 @@ public abstract class State : MonoBehaviour
     public abstract void UpdateState(PlayerController player);
 
     public abstract void FixedUpdateState(PlayerController player);
+
+    public abstract void LateUpdateState(PlayerController player);
 }
 
 
