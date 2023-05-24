@@ -15,6 +15,8 @@ public class Run : State
     {
         this._player = player;
 
+        Animate();
+
         // this could be fun for status effects or something
         //player.animationState.animator.speed *= 2f;
     }
@@ -33,6 +35,11 @@ public class Run : State
             _player.SetState(_player.Idle);
         }
 
+        //Animate();
+    }
+
+    public override void LateUpdateState(PlayerController player)
+    {
         Animate();
     }
 

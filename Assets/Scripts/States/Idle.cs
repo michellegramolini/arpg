@@ -14,6 +14,8 @@ public class Idle : State
     public override void StartState(PlayerController player)
     {
         this._player = player;
+
+        Animate();
     }
 
     public override void UpdateState(PlayerController player)
@@ -28,6 +30,11 @@ public class Idle : State
             _player.SetState(_player.Jump);
         }
 
+        //Animate();
+    }
+
+    public override void LateUpdateState(PlayerController player)
+    {
         Animate();
     }
 

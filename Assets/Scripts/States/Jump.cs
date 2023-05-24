@@ -33,6 +33,11 @@ public class Jump : State
 
     }
 
+    public override void LateUpdateState(PlayerController player)
+    {
+
+    }
+
     private void JumpPlayer()
     {
         // ?

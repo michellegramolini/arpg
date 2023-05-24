@@ -127,11 +127,6 @@ public class PlayerController : MonoBehaviour
         col = gameObject.GetComponent<BoxCollider2D>();
         animationState = gameObject.GetComponent<AnimationState>();
 
-        // Init values
-        walkSpeed = 4f;
-        runSpeed = 7f;
-        jumpVector = new Vector2(0f, 5f);
-
         // Init State
         currentState = Idle;
         currentState.StartState(this);
@@ -158,6 +153,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         currentState.FixedUpdateState(this);
+    }
+
+    private void LateUpdate()
+    {
+        currentState.LateUpdateState(this);
     }
 
     public void SetState(State state)

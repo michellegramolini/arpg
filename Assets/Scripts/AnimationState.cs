@@ -28,7 +28,12 @@ public class AnimationState : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    SetCurrentClipCompletionProgress();
+    //}
+
+    private void LateUpdate()
     {
         SetCurrentClipCompletionProgress();
     }
