@@ -32,6 +32,11 @@ public class Walk : State
             _player.SetState(_player.Run);
         }
 
+        if (_player.isJumping)
+        {
+            _player.SetState(_player.Jump);
+        }
+
     }
 
     public override void LateUpdateState(PlayerController player)

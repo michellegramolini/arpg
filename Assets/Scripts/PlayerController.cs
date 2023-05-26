@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
         // Get components
         rb = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<BoxCollider2D>();
-        animationState = gameObject.GetComponent<AnimationState>();
+        animationState = gameObject.GetComponentInChildren<AnimationState>();
 
         // Init State
         currentState = Idle;
