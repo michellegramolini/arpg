@@ -46,22 +46,56 @@
  </tile>
  <tile id="36">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="37">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="38">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="39">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
+  </properties>
+ </tile>
+ <tile id="40">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="41">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="42">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="43">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="44">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="45">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="48">
@@ -97,22 +131,56 @@
  </tile>
  <tile id="54">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="55">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="56">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="57">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
+  </properties>
+ </tile>
+ <tile id="58">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="59">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="60">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="61">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="62">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="63">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="66">
@@ -147,6 +215,7 @@
  </tile>
  <tile id="72">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="wall"/>
   </properties>
   <objectgroup draworder="index" id="2">
@@ -155,6 +224,7 @@
  </tile>
  <tile id="73">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="wall"/>
   </properties>
   <objectgroup draworder="index" id="2">
@@ -163,6 +233,7 @@
  </tile>
  <tile id="74">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="wall"/>
   </properties>
   <objectgroup draworder="index" id="2">
@@ -171,6 +242,7 @@
  </tile>
  <tile id="75">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="wall"/>
   </properties>
   <objectgroup draworder="index" id="2">
@@ -252,6 +324,16 @@
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
+ <tile id="99">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="100">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
  <tile id="109">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
@@ -271,6 +353,16 @@
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
+ </tile>
+ <tile id="117">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="118">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
  </tile>
  <tile id="126">
   <properties>
@@ -341,6 +433,16 @@
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
+ <tile id="135">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="136">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
  <tile id="144">
   <properties>
    <property name="tile_type" value="wall"/>
@@ -409,6 +511,16 @@
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
+ </tile>
+ <tile id="153">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="154">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
  </tile>
  <tile id="162">
   <properties>
@@ -481,11 +593,13 @@
  </tile>
  <tile id="171">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="172">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
@@ -555,11 +669,13 @@
  </tile>
  <tile id="189">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="190">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
@@ -629,11 +745,13 @@
  </tile>
  <tile id="207">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="208">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
@@ -686,11 +804,13 @@
  </tile>
  <tile id="225">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="226">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
@@ -748,11 +868,13 @@
  </tile>
  <tile id="243">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="244">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
@@ -810,11 +932,13 @@
  </tile>
  <tile id="261">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
  <tile id="262">
   <properties>
+   <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
   </properties>
  </tile>
@@ -941,5 +1065,125 @@
   <objectgroup draworder="index" id="2">
    <object id="1" x="15" y="0" width="1" height="16"/>
   </objectgroup>
+ </tile>
+ <tile id="342">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="343">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="344">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="345">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="360">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="361">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="362">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="363">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="378">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="379">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="380">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="381">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="396">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="397">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="398">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="399">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="414">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="415">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="416">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="417">
+  <properties>
+   <property name="height_value" type="int" value="16"/>
+  </properties>
+ </tile>
+ <tile id="432">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="433">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="434">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
+ </tile>
+ <tile id="435">
+  <properties>
+   <property name="height_value" type="int" value="32"/>
+  </properties>
  </tile>
 </tileset>
