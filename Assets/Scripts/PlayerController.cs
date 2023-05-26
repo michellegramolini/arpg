@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
+using SuperTiled2Unity;
 
 public class PlayerController : MonoBehaviour
 {
@@ -50,6 +52,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animation")]
     public AnimationState animationState;
+
+    // TODO: create a manager script
+    [Header("Tilemap")]
+    [SerializeField]
+    private Tilemap _tilemap;
 
     private void OnEnable()
     {
@@ -147,6 +154,8 @@ public class PlayerController : MonoBehaviour
         SetFacingDirection();
         //Detection();
 
+        DetectStandingTile();
+
         currentState.UpdateState(this);
     }
 
@@ -179,6 +188,16 @@ public class PlayerController : MonoBehaviour
             // should stay on latest facing
             facingDirection = moveVector;
         }
+    }
+
+    // Detect tile
+    void DetectStandingTile()
+    {
+        Vector3Int gridPosition = _tilemap.WorldToCell(transform.position);
+
+        SuperTile currentTile = _tilemap.GetTile<SuperTile>(gridPosition);
+
+        //Debug.Log(currentTile.m_CustomProperties[0].m_Name.ToString() + ": " + currentTile.m_CustomProperties[0].m_Value.ToString());
     }
 
     private void OnDrawGizmos()
