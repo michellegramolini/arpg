@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 using SuperTiled2Unity;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -63,6 +64,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Tile Detector")]
     public TileDetector tileDetector;
+    public bool canWalk;
+    private string _tileKey;
 
     private void OnEnable()
     {
@@ -160,7 +163,13 @@ public class PlayerController : MonoBehaviour
 
         SetFacingDirection();
 
-        SetCurrentZ();
+        // TODO: if not jumping or falling?
+        EnableMovement();
+        if (currentState != Jump)
+        {
+            SetCurrentZ();
+        }
+
         //Detection();
 
         //DetectStandingTile();
@@ -170,6 +179,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         currentState.FixedUpdateState(this);
     }
 
@@ -203,12 +213,8 @@ public class PlayerController : MonoBehaviour
     {
         if (tileDetector.GetTileProp("current", "height_value") != null)
         {
-            Debug.Log($"found {tileDetector.GetTileProp("current", "height_value").m_Name}");
             z = tileDetector.GetTileProp("current", "height_value").m_Value.ToInt();
         }
-
-
-        Debug.Log(z);
     }
 
     // TODO: diagonal keys
@@ -241,6 +247,37 @@ public class PlayerController : MonoBehaviour
 
     //    Debug.Log(currentTile.m_CustomProperties[0].m_Name.ToString() + ": " + currentTile.m_CustomProperties[0].m_Value.ToString());
     //}
+
+    private void EnableMovement()
+    {
+        // Get tile key from facing direction...
+        _tileKey = GetTileKeyFromFacingDirection();
+
+        if (tileDetector.GetTileProp(_tileKey, "height_value") != null)
+        {
+            int? height = Convert.ToInt32(tileDetector.GetTileProp(_tileKey, "height_value").m_Value);
+            // Get tile height from tile key
+            if (height != null)
+            {
+                if (height <= z)
+                {
+                    canWalk = true;
+                }
+                else
+                {
+                    canWalk = false;
+                }
+            }
+            else
+            {
+                canWalk = true;
+            }
+        }
+        else
+        {
+            canWalk = true;
+        }
+    }
 
     private void OnDrawGizmos()
     {

@@ -36,8 +36,6 @@ public class TileDetector : MonoBehaviour
     {
         DetectStandingTile();
         DetectAdjacentTiles();
-
-        //Testing();
     }
 
     // Detect tile
@@ -98,7 +96,7 @@ public class TileDetector : MonoBehaviour
     {
         bool hasTileProps = _tileProperties.TryGetValue(tileKey, out List<CustomProperty> tileProps);
 
-        if (hasTileProps)
+        if (hasTileProps && tileProps != null)
         {
             foreach (CustomProperty prop in tileProps)
             {
@@ -110,17 +108,5 @@ public class TileDetector : MonoBehaviour
         }
 
         return null;
-    }
-
-    // testing fun for _tiles
-    void Testing()
-    {
-        foreach (KeyValuePair<string, List<CustomProperty>> tile in _tileProperties)
-        {
-            if (tile.Key != "current")
-            {
-                Debug.Log($"{tile.Key}, {tile.Value[0].m_Value}. from vector {_adjacentPositions[tile.Key]}");
-            }
-        }
     }
 }

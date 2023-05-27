@@ -6,12 +6,11 @@ using System;
 public class Walk : State
 {
     private PlayerController _player;
-    private bool _canWalk;
-    private string _tileKey;
+    //private bool _canWalk;
+    //private string _tileKey;
 
     public override void FixedUpdateState(PlayerController player)
     {
-        EnableWalk();
         MovePlayer();
     }
 
@@ -35,7 +34,10 @@ public class Walk : State
         {
             _player.SetState(_player.Run);
         }
-
+        else if (_player.isJumping)
+        {
+            _player.SetState(_player.Jump);
+        }
     }
 
     public override void LateUpdateState(PlayerController player)
@@ -43,9 +45,10 @@ public class Walk : State
         Animate();
     }
 
+    // TODO: DRY
     private void MovePlayer()
     {
-        if (_canWalk)
+        if (_player.canWalk)
         {
             _player.rb.velocity = _player.walkSpeed * _player.moveVector;
         }
@@ -76,36 +79,35 @@ public class Walk : State
         }
     }
 
-    private void EnableWalk()
-    {
+    //private void EnableWalk()
+    //{
+    //    // Get tile key from facing direction...
+    //    _tileKey = _player.GetTileKeyFromFacingDirection();
 
-        // Get tile key from facing direction...
-        _tileKey = _player.GetTileKeyFromFacingDirection();
-
-        if (_player.tileDetector.GetTileProp(_tileKey, "height_value") != null)
-        {
-            int? height = Convert.ToInt32(_player.tileDetector.GetTileProp(_tileKey, "height_value").m_Value);
-            // Get tile height from tile key
-            if (height != null)
-            {
-                if (height <= _player.z)
-                {
-                    _canWalk = true;
-                }
-                else
-                {
-                    _canWalk = false;
-                }
-            }
-            else
-            {
-                _canWalk = true;
-            }
-        }
-        else
-        {
-            _canWalk = true;
-        }
-    }
+    //    if (_player.tileDetector.GetTileProp(_tileKey, "height_value") != null)
+    //    {
+    //        int? height = Convert.ToInt32(_player.tileDetector.GetTileProp(_tileKey, "height_value").m_Value);
+    //        // Get tile height from tile key
+    //        if (height != null)
+    //        {
+    //            if (height <= _player.z)
+    //            {
+    //                _canWalk = true;
+    //            }
+    //            else
+    //            {
+    //                _canWalk = false;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            _canWalk = true;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        _canWalk = true;
+    //    }
+    //}
 
 }
