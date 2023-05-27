@@ -53,10 +53,16 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")]
     public AnimationState animationState;
 
+    [Header("Height")]
+    public int z;
+
     // TODO: create a manager script
-    [Header("Tilemap")]
-    [SerializeField]
-    private Tilemap _tilemap;
+    //[Header("Tilemap")]
+    //[SerializeField]
+    //private Tilemap _tilemap;
+
+    [Header("Tile Detector")]
+    public TileDetector tileDetector;
 
     private void OnEnable()
     {
@@ -133,6 +139,7 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<BoxCollider2D>();
         animationState = gameObject.GetComponent<AnimationState>();
+        tileDetector = gameObject.GetComponentInChildren<TileDetector>();
 
         // Init State
         currentState = Idle;
@@ -152,9 +159,11 @@ public class PlayerController : MonoBehaviour
         }
 
         SetFacingDirection();
+
+        SetCurrentZ();
         //Detection();
 
-        DetectStandingTile();
+        //DetectStandingTile();
 
         currentState.UpdateState(this);
     }
@@ -190,15 +199,48 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Detect tile
-    void DetectStandingTile()
+    private void SetCurrentZ()
     {
-        Vector3Int gridPosition = _tilemap.WorldToCell(transform.position);
+        if (tileDetector.GetTileProp("current", "height_value") != null)
+        {
+            Debug.Log($"found {tileDetector.GetTileProp("current", "height_value").m_Name}");
+            z = tileDetector.GetTileProp("current", "height_value").m_Value.ToInt();
+        }
 
-        SuperTile currentTile = _tilemap.GetTile<SuperTile>(gridPosition);
 
-        //Debug.Log(currentTile.m_CustomProperties[0].m_Name.ToString() + ": " + currentTile.m_CustomProperties[0].m_Value.ToString());
+        Debug.Log(z);
     }
+
+    // TODO: diagonal keys
+    public string GetTileKeyFromFacingDirection()
+    {
+        if (facingDirection == Vector2.right)
+        {
+            return "right";
+        }
+        else if (facingDirection == Vector2.left)
+        {
+            return "left";
+        }
+        else if (facingDirection == Vector2.up)
+        {
+            return "up";
+        }
+        else
+        {
+            return "down";
+        }
+    }
+
+    // Detect tile
+    //void DetectStandingTile()
+    //{
+    //    Vector3Int gridPosition = _tilemap.WorldToCell(transform.position);
+
+    //    SuperTile currentTile = _tilemap.GetTile<SuperTile>(gridPosition);
+
+    //    Debug.Log(currentTile.m_CustomProperties[0].m_Name.ToString() + ": " + currentTile.m_CustomProperties[0].m_Value.ToString());
+    //}
 
     private void OnDrawGizmos()
     {
