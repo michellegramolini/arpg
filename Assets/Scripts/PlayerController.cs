@@ -217,24 +217,60 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // TODO: diagonal keys
+    // TODO: dictionary or a better structure for this
     public string GetTileKeyFromFacingDirection()
     {
-        if (facingDirection == Vector2.right)
+        if (moveVector == Vector2.right)
         {
             return "right";
         }
-        else if (facingDirection == Vector2.left)
+        else if (moveVector == Vector2.left)
         {
             return "left";
         }
-        else if (facingDirection == Vector2.up)
+        else if (moveVector == Vector2.up)
         {
             return "up";
         }
-        else
+        else if (moveVector == Vector2.down)
         {
             return "down";
+        }
+        else if (moveVector.x > 0 && moveVector.y > 0)
+        {
+            return "up-right";
+        }
+        else if (moveVector.x > 0 && moveVector.y < 0)
+        {
+            return "down-right";
+        }
+        else if (moveVector.x < 0 && moveVector.y > 0)
+        {
+            return "up-left";
+        }
+        else if (moveVector.x < 0 && moveVector.y < 0)
+        {
+            return "down-left";
+        }
+        // else if idle vector, do facing dir
+        else
+        {
+            if (facingDirection == Vector2.right)
+            {
+                return "right";
+            }
+            else if (facingDirection == Vector2.left)
+            {
+                return "left";
+            }
+            else if (facingDirection == Vector2.up)
+            {
+                return "up";
+            }
+            else
+            {
+                return "down";
+            }
         }
     }
 
