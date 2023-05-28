@@ -7,6 +7,7 @@ public class Jump : State
     private PlayerController _player;
 
     bool _switch;
+    float _jumpZ;
 
     public override void FixedUpdateState(PlayerController player)
     {
@@ -24,6 +25,9 @@ public class Jump : State
     public override void StartState(PlayerController player)
     {
         this._player = player;
+        _jumpZ = 16f;
+
+        _player.z += (int)_jumpZ;
 
         StartCoroutine(JumpSwitch());
     }
@@ -40,8 +44,17 @@ public class Jump : State
 
     private void JumpPlayer()
     {
-        // ?
-        Debug.Log("Jumpin!");
+        if (_player.canWalk)
+        {
+            _player.rb.velocity = _player.walkSpeed * _player.moveVector;
+        }
+        // else stop movement?
+        else
+        {
+            _player.rb.velocity = Vector2.zero;
+        }
+
+
     }
 
     IEnumerator JumpSwitch()

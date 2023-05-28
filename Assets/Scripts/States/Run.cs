@@ -43,9 +43,18 @@ public class Run : State
         Animate();
     }
 
+    // TODO: DRY
     private void MovePlayer()
     {
-        _player.rb.velocity = _player.runSpeed * _player.moveVector;
+        if (_player.canWalk)
+        {
+            _player.rb.velocity = _player.runSpeed * _player.moveVector;
+        }
+        // else stop movement?
+        else
+        {
+            _player.rb.velocity = Vector2.zero;
+        }
     }
 
     private void Animate()

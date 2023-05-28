@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 using SuperTiled2Unity;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -53,10 +54,18 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")]
     public AnimationState animationState;
 
+    [Header("Height")]
+    public int z;
+
     // TODO: create a manager script
-    [Header("Tilemap")]
-    [SerializeField]
-    private Tilemap _tilemap;
+    //[Header("Tilemap")]
+    //[SerializeField]
+    //private Tilemap _tilemap;
+
+    [Header("Tile Detector")]
+    public TileDetector tileDetector;
+    public bool canWalk;
+    private string _tileKey;
 
     private void OnEnable()
     {
@@ -133,6 +142,7 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<BoxCollider2D>();
         animationState = gameObject.GetComponent<AnimationState>();
+        tileDetector = gameObject.GetComponentInChildren<TileDetector>();
 
         // Init State
         currentState = Idle;
@@ -152,15 +162,24 @@ public class PlayerController : MonoBehaviour
         }
 
         SetFacingDirection();
+
+        // TODO: if not jumping or falling?
+        EnableMovement();
+        if (currentState != Jump)
+        {
+            SetCurrentZ();
+        }
+
         //Detection();
 
-        DetectStandingTile();
+        //DetectStandingTile();
 
         currentState.UpdateState(this);
     }
 
     private void FixedUpdate()
     {
+
         currentState.FixedUpdateState(this);
     }
 
@@ -190,14 +209,110 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Detect tile
-    void DetectStandingTile()
+    private void SetCurrentZ()
     {
-        Vector3Int gridPosition = _tilemap.WorldToCell(transform.position);
+        if (tileDetector.GetTileProp("current", "height_value") != null)
+        {
+            z = tileDetector.GetTileProp("current", "height_value").m_Value.ToInt();
+        }
+    }
 
-        SuperTile currentTile = _tilemap.GetTile<SuperTile>(gridPosition);
+    // TODO: dictionary or a better structure for this
+    public string GetTileKeyFromFacingDirection()
+    {
+        if (moveVector == Vector2.right)
+        {
+            return "right";
+        }
+        else if (moveVector == Vector2.left)
+        {
+            return "left";
+        }
+        else if (moveVector == Vector2.up)
+        {
+            return "up";
+        }
+        else if (moveVector == Vector2.down)
+        {
+            return "down";
+        }
+        else if (moveVector.x > 0 && moveVector.y > 0)
+        {
+            return "up-right";
+        }
+        else if (moveVector.x > 0 && moveVector.y < 0)
+        {
+            return "down-right";
+        }
+        else if (moveVector.x < 0 && moveVector.y > 0)
+        {
+            return "up-left";
+        }
+        else if (moveVector.x < 0 && moveVector.y < 0)
+        {
+            return "down-left";
+        }
+        // else if idle vector, do facing dir
+        else
+        {
+            if (facingDirection == Vector2.right)
+            {
+                return "right";
+            }
+            else if (facingDirection == Vector2.left)
+            {
+                return "left";
+            }
+            else if (facingDirection == Vector2.up)
+            {
+                return "up";
+            }
+            else
+            {
+                return "down";
+            }
+        }
+    }
 
-        //Debug.Log(currentTile.m_CustomProperties[0].m_Name.ToString() + ": " + currentTile.m_CustomProperties[0].m_Value.ToString());
+    // Detect tile
+    //void DetectStandingTile()
+    //{
+    //    Vector3Int gridPosition = _tilemap.WorldToCell(transform.position);
+
+    //    SuperTile currentTile = _tilemap.GetTile<SuperTile>(gridPosition);
+
+    //    Debug.Log(currentTile.m_CustomProperties[0].m_Name.ToString() + ": " + currentTile.m_CustomProperties[0].m_Value.ToString());
+    //}
+
+    private void EnableMovement()
+    {
+        // Get tile key from facing direction...
+        _tileKey = GetTileKeyFromFacingDirection();
+
+        if (tileDetector.GetTileProp(_tileKey, "height_value") != null)
+        {
+            int? height = Convert.ToInt32(tileDetector.GetTileProp(_tileKey, "height_value").m_Value);
+            // Get tile height from tile key
+            if (height != null)
+            {
+                if (height <= z)
+                {
+                    canWalk = true;
+                }
+                else
+                {
+                    canWalk = false;
+                }
+            }
+            else
+            {
+                canWalk = true;
+            }
+        }
+        else
+        {
+            canWalk = true;
+        }
     }
 
     private void OnDrawGizmos()
