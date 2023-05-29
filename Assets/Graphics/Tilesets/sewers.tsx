@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.9" tiledversion="1.9.2" name="sewers" tilewidth="16" tileheight="16" tilecount="576" columns="18">
  <image source="SewerTileset.png" width="288" height="512"/>
+ <tile id="0">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="1">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="18">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
  <tile id="19">
   <properties>
    <property name="tile_type" value="wall"/>
@@ -321,7 +336,7 @@
  </tile>
  <tile id="98">
   <properties>
-   <property name="tile_type" value="floor"/>
+   <property name="height_value" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="99">
@@ -350,6 +365,9 @@
   </objectgroup>
  </tile>
  <tile id="113">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
@@ -389,6 +407,9 @@
   </objectgroup>
  </tile>
  <tile id="129">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
@@ -468,6 +489,9 @@
   </objectgroup>
  </tile>
  <tile id="147">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
@@ -547,6 +571,9 @@
   </objectgroup>
  </tile>
  <tile id="165">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
@@ -601,6 +628,26 @@
   <properties>
    <property name="height_value" type="int" value="0"/>
    <property name="tile_type" value="floor"/>
+  </properties>
+ </tile>
+ <tile id="176">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="177">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="178">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
+  </properties>
+ </tile>
+ <tile id="179">
+  <properties>
+   <property name="height_value" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="180">
@@ -756,16 +803,25 @@
   </properties>
  </tile>
  <tile id="216">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
  <tile id="217">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
  <tile id="218">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
@@ -815,21 +871,33 @@
   </properties>
  </tile>
  <tile id="234">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
  <tile id="235">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
  <tile id="236">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
  <tile id="237">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
@@ -879,21 +947,33 @@
   </properties>
  </tile>
  <tile id="252">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
  <tile id="253">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
  <tile id="254">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
  <tile id="255">
+  <properties>
+   <property name="height_value" type="int" value="128"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
