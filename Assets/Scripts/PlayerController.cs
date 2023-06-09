@@ -293,11 +293,25 @@ public class PlayerController : MonoBehaviour
         SuperTile tile = tileDetector.GetTile(_adjacentTileDetectionPoint);
         CustomProperty heightProp = tileDetector.GetTilePropFromSuperTile(tile, "height_value");
 
+        // All walkable tiles should have a height_value property.
         if (heightProp != null)
         {
             if (heightProp.m_Value.ToInt() > z)
             {
                 canWalk = false;
+            }
+            // Creating an invisible collision when faced with a ledge.
+            else if (heightProp.m_Value.ToInt() < z)
+            {
+                // TODO: or Leap
+                if (currentState == Jump)
+                {
+                    canWalk = true;
+                }
+                else
+                {
+                    canWalk = false;
+                }
             }
             else
             {
@@ -310,7 +324,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // FIXME: clean this up. 
     private void EnableMovement()
     {
         HandleCurrentDetected();

@@ -19,7 +19,6 @@ public class Jump : State
             _player.isJumping = false;
             _player.SetState(_player.Idle);
         }
-
     }
 
     public override void StartState(PlayerController player)
