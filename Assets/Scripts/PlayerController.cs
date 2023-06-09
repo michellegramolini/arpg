@@ -57,15 +57,12 @@ public class PlayerController : MonoBehaviour
     [Header("Height")]
     public int z;
 
-    // TODO: create a manager script
-    //[Header("Tilemap")]
-    //[SerializeField]
-    //private Tilemap _tilemap;
-
     [Header("Tile Detector")]
     public TileDetector tileDetector;
     public bool canWalk;
     private string _tileKey;
+    private Vector2 _adjacentTileDetectionPoint;
+    private Transform _feet;
 
     private void OnEnable()
     {
@@ -115,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
         // Collisions
         interactionCollider = transform.Find("InteractionCollider").GetComponent<BoxCollider2D>();
-
+        _feet = transform.Find("Feet");
         // Vector default for when there is no player movement input
         idleVector = new Vector2(0f, 0f);
 
@@ -141,8 +138,11 @@ public class PlayerController : MonoBehaviour
         // Get components
         rb = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<BoxCollider2D>();
-        animationState = gameObject.GetComponent<AnimationState>();
+        animationState = gameObject.GetComponentInChildren<AnimationState>();
         tileDetector = gameObject.GetComponentInChildren<TileDetector>();
+
+        // Init Height
+        z = GetCurrentZ();
 
         // Init State
         currentState = Idle;
@@ -159,27 +159,29 @@ public class PlayerController : MonoBehaviour
         {
             _detectionPoint = new Vector2(transform.position.x, transform.position.y) + facingDirection;
             interactionCollider.transform.position = _detectionPoint;
+            _adjacentTileDetectionPoint = new Vector2(_feet.position.x, _feet.position.y) + (facingDirection * .6f);
         }
 
         SetFacingDirection();
-
-        // TODO: if not jumping or falling?
         EnableMovement();
-        if (currentState != Jump)
-        {
-            SetCurrentZ();
-        }
-
-        //Detection();
-
-        //DetectStandingTile();
+        SetCurrentZ();
 
         currentState.UpdateState(this);
     }
 
+    private void SetCurrentZ()
+    {
+        if (currentState == Walk || currentState == Run || currentState == Idle)
+        {
+            if (GetCurrentZ() < z)
+            {
+                z = GetCurrentZ();
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
-
         currentState.FixedUpdateState(this);
     }
 
@@ -209,100 +211,93 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void SetCurrentZ()
+    private int GetCurrentZ()
     {
         if (tileDetector.GetTileProp("current", "height_value") != null)
         {
-            z = tileDetector.GetTileProp("current", "height_value").m_Value.ToInt();
+            return tileDetector.GetTileProp("current", "height_value").m_Value.ToInt();
         }
+
+        return 0;
     }
 
     // TODO: dictionary or a better structure for this
+    // TODO: we could use facing direction here i believe instead of move vector
     public string GetTileKeyFromFacingDirection()
     {
-        if (moveVector == Vector2.right)
+        if (facingDirection == Vector2.right)
         {
             return "right";
         }
-        else if (moveVector == Vector2.left)
+        else if (facingDirection == Vector2.left)
         {
             return "left";
         }
-        else if (moveVector == Vector2.up)
+        else if (facingDirection == Vector2.up)
         {
             return "up";
         }
-        else if (moveVector == Vector2.down)
+        else if (facingDirection == Vector2.down)
         {
             return "down";
         }
-        else if (moveVector.x > 0 && moveVector.y > 0)
+        else if (facingDirection.x > 0 && moveVector.y > 0)
         {
             return "up-right";
         }
-        else if (moveVector.x > 0 && moveVector.y < 0)
+        else if (facingDirection.x > 0 && moveVector.y < 0)
         {
             return "down-right";
         }
-        else if (moveVector.x < 0 && moveVector.y > 0)
+        else if (facingDirection.x < 0 && moveVector.y > 0)
         {
             return "up-left";
         }
-        else if (moveVector.x < 0 && moveVector.y < 0)
+        else //if (facingDirection.x < 0 && moveVector.y < 0)
         {
             return "down-left";
         }
-        // else if idle vector, do facing dir
-        else
-        {
-            if (facingDirection == Vector2.right)
-            {
-                return "right";
-            }
-            else if (facingDirection == Vector2.left)
-            {
-                return "left";
-            }
-            else if (facingDirection == Vector2.up)
-            {
-                return "up";
-            }
-            else
-            {
-                return "down";
-            }
-        }
     }
 
-    // Detect tile
-    //void DetectStandingTile()
+    //private void HandleDiagonalKeys(string tileKey)
     //{
-    //    Vector3Int gridPosition = _tilemap.WorldToCell(transform.position);
+    //    Debug.Log($"diagonal key! {tileKey}");
+    //    // check both dirs of the composite key
+    //    string[] dirs = tileKey.Split('-');
 
-    //    SuperTile currentTile = _tilemap.GetTile<SuperTile>(gridPosition);
-
-    //    Debug.Log(currentTile.m_CustomProperties[0].m_Name.ToString() + ": " + currentTile.m_CustomProperties[0].m_Value.ToString());
+    //    int i;
+    //    for (i = 0; i < dirs.Length; i++)
+    //    {
+    //        if (tileDetector.GetTileProp(dirs[i], "height_value") != null)
+    //        {
+    //            // Get tile height from tile key
+    //            int? height = tileDetector.GetTileProp(dirs[i], "height_value").m_Value.ToInt();
+    //            if (height > z)
+    //            {
+    //                Debug.Log("high tile diagonal break");
+    //                canWalk = false;
+    //                break;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("null tile diagonal break");
+    //            canWalk = false;
+    //            break;
+    //        }
+    //    }
     //}
 
-    private void EnableMovement()
+    private void HandleCurrentDetected()
     {
-        // Get tile key from facing direction...
-        _tileKey = GetTileKeyFromFacingDirection();
+        SuperTile tile = tileDetector.GetTile(_adjacentTileDetectionPoint);
+        CustomProperty heightProp = tileDetector.GetTilePropFromSuperTile(tile, "height_value");
 
-        if (tileDetector.GetTileProp(_tileKey, "height_value") != null)
+        if (heightProp != null)
         {
-            int? height = Convert.ToInt32(tileDetector.GetTileProp(_tileKey, "height_value").m_Value);
-            // Get tile height from tile key
-            if (height != null)
+            if (heightProp.m_Value.ToInt() > z)
             {
-                if (height <= z)
-                {
-                    canWalk = true;
-                }
-                else
-                {
-                    canWalk = false;
-                }
+                canWalk = false;
             }
             else
             {
@@ -311,8 +306,14 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            canWalk = true;
+            canWalk = false;
         }
+    }
+
+    // FIXME: clean this up. 
+    private void EnableMovement()
+    {
+        HandleCurrentDetected();
     }
 
     private void OnDrawGizmos()
@@ -320,5 +321,7 @@ public class PlayerController : MonoBehaviour
         // Display the explosion radius when selected
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(_detectionPoint, .5f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(_adjacentTileDetectionPoint, 0.5f);
     }
 }

@@ -57,6 +57,11 @@ public class Run : State
         }
     }
 
+    //private void MovePlayer()
+    //{
+    //    _player.rb.velocity = _player.runSpeed * _player.moveVector;
+    //}
+
     private void Animate()
     {
         if (_player.moveVector.x > 0f)

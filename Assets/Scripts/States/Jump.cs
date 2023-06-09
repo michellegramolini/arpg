@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Jump : State
@@ -53,15 +52,17 @@ public class Jump : State
         {
             _player.rb.velocity = Vector2.zero;
         }
-
-
     }
+
+    //private void JumpPlayer()
+    //{
+    //    _player.rb.velocity = _player.walkSpeed * _player.moveVector;
+    //}
 
     IEnumerator JumpSwitch()
     {
         _switch = true;
         yield return new WaitForSeconds(.2f);
         _switch = false;
-
     }
 }

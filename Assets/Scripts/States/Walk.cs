@@ -59,6 +59,11 @@ public class Walk : State
         }
     }
 
+    //private void MovePlayer()
+    //{
+    //    _player.rb.velocity = _player.walkSpeed * _player.moveVector;
+    //}
+
     private void Animate()
     {
         if (_player.moveVector.x > 0f)
