@@ -34,8 +34,6 @@ public class Run : State
         {
             _player.SetState(_player.Idle);
         }
-
-        //Animate();
     }
 
     public override void LateUpdateState(PlayerController player)
@@ -56,11 +54,6 @@ public class Run : State
             _player.rb.velocity = Vector2.zero;
         }
     }
-
-    //private void MovePlayer()
-    //{
-    //    _player.rb.velocity = _player.runSpeed * _player.moveVector;
-    //}
 
     private void Animate()
     {
