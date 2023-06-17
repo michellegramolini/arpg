@@ -11,8 +11,16 @@ public class TileDetector : MonoBehaviour
     [SerializeField]
     private Tilemap _tilemap;
 
-    // TODO: add diagonal
-    private Dictionary<string, List<CustomProperty>> _tileProperties = new()
+    public List<string> diagonals = new()
+    {
+        "up-right",
+        "up-left",
+        "down-right",
+        "down-left"
+    };
+
+    // TODO: this should be tiles? //List<CustomProperty>
+    private Dictionary<string, SuperTile> _tiles = new()
     {
         { "current", null },
         { "left", null },
@@ -53,13 +61,14 @@ public class TileDetector : MonoBehaviour
         if (_tilemap.HasTile(gridPosition))
         {
             // set the current standing tile
-            _tileProperties["current"] = _tilemap.GetTile<SuperTile>(gridPosition).m_CustomProperties;
+            // .m_CustomProperties
+            _tiles["current"] = _tilemap.GetTile<SuperTile>(gridPosition);
         }
         else
         {
             // set the current standing tile
             // TODO: should be an empty list?
-            _tileProperties["current"] = null;
+            _tiles["current"] = null;
         }
 
 
@@ -86,14 +95,14 @@ public class TileDetector : MonoBehaviour
             // if there is a tile there, add it to _tiles
             if (_tilemap.HasTile(position))
             {
-                _tileProperties[adjacentPosition.Key] = _tilemap.GetTile<SuperTile>(position).m_CustomProperties;
+                _tiles[adjacentPosition.Key] = _tilemap.GetTile<SuperTile>(position);
 
                 // Debug
                 //_tilemap.SetColor(position, Color.green);
             }
             else
             {
-                _tileProperties[adjacentPosition.Key] = null;
+                _tiles[adjacentPosition.Key] = null;
             }
         }
     }
@@ -101,17 +110,64 @@ public class TileDetector : MonoBehaviour
     // retrieve value off the CustomProperty with m_Value
     public CustomProperty GetTileProp(string tileKey, string propName)
     {
-        bool hasTileProps = _tileProperties.TryGetValue(tileKey, out List<CustomProperty> tileProps);
-
-        if (hasTileProps && tileProps != null)
+        if (tileKey == null || propName == null)
         {
-            foreach (CustomProperty prop in tileProps)
+            return null;
+        }
+
+        bool hasTileProps = _tiles.TryGetValue(tileKey, out SuperTile tile);
+
+        if (hasTileProps && tile != null)
+        {
+            foreach (CustomProperty prop in tile.m_CustomProperties)
             {
                 if (prop.m_Name == propName)
                 {
                     return prop;
                 }
             }
+        }
+
+        return null;
+    }
+
+    public CustomProperty GetTilePropFromSuperTile(SuperTile superTile, string propName)
+    {
+        if (superTile == null)
+        {
+            return null;
+        }
+
+        foreach (CustomProperty prop in superTile.m_CustomProperties)
+        {
+            if (prop.m_Name == propName)
+            {
+                return prop;
+            }
+        }
+
+        return null;
+    }
+
+    public SuperTile GetTile(Vector3 position)
+    {
+        // get the tile grid position from whereever this object is
+        Vector3Int gridPosition = _tilemap.WorldToCell(position);
+        if (_tilemap.HasTile(gridPosition))
+        {
+            return _tilemap.GetTile<SuperTile>(gridPosition);
+        }
+
+        return null;
+    }
+
+    public SuperTile GetMappedTile(string tileKey)
+    {
+        _tiles.TryGetValue(tileKey, out SuperTile tile);
+
+        if (tile != null)
+        {
+            return tile;
         }
 
         return null;

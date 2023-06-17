@@ -173,17 +173,6 @@
                 },
                 {
                     "name": "",
-                    "id": "4fc0675d-e130-4354-b86c-3a906a9b59c2",
-                    "path": "<XRController>/{Primary2DAxis}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "7e820c16-f3ab-4a4a-861e-a342c0096017",
                     "path": "<Joystick>/stick",
                     "interactions": "",
@@ -247,6 +236,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b05b1c0c-2f4e-449e-9c37-4267953fe233",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
@@ -362,6 +362,17 @@
                     "name": "",
                     "id": "cab7a2b7-d5ba-48db-a288-4142e1a97a73",
                     "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80f9a8e1-46af-44bc-bcbd-62dea1ddee47",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

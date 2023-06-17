@@ -34,8 +34,6 @@ public class Run : State
         {
             _player.SetState(_player.Idle);
         }
-
-        //Animate();
     }
 
     public override void LateUpdateState(PlayerController player)

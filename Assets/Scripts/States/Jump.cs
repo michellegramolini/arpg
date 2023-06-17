@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Jump : State
@@ -17,9 +16,9 @@ public class Jump : State
         }
         else
         {
+            _player.isJumping = false;
             _player.SetState(_player.Idle);
         }
-
     }
 
     public override void StartState(PlayerController player)
@@ -39,7 +38,7 @@ public class Jump : State
 
     public override void LateUpdateState(PlayerController player)
     {
-
+        Animate();
     }
 
     private void JumpPlayer()
@@ -48,13 +47,30 @@ public class Jump : State
         {
             _player.rb.velocity = _player.walkSpeed * _player.moveVector;
         }
-        // else stop movement?
         else
         {
             _player.rb.velocity = Vector2.zero;
         }
+    }
 
-
+    private void Animate()
+    {
+        if (_player.facingDirection.x > 0f)
+        {
+            _player.animationState.SetAnimationState("player_jump_right");
+        }
+        else if (_player.facingDirection.x < 0f)
+        {
+            _player.animationState.SetAnimationState("player_jump_left");
+        }
+        else if (_player.facingDirection.x == 0f && _player.facingDirection.y > 0f)
+        {
+            _player.animationState.SetAnimationState("player_jump_up");
+        }
+        else
+        {
+            _player.animationState.SetAnimationState("player_jump_down");
+        }
     }
 
     IEnumerator JumpSwitch()
@@ -62,6 +78,5 @@ public class Jump : State
         _switch = true;
         yield return new WaitForSeconds(.2f);
         _switch = false;
-
     }
 }
