@@ -33,12 +33,42 @@ Scripts:
 C# scripts live here. we aren't leveraging namespaces for now but to keep things neat, we can divide stuff up into separate folders.
 
 ## Practices
+
+We’re using a shared repository model for our game. Meaning collaborators all have push access to a single shared repository and feature development branches are created when changes need to be made. PRs are used in this model to initiate peer code review and discussion about a set of changes before the changes are merged into the remote main branch.
+
+Branches are created in order to develop features, fix bugs, and safely experiment in a contained area of the repo. Branches are always created off of an existing branch (typically main). Once you are happy with your changes on your branch, you can open a PR to merge the current branch to another branch.
+
 Create branches off of main and PR to allow reviews. 
 For Graphics all files are 16 pixels per unit. 
 
 It's good when testing new functionality to create a test scene.
 
 ### Packages to note
-This project is using Cinemachine for camera mechanics, TextMesh Pro for GUI stuff, and TileMap 2D extras. 
+This project is using Cinemachine for camera mechanics, TextMesh Pro for GUI stuff, and TileMap 2D extras.
+
+### How to commit changes to our project
+
+#### Create a branch
+
+Create a local branch to do work on (usually off of remote main)
+
+#### Make changes
+
+Develop and test in your local branch using a new scene in Unity
+Make, commit, and push changes from your local branch to your remote branch until you are ready to share with the team
+
+#### Create a PR
+
+Once you’re satisfied with your changes and want to share them with the team, ensure you’ve tested your changes on your local branch (open Unity and check there are no errors and test the game)
+Commit your changes from your local branch to your remote branch. Do not make changes to remote branches unless they are yours
+Create a PR to merge your remote feature development branch to remote main, add a summary of your changes here
+
+#### Address review comments
+Team reviewers may leave questions, comments, and suggestions on your PR. You can respond to these and continue to commit and push changes based on team feedback
+
+#### Merge your PR
+Once PR is approved (currently not in place bc we don’t pay for GitHub), you may merge the PR to remote main
+
+We’ll keep old branches around for awhile once they’ve been merged to remote main as a failsafe and clean up intermittently.
 
 
