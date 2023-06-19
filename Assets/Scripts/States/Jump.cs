@@ -17,7 +17,15 @@ public class Jump : State
         else
         {
             _player.isJumping = false;
-            _player.SetState(_player.Fall);
+            if (_player.canSwim)
+            {
+                _player.SetState(_player.Swim);
+            }
+            else
+            {
+                _player.SetState(_player.Fall);
+            }
+
         }
     }
 
@@ -43,9 +51,9 @@ public class Jump : State
 
     private void JumpPlayer()
     {
-        if (_player.canWalk)
+        if (_player.canMove)
         {
-            _player.rb.velocity = _player.walkSpeed * _player.moveVector;
+            _player.rb.velocity = _player.jumpSpeed * _player.moveVector;
         }
         else
         {

@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed;
     public float swimSpeed;
     public float fallSpeed;
+    public float jumpSpeed;
     public Vector2 idleVector;
     public Vector2 facingDirection;
 
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Tile Detector")]
     public TileDetector tileDetector;
-    public bool canWalk;
+    public bool canMove;
     public bool canSwim;
     public bool onWall;
     private Vector2 _adjacentTileDetectionPoint;
@@ -175,13 +176,6 @@ public class PlayerController : MonoBehaviour
         EnableMovement();
         SetCurrentZ();
 
-        if (canSwim)
-        {
-            // set as universal for now
-            // TODO:
-            SetState(Swim);
-        }
-
         currentState.UpdateState(this);
     }
 
@@ -189,8 +183,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentState == Walk || currentState == Run || currentState == Idle || currentState == Swim)
         {
-            // Debug < z?
-            if (GetCurrentZ() != z)
+            if (GetCurrentZ() < z)
             {
                 z = GetCurrentZ();
             }
@@ -292,14 +285,14 @@ public class PlayerController : MonoBehaviour
     //            if (height > z)
     //            {
     //                Debug.Log("high tile diagonal break");
-    //                canWalk = false;
+    //                canMove = false;
     //                break;
     //            }
     //        }
     //        else
     //        {
     //            Debug.Log("null tile diagonal break");
-    //            canWalk = false;
+    //            canMove = false;
     //            break;
     //        }
     //    }
@@ -322,7 +315,7 @@ public class PlayerController : MonoBehaviour
         {
             if (heightProp.m_Value.ToInt() > z)
             {
-                canWalk = false;
+                canMove = false;
             }
             // Creating an invisible collision when faced with a ledge.
             else if (heightProp.m_Value.ToInt() < z)
@@ -330,36 +323,31 @@ public class PlayerController : MonoBehaviour
                 // TODO: or Leap
                 if (currentState == Jump)
                 {
-                    canWalk = true;
+                    canMove = true;
                 }
                 else
                 {
-                    canWalk = false;
+                    canMove = false;
                 }
             }
             else // z is equal
             {
+                canMove = true;
                 // Wall handling
                 if (terrainProp != null)
                 {
                     if (terrainProp.m_Value == "wall" && currentState != Jump)
                     {
-                        canWalk = false;
-                    }
-                    else
-                    {
-                        canWalk = true;
+                        canMove = false;
                     }
                 }
-                else
-                {
-                    canWalk = true;
-                }
+
             }
         }
         else
         {
-            canWalk = false;
+            Debug.Log("height prop is null");
+            canMove = false;
         }
     }
 
@@ -401,7 +389,7 @@ public class PlayerController : MonoBehaviour
         //{
         //    if (heightProp.m_Value.ToInt() <= z)
         //    {
-        //        canWalk = true;
+        //        canMove = true;
         //    }
         //}
     }
@@ -417,7 +405,7 @@ public class PlayerController : MonoBehaviour
     //        if (heightProp.m_Value.ToInt() > z && !canSwim)
     //        {
     //            Debug.Log("yup");
-    //            canWalk = false;
+    //            canMove = false;
     //        }
     //        // Creating an invisible collision when faced with a ledge.
     //        else if (heightProp.m_Value.ToInt() < z)
@@ -425,21 +413,21 @@ public class PlayerController : MonoBehaviour
     //            // TODO: or Leap
     //            if (currentState == Jump)
     //            {
-    //                canWalk = true;
+    //                canMove = true;
     //            }
     //            else
     //            {
-    //                canWalk = false;
+    //                canMove = false;
     //            }
     //        }
     //        else
     //        {
-    //            canWalk = true;
+    //            canMove = true;
     //        }
     //    }
     //    else
     //    {
-    //        canWalk = false;
+    //        canMove = false;
     //    }
     //}
 

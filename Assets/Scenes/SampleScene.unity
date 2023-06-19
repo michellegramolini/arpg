@@ -2306,14 +2306,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 253151044, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1855759994, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
-      propertyPath: _tilemap
-      value: 
-      objectReference: {fileID: 1201864184}
     - target: {fileID: 1855759994, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: _heightMap
       value: 
@@ -2365,18 +2357,6 @@ PrefabInstance:
     - target: {fileID: 3462501237082333890, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3462501237082333894, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
-      propertyPath: fallSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3462501237082333894, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
-      propertyPath: swimSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3462501237082333894, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
-      propertyPath: jumpDuration
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3462501237082333912, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_Name

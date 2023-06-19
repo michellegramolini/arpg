@@ -25,7 +25,7 @@ public class Swim : State
     {
         if (!_player.canSwim)
         {
-            if (_player.canWalk)
+            if (_player.canMove)
             {
                 _player.SetState(_player.Walk);
             }
