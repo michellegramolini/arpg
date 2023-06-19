@@ -17,7 +17,7 @@ public class Jump : State
         else
         {
             _player.isJumping = false;
-            _player.SetState(_player.Idle);
+            _player.SetState(_player.Fall);
         }
     }
 
@@ -76,7 +76,15 @@ public class Jump : State
     IEnumerator JumpSwitch()
     {
         _switch = true;
-        yield return new WaitForSeconds(.2f);
+        if (_player.facingDirection == Vector2.up || _player.facingDirection == Vector2.down)
+        {
+            yield return new WaitForSeconds(_player.jumpDuration + .1f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(_player.jumpDuration);
+        }
+
         _switch = false;
     }
 }

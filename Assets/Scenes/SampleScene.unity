@@ -824,7 +824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1317181961637108539, guid: a9d7ca20d71352f43afafbff4bf53030, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5088365187714604082, guid: a9d7ca20d71352f43afafbff4bf53030, type: 3}
       propertyPath: m_RootOrder
@@ -2367,8 +2367,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3462501237082333894, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
+      propertyPath: fallSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3462501237082333894, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: swimSpeed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3462501237082333894, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
+      propertyPath: jumpDuration
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3462501237082333912, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_Name

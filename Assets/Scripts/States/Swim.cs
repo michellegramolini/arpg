@@ -13,7 +13,7 @@ public class Swim : State
 
     public override void LateUpdateState(PlayerController player)
     {
-        // TODO:
+        Animate();
     }
 
     public override void StartState(PlayerController player)
@@ -34,8 +34,6 @@ public class Swim : State
 
     private void MovePlayer()
     {
-        Debug.Log("i'm swimming!");
-
         if (_player.canSwim)
         {
             _player.rb.velocity = _player.swimSpeed * _player.moveVector;
@@ -44,6 +42,26 @@ public class Swim : State
         else
         {
             _player.rb.velocity = Vector2.zero;
+        }
+    }
+
+    private void Animate()
+    {
+        if (_player.moveVector.x > 0f)
+        {
+            _player.animationState.SetAnimationState("player_swim_right");
+        }
+        else if (_player.moveVector.x < 0f)
+        {
+            _player.animationState.SetAnimationState("player_swim_left");
+        }
+        else if (_player.moveVector.x == 0f && _player.moveVector.y > 0f)
+        {
+            _player.animationState.SetAnimationState("player_swim_up");
+        }
+        else
+        {
+            _player.animationState.SetAnimationState("player_swim_down");
         }
     }
 }

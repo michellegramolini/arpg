@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public Dead Dead;
     public Jump Jump;
     public Swim Swim;
+    public Fall Fall;
 
     [Header("Components")]
     public Rigidbody2D rb;
@@ -37,11 +38,13 @@ public class PlayerController : MonoBehaviour
     public float runSpeed;
     public float walkSpeed;
     public float swimSpeed;
+    public float fallSpeed;
     public Vector2 idleVector;
     public Vector2 facingDirection;
 
     [Header("Jump")]
     public bool isJumping;
+    public float jumpDuration;
     public Vector2 jumpVector;
 
     [Header("Shifting")]
@@ -63,6 +66,7 @@ public class PlayerController : MonoBehaviour
     public TileDetector tileDetector;
     public bool canWalk;
     public bool canSwim;
+    public bool onWall;
     private Vector2 _adjacentTileDetectionPoint;
     private Transform _feet;
 
@@ -137,6 +141,7 @@ public class PlayerController : MonoBehaviour
         Dead = gameObject.AddComponent<Dead>();
         Jump = gameObject.AddComponent<Jump>();
         Swim = gameObject.AddComponent<Swim>();
+        Fall = gameObject.AddComponent<Fall>();
 
         // Get components
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -182,9 +187,10 @@ public class PlayerController : MonoBehaviour
 
     private void SetCurrentZ()
     {
-        if (currentState == Walk || currentState == Run || currentState == Idle)
+        if (currentState == Walk || currentState == Run || currentState == Idle || currentState == Swim)
         {
-            if (GetCurrentZ() < z)
+            // Debug < z?
+            if (GetCurrentZ() != z)
             {
                 z = GetCurrentZ();
             }
@@ -299,17 +305,23 @@ public class PlayerController : MonoBehaviour
     //    }
     //}
 
-    private void DetectWalkableTiles()
+    // FIXME: should change to DetectNext and DetectCurrent.
+
+    // TODO: if a "wall" terrain is next, then stop movement.
+
+    private void DetectNextTile()
     {
-        SuperTile tile = tileDetector.GetHeightTile(_adjacentTileDetectionPoint);
-        CustomProperty heightProp = tileDetector.GetTilePropFromSuperTile(tile, "height_value");
+        SuperTile heightTile = tileDetector.GetHeightTile(_adjacentTileDetectionPoint);
+        CustomProperty heightProp = tileDetector.GetTilePropFromSuperTile(heightTile, "height_value");
+
+        SuperTile terrainTile = tileDetector.GetTerrainTile(_adjacentTileDetectionPoint);
+        CustomProperty terrainProp = tileDetector.GetTilePropFromSuperTile(terrainTile, "terrain");
 
         // All walkable tiles should have a height_value property.
         if (heightProp != null)
         {
-            if (heightProp.m_Value.ToInt() > z && !canSwim)
+            if (heightProp.m_Value.ToInt() > z)
             {
-                Debug.Log("yup");
                 canWalk = false;
             }
             // Creating an invisible collision when faced with a ledge.
@@ -325,9 +337,24 @@ public class PlayerController : MonoBehaviour
                     canWalk = false;
                 }
             }
-            else
+            else // z is equal
             {
-                canWalk = true;
+                // Wall handling
+                if (terrainProp != null)
+                {
+                    if (terrainProp.m_Value == "wall" && currentState != Jump)
+                    {
+                        canWalk = false;
+                    }
+                    else
+                    {
+                        canWalk = true;
+                    }
+                }
+                else
+                {
+                    canWalk = true;
+                }
             }
         }
         else
@@ -336,8 +363,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void DetectSwimmableTiles()
+    private void DetectCurrentTile()
     {
+        //SuperTile heightTile = tileDetector.GetHeightTile(_adjacentTileDetectionPoint);
+        //CustomProperty heightProp = tileDetector.GetTilePropFromSuperTile(heightTile, "height_value");
+
         SuperTile tile = tileDetector.GetTerrainTile(_feet.transform.position);
         CustomProperty terrainProp = tileDetector.GetTilePropFromSuperTile(tile, "terrain");
 
@@ -351,17 +381,96 @@ public class PlayerController : MonoBehaviour
             {
                 canSwim = false;
             }
+
+            if (terrainProp.m_Value == "wall")
+            {
+                onWall = true;
+            }
+            else
+            {
+                onWall = false;
+            }
         }
         else
         {
             canSwim = false;
+            onWall = false;
         }
+
+        //if (heightTile != null)
+        //{
+        //    if (heightProp.m_Value.ToInt() <= z)
+        //    {
+        //        canWalk = true;
+        //    }
+        //}
     }
+
+    //private void DetectWalkableTiles()
+    //{
+    //    SuperTile tile = tileDetector.GetHeightTile(_adjacentTileDetectionPoint);
+    //    CustomProperty heightProp = tileDetector.GetTilePropFromSuperTile(tile, "height_value");
+
+    //    // All walkable tiles should have a height_value property.
+    //    if (heightProp != null)
+    //    {
+    //        if (heightProp.m_Value.ToInt() > z && !canSwim)
+    //        {
+    //            Debug.Log("yup");
+    //            canWalk = false;
+    //        }
+    //        // Creating an invisible collision when faced with a ledge.
+    //        else if (heightProp.m_Value.ToInt() < z)
+    //        {
+    //            // TODO: or Leap
+    //            if (currentState == Jump)
+    //            {
+    //                canWalk = true;
+    //            }
+    //            else
+    //            {
+    //                canWalk = false;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            canWalk = true;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        canWalk = false;
+    //    }
+    //}
+
+    //private void DetectSwimmableTiles()
+    //{
+    //    SuperTile tile = tileDetector.GetTerrainTile(_feet.transform.position);
+    //    CustomProperty terrainProp = tileDetector.GetTilePropFromSuperTile(tile, "terrain");
+
+    //    if (terrainProp != null)
+    //    {
+    //        if (terrainProp.m_Value == "water")
+    //        {
+    //            canSwim = true;
+    //        }
+    //        else
+    //        {
+    //            canSwim = false;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        canSwim = false;
+    //    }
+    //}
 
     private void EnableMovement()
     {
-        DetectWalkableTiles();
-        DetectSwimmableTiles();
+        //DetectWalkableTiles();
+        //DetectSwimmableTiles();
+        DetectCurrentTile();
+        DetectNextTile();
     }
 
     private void OnDrawGizmos()
