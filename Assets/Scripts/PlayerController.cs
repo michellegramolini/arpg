@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public Damaged Damaged;
     public Dead Dead;
     public Jump Jump;
+    public Swim Swim;
 
     [Header("Components")]
     public Rigidbody2D rb;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 moveVector;
     public float runSpeed;
     public float walkSpeed;
+    public float swimSpeed;
     public Vector2 idleVector;
     public Vector2 facingDirection;
 
@@ -60,7 +62,7 @@ public class PlayerController : MonoBehaviour
     [Header("Tile Detector")]
     public TileDetector tileDetector;
     public bool canWalk;
-    private string _tileKey;
+    public bool canSwim;
     private Vector2 _adjacentTileDetectionPoint;
     private Transform _feet;
 
@@ -134,6 +136,7 @@ public class PlayerController : MonoBehaviour
         Damaged = gameObject.AddComponent<Damaged>();
         Dead = gameObject.AddComponent<Dead>();
         Jump = gameObject.AddComponent<Jump>();
+        Swim = gameObject.AddComponent<Swim>();
 
         // Get components
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -157,6 +160,7 @@ public class PlayerController : MonoBehaviour
 
         if (facingDirection != idleVector)
         {
+            // TODO: rename this more aptly
             _detectionPoint = new Vector2(transform.position.x, transform.position.y) + facingDirection;
             interactionCollider.transform.position = _detectionPoint;
             _adjacentTileDetectionPoint = new Vector2(_feet.position.x, _feet.position.y) + (facingDirection * .6f);
@@ -165,6 +169,13 @@ public class PlayerController : MonoBehaviour
         SetFacingDirection();
         EnableMovement();
         SetCurrentZ();
+
+        if (canSwim)
+        {
+            // set as universal for now
+            // TODO:
+            SetState(Swim);
+        }
 
         currentState.UpdateState(this);
     }
@@ -288,16 +299,17 @@ public class PlayerController : MonoBehaviour
     //    }
     //}
 
-    private void HandleCurrentDetected()
+    private void DetectWalkableTiles()
     {
-        SuperTile tile = tileDetector.GetTile(_adjacentTileDetectionPoint);
+        SuperTile tile = tileDetector.GetHeightTile(_adjacentTileDetectionPoint);
         CustomProperty heightProp = tileDetector.GetTilePropFromSuperTile(tile, "height_value");
 
         // All walkable tiles should have a height_value property.
         if (heightProp != null)
         {
-            if (heightProp.m_Value.ToInt() > z)
+            if (heightProp.m_Value.ToInt() > z && !canSwim)
             {
+                Debug.Log("yup");
                 canWalk = false;
             }
             // Creating an invisible collision when faced with a ledge.
@@ -324,9 +336,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void DetectSwimmableTiles()
+    {
+        SuperTile tile = tileDetector.GetTerrainTile(_feet.transform.position);
+        CustomProperty terrainProp = tileDetector.GetTilePropFromSuperTile(tile, "terrain");
+
+        if (terrainProp != null)
+        {
+            if (terrainProp.m_Value == "water")
+            {
+                canSwim = true;
+            }
+            else
+            {
+                canSwim = false;
+            }
+        }
+        else
+        {
+            canSwim = false;
+        }
+    }
+
     private void EnableMovement()
     {
-        HandleCurrentDetected();
+        DetectWalkableTiles();
+        DetectSwimmableTiles();
     }
 
     private void OnDrawGizmos()

@@ -9,7 +9,9 @@ public class TileDetector : MonoBehaviour
     [Header("Tilemap")]
     // Drag/assign in editor
     [SerializeField]
-    private Tilemap _tilemap;
+    private Tilemap _heightMap;
+    [SerializeField]
+    private Tilemap _terrainMap;
 
     public List<string> diagonals = new()
     {
@@ -20,7 +22,7 @@ public class TileDetector : MonoBehaviour
     };
 
     // TODO: this should be tiles? //List<CustomProperty>
-    private Dictionary<string, SuperTile> _tiles = new()
+    private Dictionary<string, SuperTile> _heightTiles = new()
     {
         { "current", null },
         { "left", null },
@@ -56,32 +58,26 @@ public class TileDetector : MonoBehaviour
     void DetectStandingTile()
     {
         // get the tile grid position from whereever this object is 
-        Vector3Int gridPosition = _tilemap.WorldToCell(transform.position);
+        Vector3Int heightMapGridPosition = _heightMap.WorldToCell(transform.position);
+        Vector3Int terrainMapGridPosition = _terrainMap.WorldToCell(transform.position);
 
-        if (_tilemap.HasTile(gridPosition))
+        if (_heightMap.HasTile(heightMapGridPosition))
         {
-            // set the current standing tile
-            // .m_CustomProperties
-            _tiles["current"] = _tilemap.GetTile<SuperTile>(gridPosition);
+            _heightTiles["current"] = _heightMap.GetTile<SuperTile>(heightMapGridPosition);
         }
         else
         {
-            // set the current standing tile
-            // TODO: should be an empty list?
-            _tiles["current"] = null;
+            _heightTiles["current"] = null;
         }
-
-
-        //Debug.Log(currentTile.m_CustomProperties[0].m_Name.ToString() + ": " + currentTile.m_CustomProperties[0].m_Value.ToString());
     }
 
     void DetectAdjacentTiles()
     {
         // initialize grid position
-        Vector3Int gridPosition = _tilemap.WorldToCell(transform.position);
+        Vector3Int gridPosition = _heightMap.WorldToCell(transform.position);
 
         // if there's no tile there for some reason, return
-        if (!_tilemap.HasTile(gridPosition))
+        if (!_heightMap.HasTile(gridPosition))
         {
             Debug.LogWarning($"No tile at position: {gridPosition}");
             return;
@@ -92,17 +88,17 @@ public class TileDetector : MonoBehaviour
         {
             Vector3Int position = gridPosition + adjacentPosition.Value;
 
-            // if there is a tile there, add it to _tiles
-            if (_tilemap.HasTile(position))
+            // if there is a tile there, add it to _heightTiles
+            if (_heightMap.HasTile(position))
             {
-                _tiles[adjacentPosition.Key] = _tilemap.GetTile<SuperTile>(position);
+                _heightTiles[adjacentPosition.Key] = _heightMap.GetTile<SuperTile>(position);
 
                 // Debug
-                //_tilemap.SetColor(position, Color.green);
+                //_heightMap.SetColor(position, Color.green);
             }
             else
             {
-                _tiles[adjacentPosition.Key] = null;
+                _heightTiles[adjacentPosition.Key] = null;
             }
         }
     }
@@ -115,7 +111,8 @@ public class TileDetector : MonoBehaviour
             return null;
         }
 
-        bool hasTileProps = _tiles.TryGetValue(tileKey, out SuperTile tile);
+        // TODO: swich based on propName
+        bool hasTileProps = _heightTiles.TryGetValue(tileKey, out SuperTile tile);
 
         if (hasTileProps && tile != null)
         {
@@ -149,27 +146,29 @@ public class TileDetector : MonoBehaviour
         return null;
     }
 
-    public SuperTile GetTile(Vector3 position)
+    // TODO: either add paramater or create different function
+    public SuperTile GetHeightTile(Vector3 position)
     {
         // get the tile grid position from whereever this object is
-        Vector3Int gridPosition = _tilemap.WorldToCell(position);
-        if (_tilemap.HasTile(gridPosition))
+        Vector3Int gridPosition = _heightMap.WorldToCell(position);
+        if (_heightMap.HasTile(gridPosition))
         {
-            return _tilemap.GetTile<SuperTile>(gridPosition);
+            return _heightMap.GetTile<SuperTile>(gridPosition);
         }
 
         return null;
     }
 
-    public SuperTile GetMappedTile(string tileKey)
+    public SuperTile GetTerrainTile(Vector3 position)
     {
-        _tiles.TryGetValue(tileKey, out SuperTile tile);
-
-        if (tile != null)
+        // get the tile grid position from whereever this object is
+        Vector3Int gridPosition = _terrainMap.WorldToCell(position);
+        if (_terrainMap.HasTile(gridPosition))
         {
-            return tile;
+            return _terrainMap.GetTile<SuperTile>(gridPosition);
         }
 
         return null;
     }
+
 }
