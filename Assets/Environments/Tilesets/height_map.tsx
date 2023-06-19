@@ -3,27 +3,27 @@
  <image source="height_map.png" width="16" height="80"/>
  <tile id="0">
   <properties>
-   <property name="height" type="int" value="0"/>
+   <property name="height_value" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="1">
   <properties>
-   <property name="height" type="int" value="16"/>
+   <property name="height_value" type="int" value="16"/>
   </properties>
  </tile>
  <tile id="2">
   <properties>
-   <property name="height" type="int" value="32"/>
+   <property name="height_value" type="int" value="32"/>
   </properties>
  </tile>
  <tile id="3">
   <properties>
-   <property name="height" type="int" value="48"/>
+   <property name="height_value" type="int" value="48"/>
   </properties>
  </tile>
  <tile id="4">
   <properties>
-   <property name="height" type="int" value="64"/>
+   <property name="height_value" type="int" value="64"/>
   </properties>
  </tile>
 </tileset>

@@ -19,13 +19,6 @@
    </object>
   </objectgroup>
  </tile>
- <tile id="5">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0.0467187" y="0.0233594">
-    <polygon points="0,0 15.9778,16.0712 -0.0467187,16.0712"/>
-   </object>
-  </objectgroup>
- </tile>
  <tile id="10">
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="10" width="16" height="6"/>
@@ -64,71 +57,6 @@
    <object id="1" x="0" y="0" width="16" height="16"/>
   </objectgroup>
  </tile>
- <tile id="84">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="104">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="105">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="106">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="107">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="114">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="115">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="116">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="117">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="124">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="125">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="126">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
- <tile id="127">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="0" y="0" width="16" height="16"/>
-  </objectgroup>
- </tile>
  <tile id="156">
   <animation>
    <frame tileid="156" duration="200"/>
@@ -161,10 +89,5 @@
    <frame tileid="209" duration="200"/>
    <frame tileid="219" duration="200"/>
   </animation>
- </tile>
- <tile id="171">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="2" y="0" width="10" height="16"/>
-  </objectgroup>
  </tile>
 </tileset>
