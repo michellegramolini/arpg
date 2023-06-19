@@ -73,6 +73,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "17ba496b-f7a2-4294-921d-3609279aa32f",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "WASD",
                     "id": "28b53c2a-4e9c-4868-8911-08498f1b622c",
                     "path": "Dpad",
@@ -518,6 +529,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f7eaf99a-f748-4f63-b9f7-aa33b13bd4e1",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Read",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c9c35199-9ed4-4e09-8ffc-826015ee97fa",
                     "path": "<Keyboard>/i",
                     "interactions": "",
@@ -529,8 +551,30 @@
                 },
                 {
                     "name": "",
+                    "id": "ba800217-f77e-4452-b025-456fc896cfe5",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d5a9c5c3-d4d1-4c1b-a50c-76f2a38be217",
                     "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14c06984-3a3d-46b4-8771-06d5ab5c9a6f",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

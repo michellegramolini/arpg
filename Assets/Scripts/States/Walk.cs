@@ -6,7 +6,7 @@ using System;
 public class Walk : State
 {
     private PlayerController _player;
-    //private bool _canWalk;
+    //private bool _canMove;
     //private string _tileKey;
 
     public override void FixedUpdateState(PlayerController player)
@@ -38,6 +38,10 @@ public class Walk : State
         {
             _player.SetState(_player.Jump);
         }
+        else if (_player.canSwim)
+        {
+            _player.SetState(_player.Swim);
+        }
     }
 
     public override void LateUpdateState(PlayerController player)
@@ -48,7 +52,7 @@ public class Walk : State
     // TODO: DRY
     private void MovePlayer()
     {
-        if (_player.canWalk)
+        if (_player.canMove)
         {
             _player.rb.velocity = _player.walkSpeed * _player.moveVector;
         }
@@ -97,21 +101,21 @@ public class Walk : State
     //        {
     //            if (height <= _player.z)
     //            {
-    //                _canWalk = true;
+    //                _canMove = true;
     //            }
     //            else
     //            {
-    //                _canWalk = false;
+    //                _canMove = false;
     //            }
     //        }
     //        else
     //        {
-    //            _canWalk = true;
+    //            _canMove = true;
     //        }
     //    }
     //    else
     //    {
-    //        _canWalk = true;
+    //        _canMove = true;
     //    }
     //}
 

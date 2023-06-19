@@ -30,7 +30,10 @@ public class Idle : State
             _player.SetState(_player.Jump);
         }
 
-        //Animate();
+        if (_player.canSwim)
+        {
+            _player.SetState(_player.Swim);
+        }
     }
 
     public override void LateUpdateState(PlayerController player)

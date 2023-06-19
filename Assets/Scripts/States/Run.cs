@@ -34,6 +34,11 @@ public class Run : State
         {
             _player.SetState(_player.Idle);
         }
+
+        if (_player.canSwim)
+        {
+            _player.SetState(_player.Swim);
+        }
     }
 
     public override void LateUpdateState(PlayerController player)
@@ -44,7 +49,7 @@ public class Run : State
     // TODO: DRY
     private void MovePlayer()
     {
-        if (_player.canWalk)
+        if (_player.canMove)
         {
             _player.rb.velocity = _player.runSpeed * _player.moveVector;
         }

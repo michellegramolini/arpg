@@ -354,7 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1adb6f0b8abf4e80b24a43750fbfd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tilemap: {fileID: 0}
+  _heightMap: {fileID: 0}
+  _terrainMap: {fileID: 0}
   diagonals:
   - up-right
   - up-left
@@ -467,20 +468,28 @@ MonoBehaviour:
   Damaged: {fileID: 0}
   Dead: {fileID: 0}
   Jump: {fileID: 0}
+  Swim: {fileID: 0}
+  Fall: {fileID: 0}
   rb: {fileID: 0}
   col: {fileID: 0}
   moveVector: {x: 0, y: 0}
   runSpeed: 8
   walkSpeed: 5
+  swimSpeed: 4
+  fallSpeed: 8
+  jumpSpeed: 6
   idleVector: {x: 0, y: 0}
   facingDirection: {x: 0, y: 0}
   isJumping: 0
+  jumpDuration: 0.2
   jumpVector: {x: 0, y: 0}
   isShifting: 0
   animationState: {fileID: 0}
   z: 0
   tileDetector: {fileID: 0}
-  canWalk: 0
+  canMove: 0
+  canSwim: 0
+  onWall: 0
 --- !u!114 &3462501237082333913
 MonoBehaviour:
   m_ObjectHideFlags: 0
