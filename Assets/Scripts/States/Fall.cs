@@ -20,7 +20,6 @@ public class Fall : State
 
     public override void StartState(PlayerController player)
     {
-        Debug.Log("fall ah");
         this._player = player;
     }
 
