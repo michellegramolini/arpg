@@ -1198,6 +1198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9a6cba0d99e43d78927cbf7332a643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1839735485 &1125717838 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 8303847178313254620, guid: a9d7ca20d71352f43afafbff4bf53030, type: 3}
+  m_PrefabInstance: {fileID: 914694440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1142342002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2309,6 +2314,14 @@ PrefabInstance:
       propertyPath: _tilemap
       value: 
       objectReference: {fileID: 1201864184}
+    - target: {fileID: 1855759994, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
+      propertyPath: _heightMap
+      value: 
+      objectReference: {fileID: 1201864184}
+    - target: {fileID: 1855759994, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
+      propertyPath: _terrainMap
+      value: 
+      objectReference: {fileID: 1125717838}
     - target: {fileID: 3462501237082333890, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2352,6 +2365,10 @@ PrefabInstance:
     - target: {fileID: 3462501237082333890, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3462501237082333894, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
+      propertyPath: swimSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3462501237082333912, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_Name

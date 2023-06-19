@@ -23,7 +23,13 @@ public class Swim : State
 
     public override void UpdateState(PlayerController player)
     {
-        // TODO:
+        if (!_player.canSwim)
+        {
+            if (_player.canWalk)
+            {
+                _player.SetState(_player.Walk);
+            }
+        }
     }
 
     private void MovePlayer()
