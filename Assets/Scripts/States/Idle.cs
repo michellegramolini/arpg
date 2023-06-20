@@ -34,6 +34,11 @@ public class Idle : State
         {
             _player.SetState(_player.Swim);
         }
+
+        if (_player.isAttacking)
+        {
+            _player.SetState(_player.MeleeAttack);
+        }
     }
 
     public override void LateUpdateState(PlayerController player)

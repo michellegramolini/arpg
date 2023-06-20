@@ -123,6 +123,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   currentState: 
   currentFrame: 0
+  isDamageFrame: 0
 --- !u!1 &655626982
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +471,7 @@ MonoBehaviour:
   Jump: {fileID: 0}
   Swim: {fileID: 0}
   Fall: {fileID: 0}
+  MeleeAttack: {fileID: 0}
   rb: {fileID: 0}
   col: {fileID: 0}
   moveVector: {x: 0, y: 0}
@@ -484,6 +486,12 @@ MonoBehaviour:
   jumpDuration: 0.2
   jumpVector: {x: 0, y: 0}
   isShifting: 0
+  isAttacking: 0
+  attackPoint: {x: 0, y: 0}
+  attackRange: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   animationState: {fileID: 0}
   z: 0
   tileDetector: {fileID: 0}
@@ -591,6 +599,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 49e377b5-b8fd-4e92-853c-48239e6de610
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 67da86ed-8123-47db-8e38-28f9373e45eb
+    m_ActionName: Player/Attack[/Keyboard/r,/DualShock4GamepadHID/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
