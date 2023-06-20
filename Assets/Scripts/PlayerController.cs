@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public Jump Jump;
     public Swim Swim;
     public Fall Fall;
+    public MeleeAttack MeleeAttack;
 
     [Header("Components")]
     public Rigidbody2D rb;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _shiftAction;
     private InputAction _jumpAction;
+    private InputAction _attackAction;
 
     [Header("Movement")]
     public Vector2 moveVector;
@@ -53,6 +55,14 @@ public class PlayerController : MonoBehaviour
 
     [Header("Interacting")]
     private Vector2 _detectionPoint;
+
+    [Header("Attack")]
+    public bool isAttacking;
+    public Vector2 attackPoint;
+    public float attackRange;
+
+    [Header("Enemies")]
+    public LayerMask enemyLayer;
 
     // Data class
     public Data data;
@@ -78,6 +88,8 @@ public class PlayerController : MonoBehaviour
         _shiftAction.canceled += CancelShift;
         _jumpAction.started += HitJump;
         _jumpAction.canceled += CancelJump;
+        _attackAction.started += HitAttack;
+        _attackAction.canceled += CancelAttack;
     }
 
     private void OnDisable()
@@ -86,6 +98,8 @@ public class PlayerController : MonoBehaviour
         _shiftAction.canceled -= CancelShift;
         _jumpAction.started -= HitJump;
         _jumpAction.canceled -= CancelJump;
+        _attackAction.started -= HitAttack;
+        _attackAction.canceled -= CancelAttack;
         _shiftAction.Disable();
     }
 
@@ -109,6 +123,16 @@ public class PlayerController : MonoBehaviour
         isJumping = false;
     }
 
+    private void HitAttack(InputAction.CallbackContext context)
+    {
+        isAttacking = true;
+    }
+
+    private void CancelAttack(InputAction.CallbackContext context)
+    {
+        isAttacking = false;
+    }
+
     private void Awake()
     {
         // Input
@@ -116,6 +140,7 @@ public class PlayerController : MonoBehaviour
         _moveAction = _playerInput.actions["Move"];
         _shiftAction = _playerInput.actions["Shift"];
         _jumpAction = _playerInput.actions["Jump"];
+        _attackAction = _playerInput.actions["Attack"];
 
         // Collisions
         interactionCollider = transform.Find("InteractionCollider").GetComponent<BoxCollider2D>();
@@ -143,12 +168,16 @@ public class PlayerController : MonoBehaviour
         Jump = gameObject.AddComponent<Jump>();
         Swim = gameObject.AddComponent<Swim>();
         Fall = gameObject.AddComponent<Fall>();
+        MeleeAttack = gameObject.AddComponent<MeleeAttack>();
 
         // Get components
         rb = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<BoxCollider2D>();
         animationState = gameObject.GetComponentInChildren<AnimationState>();
         tileDetector = gameObject.GetComponentInChildren<TileDetector>();
+
+        // Layers
+        enemyLayer = LayerMask.GetMask("Enemy");
 
         // Init Height
         z = GetCurrentZ();
@@ -168,6 +197,7 @@ public class PlayerController : MonoBehaviour
         {
             // TODO: rename this more aptly
             _detectionPoint = new Vector2(transform.position.x, transform.position.y) + facingDirection;
+            attackPoint = _detectionPoint;
             interactionCollider.transform.position = _detectionPoint;
             _adjacentTileDetectionPoint = new Vector2(_feet.position.x, _feet.position.y) + (facingDirection * .6f);
         }
@@ -468,5 +498,7 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(_detectionPoint, .5f);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_adjacentTileDetectionPoint, 0.5f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(attackPoint, attackRange);
     }
 }

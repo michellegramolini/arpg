@@ -12,6 +12,8 @@ public class AnimationState : MonoBehaviour
 
     public float currentFrame;
 
+    public bool isDamageFrame;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();

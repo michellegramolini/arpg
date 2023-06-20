@@ -39,6 +39,17 @@ public class Run : State
         {
             _player.SetState(_player.Swim);
         }
+
+        if (_player.isAttacking)
+        {
+            _player.SetState(_player.MeleeAttack);
+        }
+
+        // TODO: Leap
+        if (_player.isJumping)
+        {
+            _player.SetState(_player.Jump);
+        }
     }
 
     public override void LateUpdateState(PlayerController player)

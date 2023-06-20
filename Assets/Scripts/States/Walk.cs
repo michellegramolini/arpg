@@ -30,17 +30,24 @@ public class Walk : State
 
         //Animate();
 
-        if (player.isShifting)
+        if (_player.isShifting)
         {
             _player.SetState(_player.Run);
         }
-        else if (_player.isJumping)
+
+        if (_player.isJumping)
         {
             _player.SetState(_player.Jump);
         }
-        else if (_player.canSwim)
+
+        if (_player.canSwim)
         {
             _player.SetState(_player.Swim);
+        }
+
+        if (_player.isAttacking)
+        {
+            _player.SetState(_player.MeleeAttack);
         }
     }
 
