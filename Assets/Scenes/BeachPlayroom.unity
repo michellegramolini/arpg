@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1839735485 &538358554 stripped
-Tilemap:
-  m_CorrespondingSourceObject: {fileID: -6572008026048038757, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
-  m_PrefabInstance: {fileID: 932786296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &932786296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,9 +142,17 @@ PrefabInstance:
       propertyPath: m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6361242801799891858, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: -5655903688390849301, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
       propertyPath: m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5655903688390849301, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: -5494634676637657512, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
       propertyPath: m_Name
@@ -168,6 +171,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1280873477577139857, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1280873477577139857, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
@@ -183,8 +190,16 @@ PrefabInstance:
       propertyPath: m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4042839090582539869, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -8
+      objectReference: {fileID: 0}
     - target: {fileID: 6369407875411072140, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
       propertyPath: m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6369407875411072140, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6948768149069245815, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
@@ -239,8 +254,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9018659565940517905, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -2695619058785784247, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
+--- !u!1839735485 &932786297 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: -6572008026048038757, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
+  m_PrefabInstance: {fileID: 932786296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1839735485 &932786298 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 8267118074322627673, guid: 7fb45de3f9d5ab6438f3b31fa43e2ab0, type: 3}
@@ -332,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 253151047, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 253151047, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_SortingLayerID
@@ -344,11 +368,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 253151047, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 655626984, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1855759993, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -361,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 1855759994, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: _terrainMap
       value: 
-      objectReference: {fileID: 538358554}
+      objectReference: {fileID: 932786297}
     - target: {fileID: 3462501237082333890, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: m_RootOrder
       value: 2
