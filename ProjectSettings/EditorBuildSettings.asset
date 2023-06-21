@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CameraTestScene.unity
     guid: 385bc95fdd17be948b5dbfff00f36c19
+  - enabled: 1
+    path: Assets/Scenes/BeachPlayroom.unity
+    guid: 939dce60471cb2e4cba5e380cf6625d9
   m_configObjects: {}
