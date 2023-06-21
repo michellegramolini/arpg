@@ -6,8 +6,8 @@
     "activeFile": "Maps/seaside_playroom.tmx",
     "expandedProjectPaths": [
         ".",
-        "Images",
         "Maps",
+        "Images",
         "Tilesets"
     ],
     "file.lastUsedOpenFilter": "Tiled map files (*.tmx)",
@@ -43,11 +43,11 @@
             "expandedGroupLayers": [
                 15
             ],
-            "scale": 5.5,
-            "selectedLayer": 4,
+            "scale": 2,
+            "selectedLayer": 8,
             "viewCenter": {
-                "x": 1095.818181818182,
-                "y": 716.7272727272727
+                "x": 621,
+                "y": 693.5
             }
         },
         "Tilesets/collision_map.tsx": {
