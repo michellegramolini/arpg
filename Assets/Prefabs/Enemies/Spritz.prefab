@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9060595106469821783}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spritz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,8 @@ GameObject:
   - component: {fileID: 5331037635549134908}
   - component: {fileID: 7691715412092658569}
   - component: {fileID: 6935000826226357238}
-  m_Layer: 0
+  - component: {fileID: 1312831301}
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +167,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1312831301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331037635549134907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a483251f8e8f414d888f8cc6f2b7050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5331037636131269936
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5331037636131269937}
   - component: {fileID: 5331037636131269938}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
