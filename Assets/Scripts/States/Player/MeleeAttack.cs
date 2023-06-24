@@ -36,8 +36,9 @@ public class MeleeAttack : State
 
         if (_player.animationState.isDamageFrame)
         {
-            DoDamage();
+            HitEnemies();
         }
+
     }
 
     private void StopMovement()
@@ -77,7 +78,7 @@ public class MeleeAttack : State
     }
 
     // Activate the hit-box
-    private void DoDamage()
+    private void HitEnemies()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_player.attackPoint, _player.attackRange, _player.enemyLayer);
 
