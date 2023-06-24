@@ -20,6 +20,9 @@ public class EnemyController : MonoBehaviour, IEnemy
     [Header("Health")]
     public int health;
 
+    [Header("XP")]
+    public int xpAmount;
+
     //[Header("Animation")]
     //public AnimationState animationState;
 
@@ -30,7 +33,8 @@ public class EnemyController : MonoBehaviour, IEnemy
         _sr = gameObject.GetComponent<SpriteRenderer>();
 
         // Testing
-        health = 5;
+        health = 2;
+        xpAmount = 1;
 
         // States
         Idle = gameObject.AddComponent<Enemy.Idle>();

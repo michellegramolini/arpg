@@ -33,6 +33,7 @@ namespace Enemy
         private void Die()
         {
             Debug.Log($"{this} Enemy is Dead.");
+            XPManager.Instance.AddExperience(_enemy.xpAmount);
             _enemy.gameObject.SetActive(false);
         }
     }

@@ -81,6 +81,27 @@ public class PlayerController : MonoBehaviour
     private Vector2 _adjacentTileDetectionPoint;
     private Transform _feet;
 
+    [Header("XP")]
+    // Testing
+    public float currentXP;
+    [SerializeField]
+    private int _currentLevel;
+    private float _a, _b;
+
+
+    #region Event Handlers
+    private void HandleXPChange(int newXP)
+    {
+        Debug.Log($"{currentXP} current xp, {getMaxXP(_currentLevel, _a, _b)} xp needed to level up");
+        currentXP += newXP;
+        if (currentXP >= getMaxXP(_currentLevel, _a, _b))
+        {
+            LevelUp();
+        }
+    }
+    #endregion
+
+
     private void OnEnable()
     {
         _shiftAction.Enable();
@@ -90,6 +111,9 @@ public class PlayerController : MonoBehaviour
         _jumpAction.canceled += CancelJump;
         _attackAction.started += HitAttack;
         _attackAction.canceled += CancelAttack;
+
+        // XP
+        XPManager.Instance.OnXPChange += HandleXPChange;
     }
 
     private void OnDisable()
@@ -101,6 +125,9 @@ public class PlayerController : MonoBehaviour
         _attackAction.started -= HitAttack;
         _attackAction.canceled -= CancelAttack;
         _shiftAction.Disable();
+
+        // XP
+        XPManager.Instance.OnXPChange -= HandleXPChange;
     }
 
     private void HitShift(InputAction.CallbackContext context)
@@ -185,6 +212,12 @@ public class PlayerController : MonoBehaviour
         // Init State
         currentState = Idle;
         currentState.StartState(this);
+
+        // XP
+        _currentLevel = 0;
+        currentXP = 0;
+        _a = 1;
+        _b = 1.1f;
     }
 
     // Update is called once per frame
@@ -299,39 +332,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //private void HandleDiagonalKeys(string tileKey)
-    //{
-    //    Debug.Log($"diagonal key! {tileKey}");
-    //    // check both dirs of the composite key
-    //    string[] dirs = tileKey.Split('-');
-
-    //    int i;
-    //    for (i = 0; i < dirs.Length; i++)
-    //    {
-    //        if (tileDetector.GetTileProp(dirs[i], "height_value") != null)
-    //        {
-    //            // Get tile height from tile key
-    //            int? height = tileDetector.GetTileProp(dirs[i], "height_value").m_Value.ToInt();
-    //            if (height > z)
-    //            {
-    //                Debug.Log("high tile diagonal break");
-    //                canMove = false;
-    //                break;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("null tile diagonal break");
-    //            canMove = false;
-    //            break;
-    //        }
-    //    }
-    //}
-
-    // FIXME: should change to DetectNext and DetectCurrent.
-
-    // TODO: if a "wall" terrain is next, then stop movement.
-
     private void DetectNextTile()
     {
         SuperTile heightTile = tileDetector.GetHeightTile(_adjacentTileDetectionPoint);
@@ -415,81 +415,30 @@ public class PlayerController : MonoBehaviour
             onWall = false;
         }
 
-        //if (heightTile != null)
-        //{
-        //    if (heightProp.m_Value.ToInt() <= z)
-        //    {
-        //        canMove = true;
-        //    }
-        //}
     }
 
-    //private void DetectWalkableTiles()
-    //{
-    //    SuperTile tile = tileDetector.GetHeightTile(_adjacentTileDetectionPoint);
-    //    CustomProperty heightProp = tileDetector.GetTilePropFromSuperTile(tile, "height_value");
 
-    //    // All walkable tiles should have a height_value property.
-    //    if (heightProp != null)
-    //    {
-    //        if (heightProp.m_Value.ToInt() > z && !canSwim)
-    //        {
-    //            Debug.Log("yup");
-    //            canMove = false;
-    //        }
-    //        // Creating an invisible collision when faced with a ledge.
-    //        else if (heightProp.m_Value.ToInt() < z)
-    //        {
-    //            // TODO: or Leap
-    //            if (currentState == Jump)
-    //            {
-    //                canMove = true;
-    //            }
-    //            else
-    //            {
-    //                canMove = false;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            canMove = true;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        canMove = false;
-    //    }
-    //}
-
-    //private void DetectSwimmableTiles()
-    //{
-    //    SuperTile tile = tileDetector.GetTerrainTile(_feet.transform.position);
-    //    CustomProperty terrainProp = tileDetector.GetTilePropFromSuperTile(tile, "terrain");
-
-    //    if (terrainProp != null)
-    //    {
-    //        if (terrainProp.m_Value == "water")
-    //        {
-    //            canSwim = true;
-    //        }
-    //        else
-    //        {
-    //            canSwim = false;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        canSwim = false;
-    //    }
-    //}
 
     private void EnableMovement()
     {
-        //DetectWalkableTiles();
-        //DetectSwimmableTiles();
         DetectCurrentTile();
         DetectNextTile();
     }
+
+    #region Experience XP Stuff
+    private void LevelUp()
+    {
+        Debug.Log("Level Up!");
+    }
+
+    // Given a player's level, return the amount of xp needed to reach the next level.
+    private double getMaxXP(int level, float a, float b)
+    {
+        double xp = a * Mathf.Sqrt(level) + b;
+        xp = Mathf.Ceil((float)xp);
+        return xp;
+    }
+    #endregion
 
     private void OnDrawGizmos()
     {
