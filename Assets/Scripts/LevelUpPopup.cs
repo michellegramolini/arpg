@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class LevelUpPopup : MonoBehaviour
+public class LevelUpPopup : MonoBehaviour, IPooledObject
 {
     private TextMeshPro textMesh;
 
@@ -12,11 +12,11 @@ public class LevelUpPopup : MonoBehaviour
         textMesh = transform.GetComponent<TextMeshPro>();
     }
 
-    private void Start()
-    {
-        Setup();
-        DestroyAfter(1.1f);
-    }
+    //private void Start()
+    //{
+    //    Setup();
+    //    DestroyAfter(1.1f);
+    //}
 
     private void Update()
     {
@@ -33,8 +33,16 @@ public class LevelUpPopup : MonoBehaviour
     }
 
     // TODO: object pooler
-    private void DestroyAfter(float seconds)
+    private IEnumerator DestroyAfter(float seconds)
     {
-        Destroy(gameObject, seconds);
+        yield return new WaitForSeconds(seconds);
+        ObjectPooler.Instance.Recycle("damage_popup", this.gameObject);
+        //Destroy(gameObject, seconds);
+    }
+
+    public void OnObjectSpawn()
+    {
+        Setup();
+        StartCoroutine(DestroyAfter(1.1f));
     }
 }

@@ -16,11 +16,18 @@ public class ObjectPooler : MonoBehaviour
 
     #region Singleton
 
-    public static ObjectPooler instance;
+    public static ObjectPooler Instance;
 
     private void Awake()
     {
-        instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     #endregion
@@ -82,6 +89,8 @@ public class ObjectPooler : MonoBehaviour
     // FIXME: testing!
     public void Recycle(string tag, GameObject gameObject)
     {
+        // deactivate
+        gameObject.SetActive(false);
         // recycle
         poolDictionary[tag].Enqueue(gameObject);
     }
