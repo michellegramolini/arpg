@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _adjacentTileDetectionPoint;
     private Transform _feet;
 
+    // TODO: player data
     [Header("XP")]
     // Testing
     public float currentXP;
@@ -92,10 +93,11 @@ public class PlayerController : MonoBehaviour
     #region Event Handlers
     private void HandleXPChange(int newXP)
     {
-        Debug.Log($"{currentXP} current xp, {getMaxXP(_currentLevel, _a, _b)} xp needed to level up");
         currentXP += newXP;
-        if (currentXP >= getMaxXP(_currentLevel, _a, _b))
+        Debug.Log($"{currentXP} current xp, {GetMaxXP(_currentLevel, _a, _b)} xp needed to level up");
+        if (currentXP >= GetMaxXP(_currentLevel, _a, _b))
         {
+            // TODO: total xp
             LevelUp();
         }
     }
@@ -214,7 +216,7 @@ public class PlayerController : MonoBehaviour
         currentState.StartState(this);
 
         // XP
-        _currentLevel = 0;
+        _currentLevel = 4;
         currentXP = 0;
         _a = 1;
         _b = 1.1f;
@@ -428,11 +430,15 @@ public class PlayerController : MonoBehaviour
     #region Experience XP Stuff
     private void LevelUp()
     {
-        Debug.Log("Level Up!");
+        _currentLevel++;
+        // TODO: total xp
+        currentXP = 0f;
+        //Debug.Log("Level Up!");
+        XPManager.Instance.LevelUpPopup(transform.position);
     }
 
     // Given a player's level, return the amount of xp needed to reach the next level.
-    private double getMaxXP(int level, float a, float b)
+    private double GetMaxXP(int level, float a, float b)
     {
         double xp = a * Mathf.Sqrt(level) + b;
         xp = Mathf.Ceil((float)xp);

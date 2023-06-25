@@ -33,8 +33,12 @@ namespace Enemy
 
         private void DoDamage()
         {
+            // TODO: configure amounts
             _enemy.health -= 1;
-            Debug.Log($"Enemy Damaged! Health is {_enemy.health}");
+            DamageManager.Instance.AddDamage(1);
+            // TODO: popups
+            DamageManager.Instance.GenerateDamagePopup(transform.position, 1);
+            //Debug.Log($"Enemy Damaged! Health is {_enemy.health}");
         }
 
         private IEnumerator DamageCoroutine()

@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour, IEnemy
 
         // Testing
         health = 2;
-        xpAmount = 1;
+        xpAmount = 2;
 
         // States
         Idle = gameObject.AddComponent<Enemy.Idle>();
