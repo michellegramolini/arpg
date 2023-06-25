@@ -2359,6 +2359,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 253151046, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 568508030530589686, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - target: {fileID: 253151047, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2294307954870235629, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
     - target: {fileID: 1855759994, guid: 98b74bf4997774f22b5165692453c3aa, type: 3}
       propertyPath: _heightMap
       value: 

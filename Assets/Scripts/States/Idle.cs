@@ -56,20 +56,20 @@ public class Idle : State
         // use facing direction and set facing animation
         if (_player.facingDirection == Vector2.up)
         {
-            _player.animationState.SetAnimationState("player_idle_up");
+            _player.animationState.SetAnimationState("kaia_idle_up");
         }
         else if (_player.facingDirection == Vector2.down)
         {
-            _player.animationState.SetAnimationState("player_idle_down");
+            _player.animationState.SetAnimationState("kaia_idle_down");
         }
         // TODO: could handle this at the facingDirection vector level
         else if (_player.facingDirection.x > 0f)
         {
-            _player.animationState.SetAnimationState("player_idle_right");
+            _player.animationState.SetAnimationState("kaia_idle_right");
         }
         else
         {
-            _player.animationState.SetAnimationState("player_idle_left");
+            _player.animationState.SetAnimationState("kaia_idle_left");
         }
     }
 

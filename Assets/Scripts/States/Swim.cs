@@ -49,19 +49,19 @@ public class Swim : State
     {
         if (_player.moveVector.x > 0f)
         {
-            _player.animationState.SetAnimationState("player_swim_right");
+            _player.animationState.SetAnimationState("kaia_swim_right");
         }
         else if (_player.moveVector.x < 0f)
         {
-            _player.animationState.SetAnimationState("player_swim_left");
+            _player.animationState.SetAnimationState("kaia_swim_left");
         }
         else if (_player.moveVector.x == 0f && _player.moveVector.y > 0f)
         {
-            _player.animationState.SetAnimationState("player_swim_up");
+            _player.animationState.SetAnimationState("kaia_swim_up");
         }
         else
         {
-            _player.animationState.SetAnimationState("player_swim_down");
+            _player.animationState.SetAnimationState("kaia_swim_down");
         }
     }
 }

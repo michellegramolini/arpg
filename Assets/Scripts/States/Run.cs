@@ -75,19 +75,19 @@ public class Run : State
     {
         if (_player.moveVector.x > 0f)
         {
-            _player.animationState.SetAnimationState("player_run_right");
+            _player.animationState.SetAnimationState("kaia_run_right");
         }
         else if (_player.moveVector.x < 0f)
         {
-            _player.animationState.SetAnimationState("player_run_left");
+            _player.animationState.SetAnimationState("kaia_run_left");
         }
         else if (_player.moveVector.x == 0f && _player.moveVector.y > 0f)
         {
-            _player.animationState.SetAnimationState("player_run_up");
+            _player.animationState.SetAnimationState("kaia_run_up");
         }
         else
         {
-            _player.animationState.SetAnimationState("player_run_down");
+            _player.animationState.SetAnimationState("kaia_run_down");
         }
     }
 }

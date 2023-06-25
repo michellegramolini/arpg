@@ -65,19 +65,19 @@ public class Jump : State
     {
         if (_player.facingDirection.x > 0f)
         {
-            _player.animationState.SetAnimationState("player_jump_right");
+            _player.animationState.SetAnimationState("kaia_jump_right");
         }
         else if (_player.facingDirection.x < 0f)
         {
-            _player.animationState.SetAnimationState("player_jump_left");
+            _player.animationState.SetAnimationState("kaia_jump_left");
         }
         else if (_player.facingDirection.x == 0f && _player.facingDirection.y > 0f)
         {
-            _player.animationState.SetAnimationState("player_jump_up");
+            _player.animationState.SetAnimationState("kaia_jump_up");
         }
         else
         {
-            _player.animationState.SetAnimationState("player_jump_down");
+            _player.animationState.SetAnimationState("kaia_jump_down");
         }
     }
 

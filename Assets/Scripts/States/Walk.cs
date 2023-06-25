@@ -79,19 +79,19 @@ public class Walk : State
     {
         if (_player.moveVector.x > 0f)
         {
-            _player.animationState.SetAnimationState("player_walk_right");
+            _player.animationState.SetAnimationState("kaia_walk_right");
         }
         else if (_player.moveVector.x < 0f)
         {
-            _player.animationState.SetAnimationState("player_walk_left");
+            _player.animationState.SetAnimationState("kaia_walk_left");
         }
         else if (_player.moveVector.x == 0f && _player.moveVector.y > 0f)
         {
-            _player.animationState.SetAnimationState("player_walk_up");
+            _player.animationState.SetAnimationState("kaia_walk_up");
         }
         else
         {
-            _player.animationState.SetAnimationState("player_walk_down");
+            _player.animationState.SetAnimationState("kaia_walk_down");
         }
     }
 
