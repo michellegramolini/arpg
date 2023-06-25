@@ -2,7 +2,107 @@ fileFormatVersion: 2
 guid: 3d5dd3a5864caff4c90e14867d4b586c
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_hit_down
+    second: {fileID: 7400000, guid: dd2d565c95fc9574588e2ee4c4f007fc, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_hit_left
+    second: {fileID: 7400000, guid: 9caf99377c9a1a646a3bf417e1ab245a, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_hit_right
+    second: {fileID: 7400000, guid: 71b3a73dd8cfa9340abbac618b793e0e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_hit_up
+    second: {fileID: 7400000, guid: 30567d4f771d44246a419d02089419e1, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_idle_down
+    second: {fileID: 7400000, guid: b4e40f689f249e74994fe6f5850af67a, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_idle_left
+    second: {fileID: 7400000, guid: 627536681a769ac4190ec033a830c08b, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_idle_right
+    second: {fileID: 7400000, guid: 346fa18f1dfffaa4387ed70d1147bb8e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_idle_up
+    second: {fileID: 7400000, guid: 99e8c9f7a7f6bc24aabe7b3af0943eaa, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_jump_down
+    second: {fileID: 7400000, guid: 08cf75a7eb6699547a6fe1a937690dd3, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_jump_left
+    second: {fileID: 7400000, guid: 253ccbc6fe8136d4fbddd2173990c0ed, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_jump_right
+    second: {fileID: 7400000, guid: 19fe58914d1d71f45a9dd1a56a415b23, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_jump_up
+    second: {fileID: 7400000, guid: 6616f11bb4b48ef4d9e5b17716759898, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_run_down
+    second: {fileID: 7400000, guid: 8268d8505ad59c049894b7d6de63cf72, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_run_left
+    second: {fileID: 7400000, guid: 22368bcb85aff8346ab913d586a56f33, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_run_right
+    second: {fileID: 7400000, guid: fb0de8163e53fc24284c52d1dd5fbd2d, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_run_up
+    second: {fileID: 7400000, guid: ced56722f9ee70c49b71f8caac5642f2, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_walk_down
+    second: {fileID: 7400000, guid: 41cdbf7411e8d68428bfb3c0b144f3bd, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_walk_left
+    second: {fileID: 7400000, guid: 7e6a194a3095d7e43b6d501496dbfabd, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_walk_right
+    second: {fileID: 7400000, guid: 130131c9e932d9e419bfcbf7228d77fd, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: kaia_walk_up
+    second: {fileID: 7400000, guid: d33221c0e88f35443998f86597ed0644, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -93,7 +193,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638233132282266973
+  platformSettingsDirtyTick: 638233148127813265
   textureAssetName: 
   singleSpriteImportData:
   - name: 
