@@ -5,8 +5,8 @@ using Enemy;
 
 public class EnemyController : MonoBehaviour, IEnemy
 {
-    // Debug
-    private SpriteRenderer _sr;
+    public SpriteRenderer sr;
+    public BoxCollider2D bc;
 
     [Header("States")]
     public EnemyState currentState;
@@ -23,14 +23,18 @@ public class EnemyController : MonoBehaviour, IEnemy
     [Header("XP")]
     public int xpAmount;
 
+    [Header("Respawn")]
+    public Vector3 respawnPosition;
+
     //[Header("Animation")]
     //public AnimationState animationState;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Debug
-        _sr = gameObject.GetComponent<SpriteRenderer>();
+        // Components
+        sr = gameObject.GetComponent<SpriteRenderer>();
+        bc = gameObject.GetComponent<BoxCollider2D>();
 
         // Testing
         health = 2;
@@ -47,6 +51,8 @@ public class EnemyController : MonoBehaviour, IEnemy
         currentState = Idle;
         currentState.StartState(this);
 
+        // Respawn
+        respawnPosition = transform.position;
         // Get Components
         //animationState = gameObject.GetComponentInChildren<AnimationState>();
     }
@@ -81,9 +87,9 @@ public class EnemyController : MonoBehaviour, IEnemy
     #region
     private IEnumerator HitDebug()
     {
-        _sr.color = Color.red;
+        sr.color = Color.red;
         yield return new WaitForSeconds(0.2f);
-        _sr.color = Color.blue;
+        sr.color = Color.blue;
     }
     #endregion
 }

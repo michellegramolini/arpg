@@ -23,6 +23,7 @@ public class DamagePopup : MonoBehaviour, IPooledObject
     public void Setup(int damageAmount)
     {
         textMesh.SetText(damageAmount.ToString());
+        textMesh.color = Color.yellow;
     }
 
     // TODO: object pooler

@@ -26,9 +26,9 @@ public class LevelUpPopup : MonoBehaviour, IPooledObject
             new Vector2(transform.position.x, transform.position.y + 5f), step);
     }
 
-    public void Setup()
+    public void Setup(int level)
     {
-        textMesh.SetText("Level Up!");
+        textMesh.SetText($"Level {level}!");
         textMesh.color = Color.red;
     }
 
@@ -42,7 +42,7 @@ public class LevelUpPopup : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-        Setup();
+        //Setup();
         StartCoroutine(DestroyAfter(1.1f));
     }
 }

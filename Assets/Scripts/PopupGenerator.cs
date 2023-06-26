@@ -32,9 +32,10 @@ public class PopupGenerator : MonoBehaviour
     }
 
     // TODO: move to DamagePopup, maybe interface Generate, or spawn from object pool
-    private void GenerateLevelUpPopup(Vector3 position)
+    private void GenerateLevelUpPopup(Vector3 position, int level)
     {
         //Transform lup = Instantiate(_pfLevelUpPopup, position, Quaternion.identity);
         GameObject lup = ObjectPooler.Instance.SpawnFromPool("levelup_popup", position, Quaternion.identity);
+        lup.GetComponent<LevelUpPopup>().Setup(level);
     }
 }

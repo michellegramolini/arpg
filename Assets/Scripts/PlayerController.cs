@@ -434,7 +434,7 @@ public class PlayerController : MonoBehaviour
         // TODO: total xp
         currentXP = 0f;
         //Debug.Log("Level Up!");
-        XPManager.Instance.LevelUpPopup(transform.position);
+        XPManager.Instance.LevelUpPopup(transform.position, _currentLevel);
     }
 
     // Given a player's level, return the amount of xp needed to reach the next level.

@@ -12,7 +12,7 @@ public class XPManager
     public delegate void XPChangeHandler(int amount);
     public event XPChangeHandler OnXPChange;
 
-    public delegate void LevelUpPopupHandler(Vector3 position);
+    public delegate void LevelUpPopupHandler(Vector3 position, int level);
     public event LevelUpPopupHandler OnLevelUpPopup;
 
     //private void Awake()
@@ -37,9 +37,9 @@ public class XPManager
         OnXPChange?.Invoke(amount);
     }
 
-    public void LevelUpPopup(Vector3 position)
+    public void LevelUpPopup(Vector3 position, int level)
     {
-        OnLevelUpPopup?.Invoke(position);
+        OnLevelUpPopup?.Invoke(position, level);
     }
 
 
