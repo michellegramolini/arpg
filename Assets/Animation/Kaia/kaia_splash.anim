@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: kaia_idle_right
+  m_Name: kaia_splash
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,23 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 3046437876099841406, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
-    - time: 0.2
-      value: {fileID: 3046437876099841406, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+      value: {fileID: 704764168872460576, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.05000019
+      value: {fileID: 672494706238691390, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.15000057
+      value: {fileID: -6037004179381752439, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.20000076
+      value: {fileID: 2861737002683667424, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.25
+      value: {fileID: 1566478412465405741, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.3000002
+      value: {fileID: 6018439997115454795, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.35000038
+      value: {fileID: -1775973629451430680, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.40000057
+      value: {fileID: -6191744067880882621, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.45000058
+      value: {fileID: -6191744067880882621, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,7 +54,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.21000001
+    m_StopTime: 0.46000057
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

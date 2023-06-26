@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: kaia_idle_right
+  m_Name: kaia_swim_up
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,15 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 3046437876099841406, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
-    - time: 0.2
-      value: {fileID: 3046437876099841406, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+      value: {fileID: 5705371857962405202, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.30000114
+      value: {fileID: 7973810802014144503, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.6000004
+      value: {fileID: -427602942678903870, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 0.9000015
+      value: {fileID: 8290591987441590796, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
+    - time: 1.2000015
+      value: {fileID: 8290591987441590796, guid: 3d5dd3a5864caff4c90e14867d4b586c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,7 +46,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.21000001
+    m_StopTime: 1.2100015
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
