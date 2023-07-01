@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerInput _playerInput;
 
+    [Header("Player Data")]
+    private PlayerData _playerData;
+
     [Header("States")]
     public State currentState;
     public State previousState;
@@ -63,9 +66,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Enemies")]
     public LayerMask enemyLayer;
-
-    // Data class
-    public Data data;
 
     [Header("Animation")]
     public AnimationState animationState;
@@ -179,9 +179,6 @@ public class PlayerController : MonoBehaviour
 
         // start facing right
         facingDirection = new Vector2(1f, 0f);
-
-        // data class
-        data = new Data();
     }
 
     // Start is called before the first frame update
