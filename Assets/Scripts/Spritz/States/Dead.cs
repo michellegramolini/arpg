@@ -43,6 +43,7 @@ namespace Spritz
         {
             _spritz.sr.enabled = false;
             _spritz.bc.enabled = false;
+            _spritz.shadowSprite.enabled = false;
             yield return new WaitForSeconds(seconds);
             // TODO:
             _spritz.health = 2;
@@ -50,6 +51,7 @@ namespace Spritz
             _spritz.gameObject.transform.position = _spritz.respawnPosition;
             _spritz.sr.enabled = true;
             _spritz.bc.enabled = true;
+            _spritz.shadowSprite.enabled = true;
             Debug.Log("did all");
         }
     }

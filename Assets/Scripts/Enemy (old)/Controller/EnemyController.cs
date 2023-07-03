@@ -75,7 +75,7 @@ public class EnemyController : MonoBehaviour, IEnemy
 
     //}
 
-    public void Hit()
+    public void Hit(Vector2 hitDirection)
     {
         if (currentState != Damaged)
         {

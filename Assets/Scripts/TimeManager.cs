@@ -17,6 +17,7 @@ public class TimeManager : MonoBehaviour
     // TODO: pass in 
     public void SlowMotion()
     {
+        Debug.Log("Slow Time");
         Time.timeScale = slowDownFactor;
         Time.fixedDeltaTime = Time.timeScale * .02f;
     }

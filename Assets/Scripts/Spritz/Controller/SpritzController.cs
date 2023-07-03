@@ -36,6 +36,13 @@ namespace Spritz
         public Vector2 facingDirection;
         public float bounceSpeed;
 
+        GameObject _characterHolder;
+
+        public Vector2 hitDirection;
+        public float knockbackForce;
+
+        public SpriteRenderer shadowSprite;
+
 
         // Start is called before the first frame update
         void Start()
@@ -61,6 +68,9 @@ namespace Spritz
 
             // Get Components
             animationState = gameObject.GetComponentInChildren<AnimationState>();
+            _characterHolder = transform.Find("CharacterHolder").gameObject;
+            shadowSprite = transform.Find("CharacterHolder/shadow").GetComponent<SpriteRenderer>();
+
             //animationState = gameObject.GetComponent<AnimationState>();
 
             // Init State
@@ -107,12 +117,37 @@ namespace Spritz
             }
         }
 
-        public void Hit()
+        public void Hit(Vector2 hitDirection)
         {
+            this.hitDirection = hitDirection;
             if (currentState != Damaged)
             {
+                StartCoroutine(Squish(0.5f, 1.2f, 0.1f));
                 SetState(Damaged);
                 //StartCoroutine(HitDebug());
+            }
+        }
+
+        public IEnumerator Squish(float xSquash, float ySquash, float seconds)
+        {
+            Vector3 originalSize = Vector3.one;
+            Vector3 newSize = new(xSquash, ySquash, originalSize.z);
+            float t = 0f;
+
+            while (t <= 1.0)
+            {
+                t += Time.deltaTime / seconds;
+                _characterHolder.transform.localScale = Vector3.Lerp(originalSize, newSize, t);
+                yield return null;
+            }
+
+            t = 0f;
+
+            while (t <= 1.0)
+            {
+                t += Time.deltaTime / seconds;
+                _characterHolder.transform.localScale = Vector3.Lerp(newSize, originalSize, t);
+                yield return null;
             }
         }
 

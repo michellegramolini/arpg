@@ -43,7 +43,12 @@ namespace Spritz
 
         private IEnumerator DamageCoroutine()
         {
+            _spritz.rb.velocity = _spritz.hitDirection * _spritz.knockbackForce;
+            _spritz.rb.drag += 2f;
             yield return new WaitForSeconds(0.2f);
+            _spritz.rb.drag = 0f;
+            //_spritz.rb.velocity = Vector2.zero;
+
             if (_spritz.health <= 0)
             {
                 _spritz.SetState(_spritz.Dead);

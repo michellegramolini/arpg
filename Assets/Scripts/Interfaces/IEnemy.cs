@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IEnemy
 {
     // TODO: damage param
-    public void Hit();
+    public void Hit(Vector2 hitDirection);
 }
