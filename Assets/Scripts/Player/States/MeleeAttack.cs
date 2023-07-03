@@ -87,7 +87,19 @@ public class MeleeAttack : State
             foreach (Collider2D enemy in hitEnemies)
             {
                 //Debug.Log("Hit Enemy and do Damage!");
-                enemy.GetComponent<IEnemy>().Hit();
+                //enemy.GetComponent<IEnemy>().Hit();
+                if (enemy.GetComponent<IEnemy>() != null)
+                {
+                    enemy.GetComponent<IEnemy>().Hit();
+                }
+                else if (enemy.GetComponentInParent<IEnemy>() != null)
+                {
+                    enemy.GetComponentInParent<IEnemy>().Hit();
+                }
+                else
+                {
+                    ;
+                }
             }
         }
     }

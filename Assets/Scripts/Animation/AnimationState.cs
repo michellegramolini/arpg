@@ -8,9 +8,11 @@ public class AnimationState : MonoBehaviour
     public Animator animator;
     public SpriteRenderer spriteRenderer;
 
-    public string currentState;
+    [SerializeField]
+    private string _currentState;
 
-    public float currentFrame;
+    [SerializeField]
+    private float _currentFrame;
 
     public bool isDamageFrame;
 
@@ -42,12 +44,10 @@ public class AnimationState : MonoBehaviour
 
     public void SetAnimationState(string animationState)
     {
-        // ?
-        if (currentState == animationState) return;
-
-        currentState = animationState;
+        if (_currentState == animationState) return;
+        _currentState = animationState;
         // play animation
-        animator.Play(animationState);
+        animator.Play(_currentState);
     }
 
     public float GetClipLength(string clipName)
@@ -80,7 +80,7 @@ public class AnimationState : MonoBehaviour
     {
 
         // 1 being completed
-        currentFrame = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length * (animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1) * animator.GetCurrentAnimatorClipInfo(0)[0].clip.frameRate;
+        _currentFrame = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length * (animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1) * animator.GetCurrentAnimatorClipInfo(0)[0].clip.frameRate;
 
         //return animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
     }

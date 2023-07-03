@@ -92,7 +92,6 @@ public class Jump : State
         {
             yield return new WaitForSeconds(_player.jumpDuration);
         }
-
         _switch = false;
     }
 }
