@@ -71,7 +71,7 @@ namespace Spritz
 
         IEnumerator BounceAround()
         {
-            while (_spritz.currentState == _spritz.Idle)
+            while (_spritz.currentState != _spritz.Dead)
             {
                 _spritz.moveVector = _moveVectors[random.Next(_moveVectors.Count)];
                 Bounce();

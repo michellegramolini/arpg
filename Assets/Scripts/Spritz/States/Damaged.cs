@@ -15,7 +15,7 @@ namespace Spritz
 
         public override void LateUpdateState(SpritzController spritz)
         {
-            _spritz.animationState.SetAnimationState("test");
+
         }
 
         public override void StartState(SpritzController spritz)
