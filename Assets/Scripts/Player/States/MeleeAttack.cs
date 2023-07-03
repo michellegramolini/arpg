@@ -90,10 +90,12 @@ public class MeleeAttack : State
                 //enemy.GetComponent<IEnemy>().Hit();
                 if (enemy.GetComponent<IEnemy>() != null)
                 {
+                    _player.timeManager.SlowMotion();
                     enemy.GetComponent<IEnemy>().Hit();
                 }
                 else if (enemy.GetComponentInParent<IEnemy>() != null)
                 {
+                    _player.timeManager.SlowMotion();
                     enemy.GetComponentInParent<IEnemy>().Hit();
                 }
                 else
