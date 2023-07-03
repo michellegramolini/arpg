@@ -42,14 +42,14 @@ namespace Spritz
         private IEnumerator Respawn(float seconds)
         {
             _spritz.sr.enabled = false;
-            //_spritz.bc.enabled = false;
+            _spritz.bc.enabled = false;
             yield return new WaitForSeconds(seconds);
             // TODO:
             _spritz.health = 2;
             _spritz.SetState(_spritz.Idle);
             _spritz.gameObject.transform.position = _spritz.respawnPosition;
             _spritz.sr.enabled = true;
-            //_spritz.bc.enabled = true;
+            _spritz.bc.enabled = true;
             Debug.Log("did all");
         }
     }
