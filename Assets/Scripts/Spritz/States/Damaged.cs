@@ -43,6 +43,8 @@ namespace Spritz
 
         private IEnumerator DamageCoroutine()
         {
+            // TODO: should probably be in fixedupdate
+            // TODO: if knockback over edge
             _spritz.rb.velocity = _spritz.hitDirection * _spritz.knockbackForce;
             _spritz.rb.drag += 2f;
             yield return new WaitForSeconds(0.2f);

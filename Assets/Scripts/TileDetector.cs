@@ -59,6 +59,7 @@ public class TileDetector : MonoBehaviour
     {
         // get the tile grid position from whereever this object is 
         Vector3Int heightMapGridPosition = _heightMap.WorldToCell(transform.position);
+        // TODO:?
         Vector3Int terrainMapGridPosition = _terrainMap.WorldToCell(transform.position);
 
         if (_heightMap.HasTile(heightMapGridPosition))

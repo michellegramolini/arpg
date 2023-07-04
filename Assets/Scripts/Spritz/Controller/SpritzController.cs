@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SuperTiled2Unity;
 
 namespace Spritz
 {
@@ -43,6 +44,20 @@ namespace Spritz
 
         public SpriteRenderer shadowSprite;
 
+        [Header("Tile Detection")]
+        public TileDetector tileDetector;
+        private Transform _feet;
+        public int z;
+        public bool canMove;
+        public bool terrainInFrontOf;
+        public bool heightInFrontOf;
+
+        private void Awake()
+        {
+            _characterHolder = transform.Find("CharacterHolder").gameObject;
+            shadowSprite = transform.Find("CharacterHolder/shadow").GetComponent<SpriteRenderer>();
+            _feet = transform.Find("CharacterHolder/Feet");
+        }
 
         // Start is called before the first frame update
         void Start()
@@ -68,10 +83,16 @@ namespace Spritz
 
             // Get Components
             animationState = gameObject.GetComponentInChildren<AnimationState>();
-            _characterHolder = transform.Find("CharacterHolder").gameObject;
-            shadowSprite = transform.Find("CharacterHolder/shadow").GetComponent<SpriteRenderer>();
+            //_characterHolder = transform.Find("CharacterHolder").gameObject;
+            //shadowSprite = transform.Find("CharacterHolder/shadow").GetComponent<SpriteRenderer>();
+            tileDetector = gameObject.GetComponentInChildren<TileDetector>();
+            //_feet = transform.Find("CharacterHolder/Feet");
 
-            //animationState = gameObject.GetComponent<AnimationState>();
+            // Init Height
+            // Only need to get this once at Start because current implementation does not allow jumping up or down things
+            z = GetCurrentZ();
+
+            facingDirection = Vector2.down;
 
             // Init State
             currentState = Idle;
@@ -82,12 +103,23 @@ namespace Spritz
         private void Update()
         {
             SetFacingDirection();
+            DetectNextFacingTile(facingDirection);
+
+            if (terrainInFrontOf || heightInFrontOf)
+            {
+                canMove = false;
+            }
+            else
+            {
+                canMove = true;
+            }
 
             currentState.UpdateState(this);
         }
 
         private void FixedUpdate()
         {
+
             currentState.FixedUpdateState(this);
         }
 
@@ -95,6 +127,84 @@ namespace Spritz
         {
             currentState.LateUpdateState(this);
         }
+
+        #region Tile Detection
+        private int GetCurrentZ()
+        {
+            if (tileDetector.GetTileProp("current", "height_value") != null)
+            {
+                return tileDetector.GetTileProp("current", "height_value").m_Value.ToInt();
+            }
+
+            return 0;
+        }
+
+        private void DetectNextFacingTile(Vector3 facingDirection)
+        {
+            Vector3 pos = _feet.position + (facingDirection * 1.5f);
+
+            SuperTile _heightTile = tileDetector.GetHeightTile(pos);
+            SuperTile _terrainTile = tileDetector.GetTerrainTile(pos);
+
+            if (_terrainTile != null)
+            {
+                string _terrainValue = tileDetector.GetTilePropFromSuperTile(_terrainTile, "terrain").m_Value;
+
+                if (_terrainValue == "water" || _terrainValue == "wall")
+                {
+                    terrainInFrontOf = true;
+                }
+                else
+                {
+                    terrainInFrontOf = false;
+                }
+            }
+            else
+            {
+                terrainInFrontOf = false;
+            }
+
+            if (_heightTile != null)
+            {
+                int? _heightValue = tileDetector.GetTilePropFromSuperTile(_heightTile, "height_value").m_Value.ToInt();
+
+                if (_heightValue != null && _heightValue != z)
+                {
+                    heightInFrontOf = true;
+                }
+                else
+                {
+                    heightInFrontOf = false;
+                }
+            }
+            else
+            {
+                // In other words, no tile available
+                heightInFrontOf = true;
+            }
+
+            //else if (_heightTile != null)
+            //{
+            //    int? _heightValue = tileDetector.GetTilePropFromSuperTile(_heightTile, "height_value").m_Value.ToInt();
+
+            //    if (_heightValue == null || _heightValue != z)
+            //    {
+            //        canMove = false;
+            //    }
+            //    else
+            //    {
+            //        canMove = true;
+            //    }
+            //    return;
+            //}
+            //else
+            //{
+            //    canMove = false;
+            //    return;
+            //}
+        }
+
+        #endregion
 
         public void SetState(SpritzState state)
         {

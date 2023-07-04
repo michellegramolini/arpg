@@ -11,6 +11,8 @@ namespace Spritz
 
         private System.Random random = new System.Random();
 
+        private bool _bounce;
+
 
         // randomize move vector
         private readonly List<Vector2> _moveVectors = new List<Vector2>{
@@ -23,7 +25,10 @@ namespace Spritz
 
         public override void FixedUpdateState(SpritzController spritz)
         {
-
+            if (_bounce)
+            {
+                Bounce();
+            }
         }
 
         public override void LateUpdateState(SpritzController spritz)
@@ -40,12 +45,22 @@ namespace Spritz
 
         public override void UpdateState(SpritzController spritz)
         {
-
+            if (_spritz.currentState == _spritz.Dead)
+            {
+                _bounce = false;
+            }
         }
 
         private void Bounce()
         {
-            _spritz.rb.velocity = _spritz.bounceSpeed * _spritz.moveVector;
+            if (_spritz.canMove)
+            {
+                _spritz.rb.velocity = _spritz.bounceSpeed * _spritz.moveVector;
+            }
+            else
+            {
+                _spritz.rb.velocity = Vector2.zero;
+            }
         }
 
 
@@ -73,8 +88,8 @@ namespace Spritz
         {
             while (_spritz.currentState != _spritz.Dead)
             {
+                _bounce = true;
                 _spritz.moveVector = _moveVectors[random.Next(_moveVectors.Count)];
-                Bounce();
                 yield return new WaitForSeconds(_spritz.animationState.GetClipLength("hop_up"));
             }
         }

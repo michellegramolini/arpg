@@ -236,6 +236,61 @@ MonoBehaviour:
   bounceSpeed: 1
   hitDirection: {x: 0, y: 0}
   knockbackForce: 5
+  shadowSprite: {fileID: 0}
+  tileDetector: {fileID: 0}
+  z: 0
+  canMove: 0
+--- !u!1 &3180232942858493540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5156117515968494370}
+  - component: {fileID: 4669462757433263520}
+  m_Layer: 6
+  m_Name: Feet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5156117515968494370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180232942858493540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5331037635549134909}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4669462757433263520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180232942858493540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1adb6f0b8abf4e80b24a43750fbfd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heightMap: {fileID: 0}
+  _terrainMap: {fileID: 0}
+  diagonals:
+  - up-right
+  - up-left
+  - down-right
+  - down-left
 --- !u!1 &5331037635549134907
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +321,7 @@ Transform:
   m_Children:
   - {fileID: 383526383}
   - {fileID: 5331037636131269937}
+  - {fileID: 5156117515968494370}
   m_Father: {fileID: 9060595106469821783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
