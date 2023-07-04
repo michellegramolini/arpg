@@ -240,6 +240,8 @@ MonoBehaviour:
   tileDetector: {fileID: 0}
   z: 0
   canMove: 0
+  terrainInFrontOf: 0
+  heightInFrontOf: 0
 --- !u!1 &3180232942858493540
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,11 +288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heightMap: {fileID: 0}
   _terrainMap: {fileID: 0}
-  diagonals:
-  - up-right
-  - up-left
-  - down-right
-  - down-left
 --- !u!1 &5331037635549134907
 GameObject:
   m_ObjectHideFlags: 0

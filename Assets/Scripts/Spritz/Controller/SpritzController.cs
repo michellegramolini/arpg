@@ -90,7 +90,7 @@ namespace Spritz
 
             // Init Height
             // Only need to get this once at Start because current implementation does not allow jumping up or down things
-            z = GetCurrentZ();
+            //z = GetCurrentZ();
 
             facingDirection = Vector2.down;
 
@@ -102,6 +102,11 @@ namespace Spritz
 
         private void Update()
         {
+            if (z != GetCurrentZ())
+            {
+                z = GetCurrentZ();
+            }
+
             SetFacingDirection();
             DetectNextFacingTile(facingDirection);
 
@@ -141,7 +146,7 @@ namespace Spritz
 
         private void DetectNextFacingTile(Vector3 facingDirection)
         {
-            Vector3 pos = _feet.position + (facingDirection * 1.5f);
+            Vector3 pos = _feet.position + (facingDirection);
 
             SuperTile _heightTile = tileDetector.GetHeightTile(pos);
             SuperTile _terrainTile = tileDetector.GetTerrainTile(pos);
@@ -168,13 +173,21 @@ namespace Spritz
             {
                 int? _heightValue = tileDetector.GetTilePropFromSuperTile(_heightTile, "height_value").m_Value.ToInt();
 
-                if (_heightValue != null && _heightValue != z)
+                if (_heightValue != null)
                 {
-                    heightInFrontOf = true;
+                    if (_heightValue != z)
+                    {
+                        heightInFrontOf = true;
+                    }
+                    else
+                    {
+                        // can go
+                        heightInFrontOf = false;
+                    }
                 }
                 else
                 {
-                    heightInFrontOf = false;
+                    heightInFrontOf = true;
                 }
             }
             else
@@ -182,26 +195,6 @@ namespace Spritz
                 // In other words, no tile available
                 heightInFrontOf = true;
             }
-
-            //else if (_heightTile != null)
-            //{
-            //    int? _heightValue = tileDetector.GetTilePropFromSuperTile(_heightTile, "height_value").m_Value.ToInt();
-
-            //    if (_heightValue == null || _heightValue != z)
-            //    {
-            //        canMove = false;
-            //    }
-            //    else
-            //    {
-            //        canMove = true;
-            //    }
-            //    return;
-            //}
-            //else
-            //{
-            //    canMove = false;
-            //    return;
-            //}
         }
 
         #endregion
