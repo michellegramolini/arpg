@@ -19,6 +19,7 @@ namespace Spritz
         public Idle Idle;
         public Damaged Damaged;
         public Dead Dead;
+        public Spawn Spawn;
 
         [Header("Health")]
         public int health;
@@ -52,11 +53,17 @@ namespace Spritz
         public bool terrainInFrontOf;
         public bool heightInFrontOf;
 
+        [Header("Player Detection")]
+        public bool playerDetected;
+        public float playerDetectionRadius;
+        public LayerMask playerLayer;
+
         private void Awake()
         {
             _characterHolder = transform.Find("CharacterHolder").gameObject;
             shadowSprite = transform.Find("CharacterHolder/shadow").GetComponent<SpriteRenderer>();
             _feet = transform.Find("CharacterHolder/Feet");
+            playerLayer = LayerMask.GetMask("Player");
         }
 
         // Start is called before the first frame update
@@ -77,6 +84,7 @@ namespace Spritz
             Attack = gameObject.AddComponent<Attack>();
             Damaged = gameObject.AddComponent<Damaged>();
             Dead = gameObject.AddComponent<Dead>();
+            Spawn = gameObject.AddComponent<Spawn>();
 
             // Respawn
             respawnPosition = transform.position;
@@ -95,7 +103,7 @@ namespace Spritz
             facingDirection = Vector2.down;
 
             // Init State
-            currentState = Idle;
+            currentState = Spawn;
             currentState.StartState(this);
 
         }
@@ -292,12 +300,18 @@ namespace Spritz
             }
         }
 
-        #region
+        #region Debug
         private IEnumerator HitDebug()
         {
             sr.color = Color.red;
             yield return new WaitForSeconds(0.2f);
             sr.color = Color.blue;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, playerDetectionRadius);
         }
         #endregion
     }

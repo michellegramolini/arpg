@@ -35,8 +35,8 @@ namespace Spritz
             _spritz.rb.velocity = Vector2.zero;
             Debug.Log($"{this} Enemy is Dead.");
             XPManager.Instance.AddExperience(_spritz.xpAmount);
-            //_enemy.gameObject.SetActive(false);
             StartCoroutine(Respawn(1.2f));
+            //Invoke(nameof(Respawn), 1.2f);
         }
 
         private IEnumerator Respawn(float seconds)
@@ -54,6 +54,11 @@ namespace Spritz
             _spritz.shadowSprite.enabled = true;
             //Debug.Log("did all");
         }
+
+        //private void Respawn()
+        //{
+        //    _spritz.SetState(_spritz.Spawn);
+        //}
     }
 }
 

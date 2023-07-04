@@ -39,6 +39,11 @@ namespace Spritz
         public override void StartState(SpritzController spritz)
         {
             this._spritz = spritz;
+            //
+
+            _spritz.shadowSprite.enabled = true;
+            _spritz.rb.velocity = Vector2.zero;
+            //
             //_spritz.moveVector = Vector2.zero;
             StartCoroutine(BounceAround());
         }
