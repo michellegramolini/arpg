@@ -89,8 +89,6 @@ public class PlayerController : MonoBehaviour
     private int _currentLevel;
     private float _a, _b;
 
-    public TimeManager timeManager;
-
 
     #region Event Handlers
     private void HandleXPChange(int newXP)
@@ -181,8 +179,6 @@ public class PlayerController : MonoBehaviour
 
         // start facing right
         facingDirection = new Vector2(1f, 0f);
-
-        timeManager = GameObject.Find("TimeManager").GetComponent<TimeManager>();
     }
 
     // Start is called before the first frame update
