@@ -375,7 +375,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("height prop is null");
             canMove = false;
         }
     }

@@ -52,7 +52,7 @@ namespace Spritz
             _spritz.sr.enabled = true;
             _spritz.bc.enabled = true;
             _spritz.shadowSprite.enabled = true;
-            Debug.Log("did all");
+            //Debug.Log("did all");
         }
     }
 }

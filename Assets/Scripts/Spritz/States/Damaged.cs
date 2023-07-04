@@ -8,9 +8,13 @@ namespace Spritz
     {
         private SpritzController _spritz;
 
+
         public override void FixedUpdateState(SpritzController spritz)
         {
-
+            if (_spritz.IsStandingOnBadTile())
+            {
+                _spritz.rb.velocity = Vector2.zero;
+            }
         }
 
         public override void LateUpdateState(SpritzController spritz)
@@ -49,7 +53,7 @@ namespace Spritz
             _spritz.rb.drag += 2f;
             yield return new WaitForSeconds(0.2f);
             _spritz.rb.drag = 0f;
-            //_spritz.rb.velocity = Vector2.zero;
+            _spritz.rb.velocity = Vector2.zero;
 
             if (_spritz.health <= 0)
             {
@@ -60,6 +64,7 @@ namespace Spritz
                 _spritz.SetState(_spritz.Idle);
             }
         }
+
     }
 }
 

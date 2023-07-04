@@ -197,6 +197,44 @@ namespace Spritz
             }
         }
 
+        public bool IsStandingOnBadTile()
+        {
+            SuperTile _heightTile = tileDetector.GetHeightTile(_feet.position);
+            SuperTile _terrainTile = tileDetector.GetTerrainTile(_feet.position);
+
+            bool standingOnBadTile = false;
+            if (_terrainTile != null)
+            {
+                string _terrainValue = tileDetector.GetTilePropFromSuperTile(_terrainTile, "terrain").m_Value;
+                if (_terrainValue == "water" || _terrainValue == "wall")
+                {
+                    standingOnBadTile = true;
+                }
+            }
+
+            if (_heightTile != null)
+            {
+                int? _heightValue = tileDetector.GetTilePropFromSuperTile(_heightTile, "height_value").m_Value.ToInt();
+                if (_heightValue != null)
+                {
+                    if (_heightValue != z)
+                    {
+                        standingOnBadTile = true;
+                    }
+                }
+                else
+                {
+                    standingOnBadTile = true;
+                }
+            }
+            else
+            {
+                standingOnBadTile = true;
+            }
+
+            return standingOnBadTile;
+        }
+
         #endregion
 
         public void SetState(SpritzState state)
