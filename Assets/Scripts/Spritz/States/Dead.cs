@@ -51,7 +51,7 @@ namespace Spritz
             _spritz.gameObject.transform.position = _spritz.respawnPosition;
             _spritz.sr.enabled = true;
             _spritz.bc.enabled = true;
-            _spritz.shadowSprite.enabled = true;
+            //_spritz.shadowSprite.enabled = true;
             //Debug.Log("did all");
         }
 
