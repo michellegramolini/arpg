@@ -402,6 +402,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 149107879}
     m_Modifications:
+    - target: {fileID: 383526383, guid: 3315a947d93039745b25d72ff83dbb0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2623663074468477221, guid: 3315a947d93039745b25d72ff83dbb0a, type: 3}
       propertyPath: m_Name
       value: Spritz

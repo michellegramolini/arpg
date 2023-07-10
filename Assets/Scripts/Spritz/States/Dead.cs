@@ -33,7 +33,7 @@ namespace Spritz
         private void Die()
         {
             _spritz.rb.velocity = Vector2.zero;
-            Debug.Log($"{this} Enemy is Dead.");
+            //Debug.Log($"{this} Enemy is Dead.");
             XPManager.Instance.AddExperience(_spritz.xpAmount);
             StartCoroutine(Respawn(1.2f));
             //Invoke(nameof(Respawn), 1.2f);

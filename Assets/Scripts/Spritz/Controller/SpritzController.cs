@@ -20,6 +20,7 @@ namespace Spritz
         public Damaged Damaged;
         public Dead Dead;
         public Spawn Spawn;
+        public Bounce Bounce;
 
         [Header("Health")]
         public int health;
@@ -32,18 +33,20 @@ namespace Spritz
 
         [Header("Animation")]
         public AnimationState animationState;
+        public SpriteRenderer shadowSprite;
+        GameObject _characterHolder;
 
         [Header("Movement")]
         public Vector2 moveVector;
         public Vector2 facingDirection;
         public float bounceSpeed;
 
-        GameObject _characterHolder;
+        [Header("Idle")]
+        public List<float> idleTimeRange;
 
+        [Header("Attack/Hit")]
         public Vector2 hitDirection;
         public float knockbackForce;
-
-        public SpriteRenderer shadowSprite;
 
         [Header("Tile Detection")]
         public TileDetector tileDetector;
@@ -85,6 +88,7 @@ namespace Spritz
             Damaged = gameObject.AddComponent<Damaged>();
             Dead = gameObject.AddComponent<Dead>();
             Spawn = gameObject.AddComponent<Spawn>();
+            Bounce = gameObject.AddComponent<Bounce>();
 
             // Respawn
             respawnPosition = transform.position;

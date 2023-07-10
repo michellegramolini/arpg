@@ -46,7 +46,7 @@ namespace Spritz
                 _spritz.bc.enabled = true;
 
                 //_spawn = false;
-                Invoke(nameof(SpawnToIdle), _spritz.animationState.GetClipLength("spawn") + 0.1f);
+                Invoke(nameof(SpawnToBounce), _spritz.animationState.GetClipLength("spawn") + 0.1f);
             }
         }
 
@@ -60,10 +60,10 @@ namespace Spritz
             }
         }
 
-        private void SpawnToIdle()
+        private void SpawnToBounce()
         {
             _spawn = false;
-            _spritz.SetState(_spritz.Idle);
+            _spritz.SetState(_spritz.Bounce);
         }
 
         private void Animate()
