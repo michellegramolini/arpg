@@ -59,6 +59,8 @@ namespace Spritz
 
         private IEnumerator DamageCoroutine()
         {
+            // temporarily disabling the box collider should prevent accidental double hits. 
+            _spritz.bc.enabled = false;
             ResetPhysics();
             ApplyKnockbackForce();
             DoDamage();
@@ -70,6 +72,7 @@ namespace Spritz
             _spritz.rb.velocity = (-_spritz.knockbackForce * 0.5f) * _spritz.hitDirection;
             yield return new WaitForSeconds(0.1f);
             ResetPhysics();
+            _spritz.bc.enabled = true;
             if (_spritz.health <= 0)
             {
                 _spritz.SetState(_spritz.Dead);
