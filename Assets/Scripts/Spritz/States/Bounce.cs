@@ -23,47 +23,49 @@ namespace Spritz
 
         public override void FixedUpdateState(SpritzController spritz)
         {
-            if (_bounce)
-            {
-                BounceAround();
-            }
+
         }
 
         public override void LateUpdateState(SpritzController spritz)
         {
+            _spritz.EnabeSprites();
             Animate();
         }
 
         public override void StartState(SpritzController spritz)
         {
             this._spritz = spritz;
-            if (!_spritz.shadowSprite.enabled)
-            {
-                _spritz.shadowSprite.enabled = true;
-            }
-            StartCoroutine(BounceCoroutine());
+
+            StopCoroutine(nameof(BounceCoroutine));
+            StartCoroutine(nameof(BounceCoroutine));
         }
 
         public override void UpdateState(SpritzController spritz)
         {
-            if (_spritz.currentState == _spritz.Dead)
-            {
-                _bounce = false;
-            }
+
         }
 
-        private void BounceAround()
+        private void ApplyMotionPhysics()
         {
-            if (_spritz.canMove)
+            _spritz.moveVector = _moveVectors[random.Next(_moveVectors.Count)];
+
+            if (_spritz.previousState == _spritz.Spawn || !_spritz.canMove)
             {
-                _spritz.rb.velocity = _spritz.bounceSpeed * _spritz.moveVector;
+                //_spritz.moveVector = Vector2.zero;
+                StopMotion();
             }
             else
             {
-                _spritz.rb.velocity = Vector2.zero;
+                _spritz.rb.velocity = _spritz.bounceSpeed * _spritz.moveVector;
             }
+
+
         }
 
+        private void StopMotion()
+        {
+            _spritz.rb.velocity = Vector2.zero;
+        }
 
         private void Animate()
         {
@@ -87,13 +89,12 @@ namespace Spritz
 
         IEnumerator BounceCoroutine()
         {
-            //while (_spritz.currentState != _spritz.Dead)
-            //{
-            _bounce = true;
-            _spritz.moveVector = _moveVectors[random.Next(_moveVectors.Count)];
-            yield return new WaitForSeconds(_spritz.animationState.GetClipLength("hop_up"));
+            ApplyMotionPhysics();
+            yield return new WaitForSeconds(_spritz.animationState.GetClipLength("hop_up") * 0.8f);
+            StopMotion();
+            yield return new WaitForSeconds(_spritz.animationState.GetClipLength("hop_up") * 0.2f);
             _spritz.SetState(_spritz.Idle);
-            //}
+            yield break;
         }
     }
 }

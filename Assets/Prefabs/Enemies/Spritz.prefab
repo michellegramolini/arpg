@@ -227,11 +227,13 @@ MonoBehaviour:
   Idle: {fileID: 0}
   Damaged: {fileID: 0}
   Dead: {fileID: 0}
+  PreSpawn: {fileID: 0}
   Spawn: {fileID: 0}
   Bounce: {fileID: 0}
   health: 0
   xpAmount: 0
   respawnPosition: {x: 0, y: 0, z: 0}
+  respawned: 0
   animationState: {fileID: 0}
   shadowSprite: {fileID: 0}
   moveVector: {x: 0, y: 0}

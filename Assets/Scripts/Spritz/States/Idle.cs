@@ -17,6 +17,7 @@ namespace Spritz
 
         public override void LateUpdateState(SpritzController spritz)
         {
+            _spritz.EnabeSprites();
             Animate();
         }
 
@@ -24,7 +25,9 @@ namespace Spritz
         {
             this._spritz = spritz;
 
-            StartCoroutine(IdleCoroutine(UnityEngine.Random.Range(_spritz.idleTimeRange[0], _spritz.idleTimeRange[1])));
+            StopCoroutine(nameof(IdleCoroutine));
+
+            StartCoroutine(nameof(IdleCoroutine), (UnityEngine.Random.Range(_spritz.idleTimeRange[0], _spritz.idleTimeRange[1])));
         }
 
         public override void UpdateState(SpritzController spritz)
@@ -56,6 +59,7 @@ namespace Spritz
         {
             yield return new WaitForSeconds(seconds);
             _spritz.SetState(_spritz.Bounce);
+            yield break;
         }
 
     }

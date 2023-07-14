@@ -8,26 +8,25 @@ namespace Spritz
     {
         private SpritzController _spritz;
 
-
         public override void FixedUpdateState(SpritzController spritz)
         {
             if (_spritz.IsStandingOnBadTile())
             {
                 _spritz.rb.velocity = Vector2.zero;
+                _spritz.rb.velocity = -1.5f * _spritz.hitDirection;
             }
         }
 
         public override void LateUpdateState(SpritzController spritz)
         {
-
+            // TODO: damage animation
         }
 
         public override void StartState(SpritzController spritz)
         {
             this._spritz = spritz;
-
-            DoDamage();
-            StartCoroutine(DamageCoroutine());
+            StopCoroutine(nameof(DamageCoroutine));
+            StartCoroutine(nameof(DamageCoroutine));
         }
 
         public override void UpdateState(SpritzController spritz)
@@ -40,29 +39,48 @@ namespace Spritz
             // TODO: configure amounts
             _spritz.health -= 1;
             DamageManager.Instance.AddDamage(1);
-            // TODO: popups
+
+        }
+
+        private void DoPopups()
+        {
             DamageManager.Instance.GenerateDamagePopup(transform.position, 1);
-            //Debug.Log($"Enemy Damaged! Health is {_enemy.health}");
+        }
+
+        private void ResetPhysics()
+        {
+            _spritz.rb.velocity = Vector2.zero;
+        }
+
+        private void ApplyKnockbackForce()
+        {
+            _spritz.rb.velocity = _spritz.hitDirection * _spritz.knockbackForce;
         }
 
         private IEnumerator DamageCoroutine()
         {
-            // TODO: should probably be in fixedupdate
-            // TODO: if knockback over edge
-            _spritz.rb.velocity = _spritz.hitDirection * _spritz.knockbackForce;
-            _spritz.rb.drag += 2f;
-            yield return new WaitForSeconds(0.2f);
-            _spritz.rb.drag = 0f;
-            _spritz.rb.velocity = Vector2.zero;
-
+            ResetPhysics();
+            ApplyKnockbackForce();
+            DoDamage();
+            DoPopups();
+            // HACK:
+            // this is temporary, but just a way of trying to get some springyness into the knockback
+            yield return new WaitForSeconds(0.1f);
+            ResetPhysics();
+            _spritz.rb.velocity = (-_spritz.knockbackForce * 0.5f) * _spritz.hitDirection;
+            yield return new WaitForSeconds(0.1f);
+            ResetPhysics();
             if (_spritz.health <= 0)
             {
                 _spritz.SetState(_spritz.Dead);
             }
             else
             {
-                _spritz.SetState(_spritz.Idle);
+                _spritz.SetState(_spritz.Bounce);
             }
+
+            yield break;
+
         }
 
     }

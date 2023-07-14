@@ -30,6 +30,7 @@ namespace Spritz
 
         [Header("Respawn")]
         public Vector3 respawnPosition;
+        public bool respawned;
 
         [Header("Animation")]
         public AnimationState animationState;
@@ -95,14 +96,7 @@ namespace Spritz
 
             // Get Components
             animationState = gameObject.GetComponentInChildren<AnimationState>();
-            //_characterHolder = transform.Find("CharacterHolder").gameObject;
-            //shadowSprite = transform.Find("CharacterHolder/shadow").GetComponent<SpriteRenderer>();
             tileDetector = gameObject.GetComponentInChildren<TileDetector>();
-            //_feet = transform.Find("CharacterHolder/Feet");
-
-            // Init Height
-            // Only need to get this once at Start because current implementation does not allow jumping up or down things
-            //z = GetCurrentZ();
 
             facingDirection = Vector2.down;
 
@@ -122,6 +116,7 @@ namespace Spritz
             SetFacingDirection();
             DetectNextFacingTile(facingDirection);
 
+            // TODO: just turn them around if possible
             if (terrainInFrontOf || heightInFrontOf)
             {
                 canMove = false;
@@ -129,6 +124,11 @@ namespace Spritz
             else
             {
                 canMove = true;
+            }
+
+            if (currentState == Spawn)
+            {
+                DetectPlayer();
             }
 
             currentState.UpdateState(this);
@@ -143,6 +143,33 @@ namespace Spritz
         private void LateUpdate()
         {
             currentState.LateUpdateState(this);
+        }
+
+        public void DisableSprites()
+        {
+            sr.enabled = false;
+            shadowSprite.enabled = false;
+        }
+
+        public void EnabeSprites()
+        {
+            sr.enabled = true;
+            shadowSprite.enabled = true;
+        }
+
+        private void DetectPlayer()
+        {
+            Collider2D hitPlayer = Physics2D.OverlapCircle(transform.position, playerDetectionRadius, playerLayer);
+
+            if (hitPlayer != null)
+            {
+                playerDetected = true;
+
+            }
+            else
+            {
+                playerDetected = false;
+            }
         }
 
         #region Tile Detection
@@ -273,12 +300,10 @@ namespace Spritz
         public void Hit(Vector2 hitDirection)
         {
             this.hitDirection = hitDirection;
-            if (currentState != Damaged)
-            {
-                StartCoroutine(Squish(0.5f, 1.2f, 0.1f));
-                SetState(Damaged);
-                //StartCoroutine(HitDebug());
-            }
+
+            StopCoroutine(nameof(Squish));
+            StartCoroutine(Squish(0.5f, 1.2f, 0.1f));
+            SetState(Damaged);
         }
 
         public IEnumerator Squish(float xSquash, float ySquash, float seconds)

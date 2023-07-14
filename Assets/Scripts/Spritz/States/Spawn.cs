@@ -7,8 +7,7 @@ namespace Spritz
     public class Spawn : SpritzState
     {
         private SpritzController _spritz;
-
-        private bool _spawn;
+        private Coroutine _spawnCoroutine;
 
         public override void FixedUpdateState(SpritzController spritz)
         {
@@ -17,53 +16,36 @@ namespace Spritz
 
         public override void LateUpdateState(SpritzController spritz)
         {
-            if (_spawn)
-            {
-                Animate();
-            }
+
         }
 
         public override void StartState(SpritzController spritz)
         {
             this._spritz = spritz;
-
-            _spawn = false;
-            _spritz.sr.enabled = false;
-            _spritz.shadowSprite.enabled = false;
-            _spritz.bc.enabled = false;
-            _spritz.shadowSprite.enabled = false;
         }
 
         public override void UpdateState(SpritzController spritz)
         {
-            DetectPlayer();
-
-            if (_spawn)
+            if (_spritz.playerDetected)
             {
-                _spritz.health = 2;
-                _spritz.gameObject.transform.position = _spritz.respawnPosition;
-                _spritz.sr.enabled = true;
-                _spritz.bc.enabled = true;
-
-                //_spawn = false;
-                Invoke(nameof(SpawnToBounce), _spritz.animationState.GetClipLength("spawn") + 0.1f);
+                _spritz.EnabeSprites();
+                Animate();
+                if (_spawnCoroutine == null)
+                {
+                    _spawnCoroutine = StartCoroutine(nameof(SpawnCoroutine));
+                }
+            }
+            else
+            {
+                _spritz.DisableSprites();
             }
         }
 
-        private void DetectPlayer()
+        private IEnumerator SpawnCoroutine()
         {
-            Collider2D hitPlayer = Physics2D.OverlapCircle(transform.position, _spritz.playerDetectionRadius, _spritz.playerLayer);
-
-            if (hitPlayer != null)
-            {
-                _spawn = true;
-            }
-        }
-
-        private void SpawnToBounce()
-        {
-            _spawn = false;
+            yield return new WaitForSeconds(_spritz.animationState.GetClipLength("spawn") + 0.1f);
             _spritz.SetState(_spritz.Bounce);
+            yield break;
         }
 
         private void Animate()
