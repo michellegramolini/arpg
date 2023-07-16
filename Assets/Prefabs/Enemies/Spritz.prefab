@@ -227,7 +227,6 @@ MonoBehaviour:
   Idle: {fileID: 0}
   Damaged: {fileID: 0}
   Dead: {fileID: 0}
-  PreSpawn: {fileID: 0}
   Spawn: {fileID: 0}
   Bounce: {fileID: 0}
   health: 0
@@ -236,6 +235,7 @@ MonoBehaviour:
   respawned: 0
   animationState: {fileID: 0}
   shadowSprite: {fileID: 0}
+  characterHolder: {fileID: 0}
   moveVector: {x: 0, y: 0}
   facingDirection: {x: 0, y: 0}
   bounceSpeed: 1
@@ -243,12 +243,14 @@ MonoBehaviour:
   - 0.5
   - 1
   hitDirection: {x: 0, y: 0}
-  knockbackForce: 5
+  knockbackForce: 8
+  knockbackDrag: 2
   tileDetector: {fileID: 0}
   z: 0
   canMove: 0
   terrainInFrontOf: 0
   heightInFrontOf: 0
+  nullTileInFrontOf: 0
   playerDetected: 0
   playerDetectionRadius: 5.73
   playerLayer:

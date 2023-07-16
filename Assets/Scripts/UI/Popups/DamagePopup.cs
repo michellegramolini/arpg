@@ -26,22 +26,17 @@ public class DamagePopup : MonoBehaviour, IPooledObject
         textMesh.color = Color.yellow;
     }
 
-    // TODO: object pooler
+    // TODO: make part of interface potentially
     private IEnumerator DestroyAfter(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         ObjectPooler.Instance.Recycle("damage_popup", this.gameObject);
-        //Destroy(gameObject, seconds);
     }
 
     public void OnObjectSpawn()
     {
+        StopCoroutine(nameof(DestroyAfter));
         StartCoroutine(DestroyAfter(1.1f));
     }
 
-    // TODO: grab prefab from object pooler
-    //public static DamagePopup Create()
-    //{
-
-    //}
 }

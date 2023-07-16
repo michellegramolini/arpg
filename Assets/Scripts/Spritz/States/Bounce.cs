@@ -48,8 +48,8 @@ namespace Spritz
         private void ApplyMotionPhysics()
         {
             _spritz.moveVector = _moveVectors[random.Next(_moveVectors.Count)];
-
-            if (_spritz.previousState == _spritz.Spawn || !_spritz.canMove)
+            //_spritz.DetectNextFacingTile(_spritz.moveVector, 1f);
+            if (_spritz.previousState == _spritz.Spawn || !_spritz.DetectNextFacingTile(_spritz.moveVector, 1f))
             {
                 //_spritz.moveVector = Vector2.zero;
                 StopMotion();
@@ -58,8 +58,6 @@ namespace Spritz
             {
                 _spritz.rb.velocity = _spritz.bounceSpeed * _spritz.moveVector;
             }
-
-
         }
 
         private void StopMotion()

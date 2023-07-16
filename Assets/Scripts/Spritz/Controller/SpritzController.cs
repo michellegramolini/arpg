@@ -35,7 +35,7 @@ namespace Spritz
         [Header("Animation")]
         public AnimationState animationState;
         public SpriteRenderer shadowSprite;
-        GameObject _characterHolder;
+        public GameObject characterHolder;
 
         [Header("Movement")]
         public Vector2 moveVector;
@@ -48,6 +48,7 @@ namespace Spritz
         [Header("Attack/Hit")]
         public Vector2 hitDirection;
         public float knockbackForce;
+        public float knockbackDrag;
 
         [Header("Tile Detection")]
         public TileDetector tileDetector;
@@ -56,6 +57,7 @@ namespace Spritz
         public bool canMove;
         public bool terrainInFrontOf;
         public bool heightInFrontOf;
+        public bool nullTileInFrontOf;
 
         [Header("Player Detection")]
         public bool playerDetected;
@@ -64,7 +66,7 @@ namespace Spritz
 
         private void Awake()
         {
-            _characterHolder = transform.Find("CharacterHolder").gameObject;
+            characterHolder = transform.Find("CharacterHolder").gameObject;
             shadowSprite = transform.Find("CharacterHolder/shadow").GetComponent<SpriteRenderer>();
             _feet = transform.Find("CharacterHolder/Feet");
             playerLayer = LayerMask.GetMask("Player");
@@ -99,6 +101,7 @@ namespace Spritz
             tileDetector = gameObject.GetComponentInChildren<TileDetector>();
 
             facingDirection = Vector2.down;
+            moveVector = facingDirection;
 
             // Init State
             currentState = Spawn;
@@ -108,23 +111,7 @@ namespace Spritz
 
         private void Update()
         {
-            if (z != GetCurrentZ())
-            {
-                z = GetCurrentZ();
-            }
-
             SetFacingDirection();
-            DetectNextFacingTile(facingDirection);
-
-            // TODO: just turn them around if possible
-            if (terrainInFrontOf || heightInFrontOf)
-            {
-                canMove = false;
-            }
-            else
-            {
-                canMove = true;
-            }
 
             if (currentState == Spawn)
             {
@@ -183,13 +170,21 @@ namespace Spritz
             return 0;
         }
 
-        private void DetectNextFacingTile(Vector3 facingDirection)
+        public bool DetectNextFacingTile(Vector3 moveVector, float buffer)
         {
-            Vector3 pos = _feet.position + (facingDirection);
+            Vector3 pos = _feet.position + (moveVector * buffer);
 
             SuperTile _heightTile = tileDetector.GetHeightTile(pos);
             SuperTile _terrainTile = tileDetector.GetTerrainTile(pos);
 
+            nullTileInFrontOf = terrainInFrontOf = heightInFrontOf = false;
+            // if both tiles are null
+            if (_terrainTile == null && _heightTile == null)
+            {
+                nullTileInFrontOf = true;
+            }
+
+            // if there is terrain data
             if (_terrainTile != null)
             {
                 string _terrainValue = tileDetector.GetTilePropFromSuperTile(_terrainTile, "terrain").m_Value;
@@ -198,42 +193,33 @@ namespace Spritz
                 {
                     terrainInFrontOf = true;
                 }
-                else
-                {
-                    terrainInFrontOf = false;
-                }
-            }
-            else
-            {
-                terrainInFrontOf = false;
             }
 
+            // if there is height data
             if (_heightTile != null)
             {
                 int? _heightValue = tileDetector.GetTilePropFromSuperTile(_heightTile, "height_value").m_Value.ToInt();
 
                 if (_heightValue != null)
                 {
-                    if (_heightValue != z)
+                    // do not jump up or down from anything
+                    if (_heightValue != GetCurrentZ())
                     {
                         heightInFrontOf = true;
                     }
-                    else
-                    {
-                        // can go
-                        heightInFrontOf = false;
-                    }
                 }
-                else
-                {
-                    heightInFrontOf = true;
-                }
+            }
+
+            if (terrainInFrontOf || heightInFrontOf || nullTileInFrontOf)
+            {
+                canMove = false;
             }
             else
             {
-                // In other words, no tile available
-                heightInFrontOf = true;
+                canMove = true;
             }
+
+            return canMove;
         }
 
         public bool IsStandingOnBadTile()
@@ -256,7 +242,7 @@ namespace Spritz
                 int? _heightValue = tileDetector.GetTilePropFromSuperTile(_heightTile, "height_value").m_Value.ToInt();
                 if (_heightValue != null)
                 {
-                    if (_heightValue != z)
+                    if (_heightValue != GetCurrentZ())
                     {
                         standingOnBadTile = true;
                     }
@@ -290,7 +276,7 @@ namespace Spritz
 
         private void SetFacingDirection()
         {
-            if (moveVector != Vector2.zero)
+            if (moveVector != Vector2.zero && facingDirection != moveVector)
             {
                 // should stay on latest facing
                 facingDirection = moveVector;
@@ -315,7 +301,7 @@ namespace Spritz
             while (t <= 1.0)
             {
                 t += Time.deltaTime / seconds;
-                _characterHolder.transform.localScale = Vector3.Lerp(originalSize, newSize, t);
+                characterHolder.transform.localScale = Vector3.Lerp(originalSize, newSize, t);
                 yield return null;
             }
 
@@ -324,7 +310,7 @@ namespace Spritz
             while (t <= 1.0)
             {
                 t += Time.deltaTime / seconds;
-                _characterHolder.transform.localScale = Vector3.Lerp(newSize, originalSize, t);
+                characterHolder.transform.localScale = Vector3.Lerp(newSize, originalSize, t);
                 yield return null;
             }
         }

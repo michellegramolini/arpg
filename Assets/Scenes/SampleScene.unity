@@ -1017,6 +1017,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjectPooler
       objectReference: {fileID: 0}
+    - target: {fileID: 8716665353723082268, guid: bc57332999e4c4c0e99646fc92e0ab91, type: 3}
+      propertyPath: pools.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716665353723082268, guid: bc57332999e4c4c0e99646fc92e0ab91, type: 3}
+      propertyPath: pools.Array.data[2].tag
+      value: kill_effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716665353723082268, guid: bc57332999e4c4c0e99646fc92e0ab91, type: 3}
+      propertyPath: pools.Array.data[2].size
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716665353723082268, guid: bc57332999e4c4c0e99646fc92e0ab91, type: 3}
+      propertyPath: pools.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 7080964753523604325, guid: 07901d4d12c0d4b8cb78365bfb8e8e0b, type: 3}
     - target: {fileID: 8716665353723082269, guid: bc57332999e4c4c0e99646fc92e0ab91, type: 3}
       propertyPath: m_RootOrder
       value: 9

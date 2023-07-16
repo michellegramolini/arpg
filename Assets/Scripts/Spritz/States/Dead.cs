@@ -31,12 +31,11 @@ namespace Spritz
 
         private void Die()
         {
-            XPManager.Instance.AddExperience(_spritz.xpAmount);
             _spritz.gameObject.SetActive(false);
+            // play effect
+            GameObject killEffect = ObjectPooler.Instance.SpawnFromPool("kill_effect", _spritz.characterHolder.transform.position, Quaternion.identity);
+            XPManager.Instance.AddExperience(_spritz.xpAmount);
         }
-
-
-
     }
 }
 

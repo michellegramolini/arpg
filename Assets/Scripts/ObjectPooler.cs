@@ -89,6 +89,11 @@ public class ObjectPooler : MonoBehaviour
     // FIXME: testing!
     public void Recycle(string tag, GameObject gameObject)
     {
+        if (!poolDictionary.ContainsKey(tag))
+        {
+            Debug.LogWarning("Object Pool with tag: " + tag + " does not exist.");
+            return;
+        }
         // deactivate
         gameObject.SetActive(false);
         // recycle
