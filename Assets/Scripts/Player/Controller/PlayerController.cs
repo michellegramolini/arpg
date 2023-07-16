@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Enemies")]
     public LayerMask enemyLayer;
+    public LayerMask enemyLayerCollision;
 
     [Header("Animation")]
     public AnimationState animationState;
@@ -204,6 +205,7 @@ public class PlayerController : MonoBehaviour
 
         // Layers
         enemyLayer = LayerMask.GetMask("Enemy");
+        enemyLayerCollision = LayerMask.NameToLayer("Enemy");
 
         // Init Height
         z = GetCurrentZ();
@@ -415,7 +417,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision != null)
+        {
+            if (collision.gameObject.layer == enemyLayerCollision)
+            {
+                Debug.Log($"Player damaged by {collision.gameObject} enemy.");
+            }
+        }
+    }
 
     private void EnableMovement()
     {

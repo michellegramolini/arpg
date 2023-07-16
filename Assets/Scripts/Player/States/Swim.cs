@@ -19,6 +19,7 @@ public class Swim : State
     public override void StartState(PlayerController player)
     {
         this._player = player;
+        GameObject splashEffect = ObjectPooler.Instance.SpawnFromPool("splash_effect", _player.transform.position, Quaternion.identity);
     }
 
     public override void UpdateState(PlayerController player)

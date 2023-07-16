@@ -86,15 +86,22 @@ public class MeleeAttack : State
         {
             foreach (Collider2D enemy in hitEnemies)
             {
-                //Debug.Log("Hit Enemy and do Damage!");
-                //enemy.GetComponent<IEnemy>().Hit();
                 if (enemy.GetComponent<IEnemy>() != null)
                 {
-                    enemy.GetComponent<IEnemy>().Hit(_player.facingDirection);
+                    // Hit if enemy on same z plane as player
+                    if (enemy.GetComponent<IEnemy>().GetCurrentZ() == _player.z)
+                    {
+                        enemy.GetComponent<IEnemy>().Hit(_player.facingDirection);
+                    }
+
                 }
                 else if (enemy.GetComponentInParent<IEnemy>() != null)
                 {
-                    enemy.GetComponentInParent<IEnemy>().Hit(_player.facingDirection);
+                    // Hit if enemy on same z plane as player
+                    if (enemy.GetComponentInParent<IEnemy>().GetCurrentZ() == _player.z)
+                    {
+                        enemy.GetComponentInParent<IEnemy>().Hit(_player.facingDirection);
+                    }
                 }
                 else
                 {

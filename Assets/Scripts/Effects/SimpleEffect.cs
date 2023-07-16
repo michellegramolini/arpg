@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillEffect : MonoBehaviour, IPooledObject
+public class SimpleEffect : MonoBehaviour, IPooledObject
 {
+    [SerializeField]
+    private SimpleEffectScriptable data;
+
     // TODO: make part of interface potentially
     private IEnumerator DestroyAfter(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        ObjectPooler.Instance.Recycle("kill_effect", this.gameObject);
+        ObjectPooler.Instance.Recycle(data.poolTag, this.gameObject);
     }
 
     public void OnObjectSpawn()
@@ -17,5 +20,4 @@ public class KillEffect : MonoBehaviour, IPooledObject
         StopCoroutine(nameof(DestroyAfter));
         StartCoroutine(DestroyAfter(.5f));
     }
-
 }

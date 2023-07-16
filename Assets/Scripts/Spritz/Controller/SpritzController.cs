@@ -15,7 +15,6 @@ namespace Spritz
         [Header("States")]
         public SpritzState currentState;
         public SpritzState previousState;
-        public Attack Attack;
         public Idle Idle;
         public Damaged Damaged;
         public Dead Dead;
@@ -87,7 +86,6 @@ namespace Spritz
 
             // States
             Idle = gameObject.AddComponent<Idle>();
-            Attack = gameObject.AddComponent<Attack>();
             Damaged = gameObject.AddComponent<Damaged>();
             Dead = gameObject.AddComponent<Dead>();
             Spawn = gameObject.AddComponent<Spawn>();
@@ -160,7 +158,8 @@ namespace Spritz
         }
 
         #region Tile Detection
-        private int GetCurrentZ()
+        // IEnemy Interface for accessing enemy height as well. 
+        public int GetCurrentZ()
         {
             if (tileDetector.GetTileProp("current", "height_value") != null)
             {
@@ -289,7 +288,12 @@ namespace Spritz
 
             StopCoroutine(nameof(Squish));
             StartCoroutine(Squish(0.5f, 1.2f, 0.1f));
-            SetState(Damaged);
+
+            if (currentState != Damaged)
+            {
+                SetState(Damaged);
+            }
+
         }
 
         public IEnumerator Squish(float xSquash, float ySquash, float seconds)
