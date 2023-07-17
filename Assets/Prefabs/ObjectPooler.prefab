@@ -51,3 +51,9 @@ MonoBehaviour:
   - tag: levelup_popup
     prefab: {fileID: 7181032939634599979, guid: 23cbc0979f00f47df9e4ea52c8f1a95c, type: 3}
     size: 150
+  - tag: kill_effect
+    prefab: {fileID: 7080964753523604325, guid: 07901d4d12c0d4b8cb78365bfb8e8e0b, type: 3}
+    size: 150
+  - tag: splash_effect
+    prefab: {fileID: 6526783068896415327, guid: 1920513659a064622a5e45f028ccabc2, type: 3}
+    size: 25

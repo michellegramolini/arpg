@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 253151047}
   - component: {fileID: 253151046}
   - component: {fileID: 253151045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CharacterAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 763260669
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1251300523, guid: fb47f4d5e7e8f462ab8b4fb056a1a5e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  currentState: 
-  currentFrame: 0
+  _currentState: 
+  _currentFrame: 0
   isDamageFrame: 0
 --- !u!1 &655626982
 GameObject:
@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 655626983}
   - component: {fileID: 655626984}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 669750561}
   - component: {fileID: 669750562}
   - component: {fileID: 669750563}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InteractionCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1746443731}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CharacterHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1855759993}
   - component: {fileID: 1855759994}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,11 +357,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heightMap: {fileID: 0}
   _terrainMap: {fileID: 0}
-  diagonals:
-  - up-right
-  - up-left
-  - down-right
-  - down-left
 --- !u!1 &3462501237082333912
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +370,7 @@ GameObject:
   - component: {fileID: 3462501237082333895}
   - component: {fileID: 3462501237082333894}
   - component: {fileID: 3462501237082333913}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,12 +487,17 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
+  enemyLayerCollision:
+    serializedVersion: 2
+    m_Bits: 0
   animationState: {fileID: 0}
   z: 0
   tileDetector: {fileID: 0}
   canMove: 0
   canSwim: 0
   onWall: 0
+  currentXP: 0
+  _currentLevel: 0
 --- !u!114 &3462501237082333913
 MonoBehaviour:
   m_ObjectHideFlags: 0

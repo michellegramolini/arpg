@@ -13,14 +13,6 @@ public class TileDetector : MonoBehaviour
     [SerializeField]
     private Tilemap _terrainMap;
 
-    public List<string> diagonals = new()
-    {
-        "up-right",
-        "up-left",
-        "down-right",
-        "down-left"
-    };
-
     // TODO: this should be tiles? //List<CustomProperty>
     private Dictionary<string, SuperTile> _heightTiles = new()
     {
@@ -47,6 +39,12 @@ public class TileDetector : MonoBehaviour
         { "down-left", Vector3Int.down + Vector3Int.left }
     };
 
+    private void Awake()
+    {
+        _heightMap = GameObject.FindWithTag("height_map").GetComponent<Tilemap>();
+        _terrainMap = GameObject.FindWithTag("terrain_map").GetComponent<Tilemap>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -59,6 +57,7 @@ public class TileDetector : MonoBehaviour
     {
         // get the tile grid position from whereever this object is 
         Vector3Int heightMapGridPosition = _heightMap.WorldToCell(transform.position);
+        // TODO:?
         Vector3Int terrainMapGridPosition = _terrainMap.WorldToCell(transform.position);
 
         if (_heightMap.HasTile(heightMapGridPosition))
