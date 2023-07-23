@@ -1,0 +1,3688 @@
+fileFormatVersion: 2
+guid: ec4339d9ef3a3a142ab0dcbfba37cef8
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_hit_down
+    second: {fileID: 7400000, guid: dbbc243116c08f24a82a983fc1c0b01c, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_hit_left
+    second: {fileID: 7400000, guid: 0bc67e4bb97adef4bb3744d35eb8ba41, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_hit_right
+    second: {fileID: 7400000, guid: 8a20fd4ba8200924ba417c1047ae1b0e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_hit_up
+    second: {fileID: 7400000, guid: 9cad04064596a414d86ad5bbb1ad160d, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_idle_down
+    second: {fileID: 7400000, guid: 13f3aae61afe41647b03af3d8e81e59e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_idle_left
+    second: {fileID: 7400000, guid: 4d4db8987c7d2df49b62bd8e1d3b9349, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_idle_right
+    second: {fileID: 7400000, guid: 71448357d37c45e4cb5a90e2a60100d8, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_idle_up
+    second: {fileID: 7400000, guid: 186a6815747b61b42ad12e3d994009e4, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_jump_down
+    second: {fileID: 7400000, guid: 15f32aa2bf6a5fd4da05b944c4d73e18, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_jump_left
+    second: {fileID: 7400000, guid: e6cd8a40b44b7314abc56d3856d59c65, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_jump_right
+    second: {fileID: 7400000, guid: 99e7fb37384d1b34f89015890ad35ee1, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_jump_up
+    second: {fileID: 7400000, guid: 81d111bf0a169a043ba1ffca993fcff6, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_melee_down
+    second: {fileID: 7400000, guid: 3621f30d8d379984a949ca6da0e4fcdc, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_melee_left
+    second: {fileID: 7400000, guid: 0fdd4315b32d28947baaaf1bac2217df, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_melee_right
+    second: {fileID: 7400000, guid: de9df8c8f7089ac4ba6980439041a857, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_melee_up
+    second: {fileID: 7400000, guid: c7461a8296e02c74992f85de9845f800, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_pit
+    second: {fileID: 7400000, guid: 098eb0067c973f94cb3e73f4eb3b6e82, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_run_down
+    second: {fileID: 7400000, guid: 0109c08cb36ebce409bfe74d7ddf1e13, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_run_left
+    second: {fileID: 7400000, guid: fbc4c638a565cc14d994d3f5741cdaa8, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_run_right
+    second: {fileID: 7400000, guid: 1f96efd3f265b3e49bdd3ec3d7ab0e65, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_run_up
+    second: {fileID: 7400000, guid: 9ed0c67bb9aa4ff4bb0e410d3dd133e7, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_splash
+    second: {fileID: 7400000, guid: fbe66540f999f1c41adf60f99abc68dd, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_swim_down
+    second: {fileID: 7400000, guid: bf9234dd340e4314e9c3289c97599946, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_swim_left
+    second: {fileID: 7400000, guid: 5348194cb0aeb434d9ad06aca9575f71, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_swim_right
+    second: {fileID: 7400000, guid: 0be4fda9d81c6e34ca5f8973593200a7, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_swim_up
+    second: {fileID: 7400000, guid: b3b850c12b3f9cc49ba41afd45597540, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_walk_down
+    second: {fileID: 7400000, guid: 6955f29c1caaf9740a1ef2915e88b79e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_walk_left
+    second: {fileID: 7400000, guid: 3de9add5e1afccc4ebd21cfe38b23b64, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_walk_right
+    second: {fileID: 7400000, guid: afeb25be5569fbd499ce9e40ef383794, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: player_walk_up
+    second: {fileID: 7400000, guid: 466fb48373980174788491a8d3fe5861, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 16
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 0
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 0
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 0
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 0
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638257178922942177
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Kaia_Frame_10
+    originalName: 
+    pivot: {x: 0.47619045, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 265
+      width: 21
+      height: 32
+    spriteID: d9e930d0e140b404a9b742121e54d93d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 265}
+  - name: Kaia_Frame_11
+    originalName: 
+    pivot: {x: 0.49999997, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 373
+      y: 131
+      width: 20
+      height: 32
+    spriteID: 9917f740bb984e7469ad7a2eb785eb6b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 373, y: 131}
+  - name: Kaia_Frame_12
+    originalName: 
+    pivot: {x: 0.5789474, y: 0.49999994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 177
+      y: 173
+      width: 19
+      height: 28
+    spriteID: 1a5f92dbd0270514d80778ba0e3026e6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 177, y: 173}
+  - name: Kaia_Frame_13
+    originalName: 
+    pivot: {x: 0.6190476, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 305
+      width: 21
+      height: 32
+    spriteID: 0cc2742d192a93f428c3d82283b47c10
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 305}
+  - name: Kaia_Frame_14
+    originalName: 
+    pivot: {x: 0.5238096, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 345
+      width: 21
+      height: 32
+    spriteID: cd7870c9e169cad479b45fd717d07b85
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 345}
+  - name: Kaia_Frame_15
+    originalName: 
+    pivot: {x: 0.52631575, y: 0.49999994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 204
+      y: 173
+      width: 19
+      height: 28
+    spriteID: 345d0633bbb06c34c80d4a133f2132a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 204, y: 173}
+  - name: Kaia_Frame_16
+    originalName: 
+    pivot: {x: 0.6, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 123
+      y: 213
+      width: 20
+      height: 31
+    spriteID: 35736109c56c76e4d8711cf77d2093cf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 123, y: 213}
+  - name: Kaia_Frame_17
+    originalName: 
+    pivot: {x: 0.5625, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 312
+      y: 173
+      width: 16
+      height: 32
+    spriteID: e341e55198311924fb57ea3887fcba85
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 312, y: 173}
+  - name: Kaia_Frame_18
+    originalName: 
+    pivot: {x: 0.6, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 165
+      y: 295
+      width: 15
+      height: 32
+    spriteID: c468629dd3e0aa84ba9bea4feb72c24c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 165, y: 295}
+  - name: Kaia_Frame_19
+    originalName: 
+    pivot: {x: 0.61111116, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 254
+      width: 18
+      height: 31
+    spriteID: 338be3d440d61134cbc5b02c10be40e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 244, y: 254}
+  - name: Kaia_Frame_20
+    originalName: 
+    pivot: {x: 0.5625, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 173
+      width: 16
+      height: 32
+    spriteID: 9c80c254ba572d747b3c6fc19c475863
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 336, y: 173}
+  - name: Kaia_Frame_21
+    originalName: 
+    pivot: {x: 0.5294118, y: 0.51515144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 69
+      y: 254
+      width: 17
+      height: 33
+    spriteID: b232a8d0090da8b4b89d703d698b7441
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 69, y: 254}
+  - name: Kaia_Frame_22
+    originalName: 
+    pivot: {x: 0.5555555, y: 0.48484847}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 317
+      y: 213
+      width: 18
+      height: 33
+    spriteID: 6fb1b7f6fcc5e5b418922cc0e34bc943
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 317, y: 213}
+  - name: Kaia_Frame_23
+    originalName: 
+    pivot: {x: 0.6190476, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 385
+      width: 21
+      height: 32
+    spriteID: 716261e3d4e8ae544908aa5c77a5fc39
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 385}
+  - name: Kaia_Frame_24
+    originalName: 
+    pivot: {x: 0.59090906, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 483
+      y: 92
+      width: 22
+      height: 31
+    spriteID: 3c7dff91d6a7059499c6b141eb641d3d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 483, y: 92}
+  - name: Kaia_Frame_25
+    originalName: 
+    pivot: {x: 0.5555555, y: 0.48484847}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 343
+      y: 213
+      width: 18
+      height: 33
+    spriteID: 58e2415110049b34fb320238add1ced1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 343, y: 213}
+  - name: Kaia_Frame_26
+    originalName: 
+    pivot: {x: 0.6190476, y: 0.516129}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 315
+      y: 131
+      width: 21
+      height: 31
+    spriteID: 05728d47b3e95304c83efe357566f47e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 315, y: 131}
+  - name: Kaia_Frame_27
+    originalName: 
+    pivot: {x: 0.5652174, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 233
+      y: 92
+      width: 23
+      height: 31
+    spriteID: 791a62629dc4a9542a09c0d9f6e093ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 233, y: 92}
+  - name: Kaia_Frame_28
+    originalName: 
+    pivot: {x: 0.49999997, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 151
+      y: 213
+      width: 20
+      height: 31
+    spriteID: 8628f6644b1a8034d91eecdbbbaeca47
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 151, y: 213}
+  - name: Kaia_Frame_29
+    originalName: 
+    pivot: {x: 0.5333334, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 188
+      y: 295
+      width: 15
+      height: 32
+    spriteID: 381734f9e5737d740867ed46aad09cb5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 188, y: 295}
+  - name: Kaia_Frame_30
+    originalName: 
+    pivot: {x: 0.5333334, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 211
+      y: 295
+      width: 15
+      height: 32
+    spriteID: adda9757937d1dc4f8ad92008088fb16
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 211, y: 295}
+  - name: Kaia_Frame_31
+    originalName: 
+    pivot: {x: 0.5, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 270
+      y: 254
+      width: 18
+      height: 31
+    spriteID: 08caa33806c029e45aeea37bfb2e409f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 270, y: 254}
+  - name: Kaia_Frame_32
+    originalName: 
+    pivot: {x: 0.5625, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 360
+      y: 173
+      width: 16
+      height: 32
+    spriteID: 531fcdd3dce53c44cba40cc899ee9a30
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 360, y: 173}
+  - name: Kaia_Frame_33
+    originalName: 
+    pivot: {x: 0.58823526, y: 0.51515144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 94
+      y: 254
+      width: 17
+      height: 33
+    spriteID: cbe1fee79ce850f4f9bb9005d054a7b1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 94, y: 254}
+  - name: Kaia_Frame_34
+    originalName: 
+    pivot: {x: 0.5555555, y: 0.48484847}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 369
+      y: 213
+      width: 18
+      height: 33
+    spriteID: 3c70538f8f7d6904a8e9543e01d18e50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 369, y: 213}
+  - name: Kaia_Frame_35
+    originalName: 
+    pivot: {x: 0.47619045, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 425
+      width: 21
+      height: 32
+    spriteID: e24c5a58410f68b4aa769a071b47e2d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 425}
+  - name: Kaia_Frame_36
+    originalName: 
+    pivot: {x: 0.50000006, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 135
+      y: 131
+      width: 22
+      height: 31
+    spriteID: 1c0871969729c874d89bfb780f134788
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 135, y: 131}
+  - name: Kaia_Frame_37
+    originalName: 
+    pivot: {x: 0.5555555, y: 0.48484847}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 395
+      y: 213
+      width: 18
+      height: 33
+    spriteID: 72a162094524f8547935745d7110b4b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 395, y: 213}
+  - name: Kaia_Frame_38
+    originalName: 
+    pivot: {x: 0.47619045, y: 0.516129}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 344
+      y: 131
+      width: 21
+      height: 31
+    spriteID: b676f646c0c985744853f2c274babb9e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 344, y: 131}
+  - name: Kaia_Frame_39
+    originalName: 
+    pivot: {x: 0.5217391, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 264
+      y: 92
+      width: 23
+      height: 31
+    spriteID: 52beb7e3233bdc643a7bf6c95fd37986
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 264, y: 92}
+  - name: Kaia_Frame_40
+    originalName: 
+    pivot: {x: 0.58823526, y: 0.5333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 408
+      y: 173
+      width: 17
+      height: 30
+    spriteID: 70936b28c83d9d84cb30e1d4960b5773
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 408, y: 173}
+  - name: Kaia_Frame_41
+    originalName: 
+    pivot: {x: 0.52631575, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 263
+      y: 213
+      width: 19
+      height: 32
+    spriteID: 4f91b112d117ffc4f9a235585ebe804e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 263, y: 213}
+  - name: Kaia_Frame_42
+    originalName: 
+    pivot: {x: 0.5500001, y: 0.51515144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 465
+      width: 20
+      height: 33
+    spriteID: 79b0aabfd3eab8d46b5993d412b127cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 465}
+  - name: Kaia_Frame_43
+    originalName: 
+    pivot: {x: 0.5294118, y: 0.5333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 433
+      y: 173
+      width: 17
+      height: 30
+    spriteID: 0be8c8dc991011f499a913ff0999bbee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 433, y: 173}
+  - name: Kaia_Frame_44
+    originalName: 
+    pivot: {x: 0.5789474, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 290
+      y: 213
+      width: 19
+      height: 32
+    spriteID: d7e777c95c0594d49be67e5c9f81c997
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 290, y: 213}
+  - name: Kaia_Frame_45
+    originalName: 
+    pivot: {x: 0.5500001, y: 0.54545456}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 257
+      y: 131
+      width: 20
+      height: 33
+    spriteID: 014de376061e7be429540cf380f98baa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 257, y: 131}
+  - name: Kaia_Frame_46
+    originalName: 
+    pivot: {x: 0.52631575, y: 0.51515144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 69
+      y: 213
+      width: 19
+      height: 33
+    spriteID: 6d5de004598b6c346a658080c4994ada
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 69, y: 213}
+  - name: Kaia_Frame_47
+    originalName: 
+    pivot: {x: 0.5652174, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 295
+      y: 92
+      width: 23
+      height: 31
+    spriteID: 2886492379fca7b448399600d3bb34f9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 295, y: 92}
+  - name: Kaia_Frame_48
+    originalName: 
+    pivot: {x: 0.49999997, y: 0.59375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 401
+      y: 131
+      width: 20
+      height: 32
+    spriteID: c9ac74551b4db9e4bbbb2ad7b1c7632a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 401, y: 131}
+  - name: Kaia_Frame_49
+    originalName: 
+    pivot: {x: 0.5789474, y: 0.51515144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 213
+      width: 19
+      height: 33
+    spriteID: 001c64381ef58654aa5770cb4954740b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 96, y: 213}
+  - name: Kaia_Frame_50
+    originalName: 
+    pivot: {x: 0.5217391, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 326
+      y: 92
+      width: 23
+      height: 31
+    spriteID: b6145191daeba36429c087e9ce9357b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 326, y: 92}
+  - name: Kaia_Frame_51
+    originalName: 
+    pivot: {x: 0.6, y: 0.59375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 429
+      y: 131
+      width: 20
+      height: 32
+    spriteID: 96f28f5ce266ba94e877fd2c59c30636
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 429, y: 131}
+  - name: Kaia_Frame_52
+    originalName: 
+    pivot: {x: 0.81818175, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 92
+      width: 33
+      height: 31
+    spriteID: ced311d0ffba09448bf8cbf93efb1652
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 92}
+  - name: Kaia_Frame_53
+    originalName: 
+    pivot: {x: 0.7142857, y: 0.62857145}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 137
+      width: 28
+      height: 35
+    spriteID: f29957e86d3b20b49ab63810cbf63d27
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 137}
+  - name: Kaia_Frame_54
+    originalName: 
+    pivot: {x: 0.25641024, y: 0.47368422}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 116
+      y: 4
+      width: 39
+      height: 38
+    spriteID: a85b3d7139390f249b3dec6c7a9876ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 116, y: 4}
+  - name: Kaia_Frame_55
+    originalName: 
+    pivot: {x: 0.25714287, y: 0.44736838}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 257
+      y: 4
+      width: 35
+      height: 38
+    spriteID: 284d622a870860e4fa9f3917016d8ecb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 257, y: 4}
+  - name: Kaia_Frame_56
+    originalName: 
+    pivot: {x: 0.375, y: 0.45945942}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 267
+      width: 24
+      height: 37
+    spriteID: d2536d44e82bae64984d9f0dbd3d9dbd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 267}
+  - name: Kaia_Frame_57
+    originalName: 
+    pivot: {x: 0.24242428, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 81
+      y: 92
+      width: 33
+      height: 31
+    spriteID: b71c6cac2a9f6ea4c80bb115165b5f77
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 81, y: 92}
+  - name: Kaia_Frame_58
+    originalName: 
+    pivot: {x: 0.35714284, y: 0.62857145}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 180
+      width: 28
+      height: 35
+    spriteID: fb4f0cdc3cc9a9e4e946c5378531ebd1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 180}
+  - name: Kaia_Frame_59
+    originalName: 
+    pivot: {x: 0.7948718, y: 0.47368422}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 4
+      width: 39
+      height: 38
+    spriteID: d143031da2a60834b9dc84350045b6ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 4}
+  - name: Kaia_Frame_60
+    originalName: 
+    pivot: {x: 0.8, y: 0.44736838}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 300
+      y: 4
+      width: 35
+      height: 38
+    spriteID: 3114ab57a6a98e14cbd2bb710c545b36
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 300, y: 4}
+  - name: Kaia_Frame_61
+    originalName: 
+    pivot: {x: 0.70833325, y: 0.45945942}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 312
+      width: 24
+      height: 37
+    spriteID: 450094b4a58cb6c46b36495c799d62db
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 312}
+  - name: Kaia_Frame_62
+    originalName: 
+    pivot: {x: 0.39130434, y: 0.43243244}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 357
+      width: 23
+      height: 37
+    spriteID: 6e8c67c06b409794fb3633db5cde12a7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 357}
+  - name: Kaia_Frame_63
+    originalName: 
+    pivot: {x: 0.3, y: 0.5925926}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 57
+      width: 40
+      height: 27
+    spriteID: 16851db94a854e645bdd94c92d7a4a82
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 57}
+  - name: Kaia_Frame_64
+    originalName: 
+    pivot: {x: 0.56249994, y: 0.7111111}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 48
+      height: 45
+    spriteID: 35ec6714315a6264bb45bf587c3ca0a4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Kaia_Frame_65
+    originalName: 
+    pivot: {x: 0.8235294, y: 0.64102566}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 386
+      y: 4
+      width: 34
+      height: 39
+    spriteID: fd5b11fa8b1b18c45a7902592ff840d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 386, y: 4}
+  - name: Kaia_Frame_66
+    originalName: 
+    pivot: {x: 0.8, y: 0.5333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 92
+      width: 30
+      height: 30
+    spriteID: b847cdf13dd52434c812836d396ed4f2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 92}
+  - name: Kaia_Frame_67
+    originalName: 
+    pivot: {x: 0.78787875, y: 0.6571428}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 428
+      y: 4
+      width: 33
+      height: 35
+    spriteID: ac81e1e6c8f9b9648bf52fd338aa1e7d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 428, y: 4}
+  - name: Kaia_Frame_68
+    originalName: 
+    pivot: {x: 0.7435898, y: 0.51428574}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 210
+      y: 4
+      width: 39
+      height: 35
+    spriteID: f07a01e2c4f90864eb0c9bac567f3f6b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 210, y: 4}
+  - name: Kaia_Frame_69
+    originalName: 
+    pivot: {x: 0.4583333, y: 0.40000004}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 4
+      width: 48
+      height: 45
+    spriteID: 6084ac0df4b2e9e468ed1f6d545ffa7b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 4}
+  - name: Kaia_Frame_71
+    originalName: 
+    pivot: {x: 0.22857147, y: 0.47368422}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 343
+      y: 4
+      width: 35
+      height: 38
+    spriteID: ab8d96d1bed3cd04db789dd159cbeb99
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 343, y: 4}
+  - name: Kaia_Frame_72
+    originalName: 
+    pivot: {x: 0.24242428, y: 0.6206897}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 122
+      y: 92
+      width: 33
+      height: 29
+    spriteID: dddb4bd59ef20a2418e3ccdd7d2bdb31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 122, y: 92}
+  - name: Kaia_Frame_73
+    originalName: 
+    pivot: {x: 0.5416666, y: 0.93750006}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 131
+      width: 24
+      height: 32
+    spriteID: 1f26309ae63e3d246833c529034aff22
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 131}
+  - name: Kaia_Frame_74
+    originalName: 
+    pivot: {x: 0.5500001, y: 0.96875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 457
+      y: 131
+      width: 20
+      height: 32
+    spriteID: 491ea822d0234da45ab575d3d3303b83
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 457, y: 131}
+  - name: Kaia_Frame_75
+    originalName: 
+    pivot: {x: 0.5625, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 234
+      y: 295
+      width: 16
+      height: 30
+    spriteID: ad7a882e84948f94ab467530b9c93fb1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 234, y: 295}
+  - name: Kaia_Frame_123
+    originalName: 
+    pivot: {x: 0.5500001, y: 0.96875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 485
+      y: 131
+      width: 20
+      height: 32
+    spriteID: d4e6c0e44a051de4d9e80e09abb0b888
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 485, y: 131}
+  - name: Kaia_Frame_124
+    originalName: 
+    pivot: {x: 0.61111116, y: 0.93939394}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 421
+      y: 213
+      width: 18
+      height: 33
+    spriteID: c99e448ebca2bf34196594eff182fc94
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 421, y: 213}
+  - name: Kaia_Frame_125
+    originalName: 
+    pivot: {x: 0.58823526, y: 0.96969694}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 119
+      y: 254
+      width: 17
+      height: 33
+    spriteID: 8279a3e64d41dcb46806ac44470344f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 119, y: 254}
+  - name: Kaia_Frame_126
+    originalName: 
+    pivot: {x: 0.58823526, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 296
+      y: 254
+      width: 17
+      height: 32
+    spriteID: b8630b965b71d504fbb2285b1f0ac63a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 296, y: 254}
+  - name: Kaia_Frame_127
+    originalName: 
+    pivot: {x: 0.58823526, y: 0.96969694}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 254
+      width: 17
+      height: 33
+    spriteID: 49d962b558c03fc479abdfffde171ced
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 144, y: 254}
+  - name: Kaia_Frame_128
+    originalName: 
+    pivot: {x: 0.4444445, y: 0.93939394}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 447
+      y: 213
+      width: 18
+      height: 33
+    spriteID: 8d4c114346a6fdb418420e40d1ece21b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 447, y: 213}
+  - name: Kaia_Frame_129
+    originalName: 
+    pivot: {x: 0.4705883, y: 0.96969694}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 169
+      y: 254
+      width: 17
+      height: 33
+    spriteID: 1699488208fbbfe44be2c879dcad3b5d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 169, y: 254}
+  - name: Kaia_Frame_130
+    originalName: 
+    pivot: {x: 0.4705883, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 321
+      y: 254
+      width: 17
+      height: 32
+    spriteID: 01ecb7c976c637348a9caef868989487
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 321, y: 254}
+  - name: Kaia_Frame_131
+    originalName: 
+    pivot: {x: 0.4705883, y: 0.96969694}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 194
+      y: 254
+      width: 17
+      height: 33
+    spriteID: 5417e75ac11e8f94e996b6c98bedb002
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 194, y: 254}
+  - name: Kaia_Frame_132
+    originalName: 
+    pivot: {x: 0.5416666, y: 0.96774197}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 201
+      y: 92
+      width: 24
+      height: 31
+    spriteID: cbc7efb7210443045a9a87a0fbc609ff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 201, y: 92}
+  - name: Kaia_Frame_133
+    originalName: 
+    pivot: {x: 0.5500001, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 179
+      y: 213
+      width: 20
+      height: 31
+    spriteID: c0a6ca1fa89abdf48b20661b702ecd3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 179, y: 213}
+  - name: Kaia_Frame_134
+    originalName: 
+    pivot: {x: 0.5625, y: 1.032258}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 458
+      y: 173
+      width: 16
+      height: 31
+    spriteID: 74bf57e5ec131fa43a1816d8b26afe57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 458, y: 173}
+  - name: Kaia_Frame_135
+    originalName: 
+    pivot: {x: 0.5500001, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 207
+      y: 213
+      width: 20
+      height: 31
+    spriteID: 6ba4bfca5da0acc42bca7df2e79d3fd0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 207, y: 213}
+  - name: Kaia_Frame_136
+    originalName: 
+    pivot: {x: 0.5625, y: 0.54545456}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 69
+      y: 295
+      width: 16
+      height: 33
+    spriteID: 9f9826716fb66e64eb0533d5d526f276
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 69, y: 295}
+  - name: Kaia_Frame_137
+    originalName: 
+    pivot: {x: 0.62499994, y: 0.51515144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 93
+      y: 295
+      width: 16
+      height: 33
+    spriteID: 9c6234afe419a8e4f83f21e19f0318ae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 93, y: 295}
+  - name: Kaia_Frame_138
+    originalName: 
+    pivot: {x: 0.5294118, y: 0.54545456}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 219
+      y: 254
+      width: 17
+      height: 33
+    spriteID: 78447cce2cc16eb4d9498f3c7a458504
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 219, y: 254}
+  - name: Kaia_Frame_0
+    originalName: 
+    pivot: {x: 0.50000006, y: 0.51515144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 117
+      y: 295
+      width: 16
+      height: 33
+    spriteID: 48a898c72a9193b468ec5ecdde604368
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 117, y: 295}
+  - name: Kaia_Frame_1
+    originalName: 
+    pivot: {x: 0.58823526, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 231
+      y: 173
+      width: 17
+      height: 31
+    spriteID: 18ff7fcc577c08d4b880054d999c0a77
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 231, y: 173}
+  - name: Kaia_Frame_2
+    originalName: 
+    pivot: {x: 0.58823526, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 346
+      y: 254
+      width: 17
+      height: 32
+    spriteID: de96887d9a13f4f44a35b5f7ba286754
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 346, y: 254}
+  - name: Kaia_Frame_3
+    originalName: 
+    pivot: {x: 0.5294118, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 371
+      y: 254
+      width: 17
+      height: 32
+    spriteID: cd75488ba755a3746a6baebdcfb2a9de
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 371, y: 254}
+  - name: Kaia_Frame_4
+    originalName: 
+    pivot: {x: 0.50000006, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 482
+      y: 173
+      width: 16
+      height: 31
+    spriteID: 61eddfe27e862694594ef98870ca2d49
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 482, y: 173}
+  - name: Kaia_Frame_5
+    originalName: 
+    pivot: {x: 0.5294118, y: 0.53124994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 254
+      width: 17
+      height: 32
+    spriteID: d1c44f6f0b8b0a34d843453af266a7e5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 396, y: 254}
+  - name: Kaia_Frame_6
+    originalName: 
+    pivot: {x: 0.58823526, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 421
+      y: 254
+      width: 17
+      height: 32
+    spriteID: 1d36ac96e0931f54abc16f34e1d6fc61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 421, y: 254}
+  - name: Kaia_Frame_7
+    originalName: 
+    pivot: {x: 0.45000002, y: 0.6538461}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 173
+      width: 20
+      height: 26
+    spriteID: 4137cdcca58373744b14fb8f089826b0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 256, y: 173}
+  - name: Kaia_Frame_8
+    originalName: 
+    pivot: {x: 0.6, y: 0.46875003}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 258
+      y: 295
+      width: 15
+      height: 32
+    spriteID: b71645d21effe344a9f402e74e95c52e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 258, y: 295}
+  - name: Kaia_Frame_9
+    originalName: 
+    pivot: {x: 0.5555555, y: 0.375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 125
+      y: 173
+      width: 18
+      height: 32
+    spriteID: 5a8b7da68804629488bcb7b36e45fa23
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 125, y: 173}
+  - name: Kaia_Frame_70
+    originalName: 
+    pivot: {x: 0.6190476, y: 0.36842102}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 173
+      width: 21
+      height: 38
+    spriteID: fa4afe060d2c1eb46beead246583bf1a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 173}
+  - name: Kaia_Frame_76
+    originalName: 
+    pivot: {x: 0.65, y: 0.6538461}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 284
+      y: 173
+      width: 20
+      height: 26
+    spriteID: 993f2117cea98eb4c88e9e8d69648f46
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 284, y: 173}
+  - name: Kaia_Frame_77
+    originalName: 
+    pivot: {x: 0.5333334, y: 0.46875003}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 281
+      y: 295
+      width: 15
+      height: 32
+    spriteID: 248fde2a735331341b9942ebee0bf112
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 281, y: 295}
+  - name: Kaia_Frame_78
+    originalName: 
+    pivot: {x: 0.5555555, y: 0.375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 151
+      y: 173
+      width: 18
+      height: 32
+    spriteID: 3a3ef13e975a08c418a8b4ce62a5fa66
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 151, y: 173}
+  - name: Kaia_Frame_79
+    originalName: 
+    pivot: {x: 0.47619045, y: 0.36842102}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 219
+      width: 21
+      height: 38
+    spriteID: d7ee01e8a45cfad4fafe2157b30b3373
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 219}
+  - name: Kaia_Frame_80
+    originalName: 
+    pivot: {x: 0.5555555, y: 0.67999995}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 295
+      width: 18
+      height: 25
+    spriteID: 486c4dae9c507d04ca61ae836fd2868c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 304, y: 295}
+  - name: Kaia_Frame_81
+    originalName: 
+    pivot: {x: 0.54545456, y: 0.45161286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 165
+      y: 131
+      width: 22
+      height: 31
+    spriteID: ffa416ee84408cc428afa26c3780d4d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 165, y: 131}
+  - name: Kaia_Frame_82
+    originalName: 
+    pivot: {x: 0.54545456, y: 0.35483876}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 131
+      width: 22
+      height: 31
+    spriteID: 2521d7d937f9a4b40b234682f41b975f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: 131}
+  - name: Kaia_Frame_83
+    originalName: 
+    pivot: {x: 0.53846145, y: 0.38888884}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 223
+      width: 26
+      height: 36
+    spriteID: 67778abd55d72ef49a1291924b64ac7c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 223}
+  - name: Kaia_Frame_84
+    originalName: 
+    pivot: {x: 0.5500001, y: 0.6206897}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 473
+      y: 213
+      width: 20
+      height: 29
+    spriteID: 81de7d7de975aab43a67ee8aacbf05ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 473, y: 213}
+  - name: Kaia_Frame_85
+    originalName: 
+    pivot: {x: 0.5500001, y: 0.46875003}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 69
+      y: 173
+      width: 20
+      height: 32
+    spriteID: e7a39c2fd76c8aa47ad078476a37138b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 69, y: 173}
+  - name: Kaia_Frame_86
+    originalName: 
+    pivot: {x: 0.54545456, y: 0.40625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 131
+      width: 22
+      height: 32
+    spriteID: a46613ed5ddf9ac4f999014d246e7176
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 131}
+  - name: Kaia_Frame_87
+    originalName: 
+    pivot: {x: 0.5357143, y: 0.40540543}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 92
+      width: 28
+      height: 37
+    spriteID: f24797e2704d46b41a18ece5303e3ff6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 92}
+  - name: Kaia_Frame_88
+    originalName: 
+    pivot: {x: 0.60869557, y: 0.40540543}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 402
+      width: 23
+      height: 37
+    spriteID: 15864d3bea1ccfe4bb283e8e304b9e05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 402}
+  - name: Kaia_Frame_89
+    originalName: 
+    pivot: {x: 0.5416666, y: 0.6071428}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 225
+      y: 131
+      width: 24
+      height: 28
+    spriteID: 8b0a6ad3abc37644d85cfd44e23b9142
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 225, y: 131}
+  - name: Kaia_Frame_90
+    originalName: 
+    pivot: {x: 0.5500001, y: 0.58620685}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 97
+      y: 173
+      width: 20
+      height: 29
+    spriteID: 4e522c6805493e640b759c7fc7e81a6c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 97, y: 173}
+  - name: Kaia_Frame_91
+    originalName: 
+    pivot: {x: 0.5625, y: 0.54838705}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 141
+      y: 295
+      width: 16
+      height: 31
+    spriteID: ab352b1976d48d342b75fee301e2576d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 141, y: 295}
+  - name: Kaia_Frame_92
+    originalName: 
+    pivot: {x: 0.67999995, y: 0.5294118}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 447
+      width: 25
+      height: 34
+    spriteID: 7d70b702c6dc9db4b9debaf39acf2cc2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 447}
+  - name: Kaia_Frame_93
+    originalName: 
+    pivot: {x: 0.5, y: 0.6206897}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 357
+      y: 92
+      width: 24
+      height: 29
+    spriteID: f58b0659c4ae52946aa2c5126e90656e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 357, y: 92}
+  - name: Kaia_Frame_94
+    originalName: 
+    pivot: {x: 0.47826093, y: 0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 421
+      y: 92
+      width: 23
+      height: 30
+    spriteID: 238549046315d994ab9b75ce89556610
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 421, y: 92}
+  - name: Kaia_Frame_95
+    originalName: 
+    pivot: {x: 0.5, y: 0.5666666}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 446
+      y: 254
+      width: 18
+      height: 30
+    spriteID: 2ad8450e17b4258499a1b63baa66170d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 446, y: 254}
+  - name: Kaia_Frame_96
+    originalName: 
+    pivot: {x: 0.36, y: 0.5294118}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 131
+      width: 25
+      height: 34
+    spriteID: 497ef4d54a43d24408ecd2cd7d186181
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 131}
+  - name: Kaia_Frame_97
+    originalName: 
+    pivot: {x: 0.5416666, y: 0.6206897}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 389
+      y: 92
+      width: 24
+      height: 29
+    spriteID: ecd5e51b8aaf6ab4b87e5e9c609b7cb0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 389, y: 92}
+  - name: Kaia_Frame_98
+    originalName: 
+    pivot: {x: 0.5652174, y: 0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 452
+      y: 92
+      width: 23
+      height: 30
+    spriteID: d7206af16edbc9540bd234dd78db2b79
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 452, y: 92}
+  - name: Kaia_Frame_99
+    originalName: 
+    pivot: {x: 0.5555555, y: 0.5666666}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 472
+      y: 254
+      width: 18
+      height: 30
+    spriteID: 4869ce8643fb6344586fccd11a77e8f9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 472, y: 254}
+  - name: Kaia_Frame_100
+    originalName: 
+    pivot: {x: 0.57142854, y: 0.45000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 469
+      y: 4
+      width: 28
+      height: 40
+    spriteID: 5eb48a93838264444af13b37c91de726
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 469, y: 4}
+  - name: Kaia_Frame_101
+    originalName: 
+    pivot: {x: 0.54545456, y: 0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 285
+      y: 131
+      width: 22
+      height: 30
+    spriteID: f56db380ba4b26c42b4d7500881a392e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 285, y: 131}
+  - name: Kaia_Frame_102
+    originalName: 
+    pivot: {x: 0.5500001, y: 0.5806452}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 213
+      width: 20
+      height: 31
+    spriteID: 59ca01751a0a40640897037f66fc36ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 213}
+  - name: Kaia_Frame_103
+    originalName: 
+    pivot: {x: 0.5625, y: 0.5625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 384
+      y: 173
+      width: 16
+      height: 32
+    spriteID: 126348ff423245741a9a15ab90010971
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 384, y: 173}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1040648160
+    name: Kaia
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Kaia_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 40
+        y: 34
+        width: 21
+        height: 32
+      spriteId: d9e930d0e140b404a9b742121e54d93d
+    - name: Kaia_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 40
+        y: 33
+        width: 20
+        height: 32
+      spriteId: 9917f740bb984e7469ad7a2eb785eb6b
+    - name: Kaia_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 39
+        y: 36
+        width: 19
+        height: 28
+      spriteId: 1a5f92dbd0270514d80778ba0e3026e6
+    - name: Kaia_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 37
+        y: 34
+        width: 21
+        height: 32
+      spriteId: 0cc2742d192a93f428c3d82283b47c10
+    - name: Kaia_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 39
+        y: 33
+        width: 21
+        height: 32
+      spriteId: cd7870c9e169cad479b45fd717d07b85
+    - name: Kaia_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 40
+        y: 36
+        width: 19
+        height: 28
+      spriteId: 345d0633bbb06c34c80d4a133f2132a3
+    - name: Kaia_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 38
+        y: 33
+        width: 20
+        height: 31
+      spriteId: 35736109c56c76e4d8711cf77d2093cf
+    - name: Kaia_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 41
+        y: 33
+        width: 16
+        height: 32
+      spriteId: e341e55198311924fb57ea3887fcba85
+    - name: Kaia_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 41
+        y: 34
+        width: 15
+        height: 32
+      spriteId: c468629dd3e0aa84ba9bea4feb72c24c
+    - name: Kaia_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 39
+        y: 33
+        width: 18
+        height: 31
+      spriteId: 338be3d440d61134cbc5b02c10be40e8
+    - name: Kaia_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 41
+        y: 33
+        width: 16
+        height: 32
+      spriteId: 9c80c254ba572d747b3c6fc19c475863
+    - name: Kaia_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 41
+        y: 33
+        width: 17
+        height: 33
+      spriteId: b232a8d0090da8b4b89d703d698b7441
+    - name: Kaia_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 40
+        y: 34
+        width: 18
+        height: 33
+      spriteId: 6fb1b7f6fcc5e5b418922cc0e34bc943
+    - name: Kaia_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 37
+        y: 33
+        width: 21
+        height: 32
+      spriteId: 716261e3d4e8ae544908aa5c77a5fc39
+    - name: Kaia_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 37
+        y: 33
+        width: 22
+        height: 31
+      spriteId: 3c7dff91d6a7059499c6b141eb641d3d
+    - name: Kaia_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 40
+        y: 34
+        width: 18
+        height: 33
+      spriteId: 58e2415110049b34fb320238add1ced1
+    - name: Kaia_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 37
+        y: 34
+        width: 21
+        height: 31
+      spriteId: 05728d47b3e95304c83efe357566f47e
+    - name: Kaia_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 37
+        y: 33
+        width: 23
+        height: 31
+      spriteId: 791a62629dc4a9542a09c0d9f6e093ed
+    - name: Kaia_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 40
+        y: 33
+        width: 20
+        height: 31
+      spriteId: 8628f6644b1a8034d91eecdbbbaeca47
+    - name: Kaia_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 42
+        y: 33
+        width: 15
+        height: 32
+      spriteId: 381734f9e5737d740867ed46aad09cb5
+    - name: Kaia_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 42
+        y: 34
+        width: 15
+        height: 32
+      spriteId: adda9757937d1dc4f8ad92008088fb16
+    - name: Kaia_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 41
+        y: 33
+        width: 18
+        height: 31
+      spriteId: 08caa33806c029e45aeea37bfb2e409f
+    - name: Kaia_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 41
+        y: 33
+        width: 16
+        height: 32
+      spriteId: 531fcdd3dce53c44cba40cc899ee9a30
+    - name: Kaia_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 40
+        y: 33
+        width: 17
+        height: 33
+      spriteId: cbe1fee79ce850f4f9bb9005d054a7b1
+    - name: Kaia_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 40
+        y: 34
+        width: 18
+        height: 33
+      spriteId: 3c70538f8f7d6904a8e9543e01d18e50
+    - name: Kaia_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 40
+        y: 33
+        width: 21
+        height: 32
+      spriteId: e24c5a58410f68b4aa769a071b47e2d5
+    - name: Kaia_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 39
+        y: 33
+        width: 22
+        height: 31
+      spriteId: 1c0871969729c874d89bfb780f134788
+    - name: Kaia_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 40
+        y: 34
+        width: 18
+        height: 33
+      spriteId: 72a162094524f8547935745d7110b4b2
+    - name: Kaia_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 40
+        y: 34
+        width: 21
+        height: 31
+      spriteId: b676f646c0c985744853f2c274babb9e
+    - name: Kaia_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 38
+        y: 33
+        width: 23
+        height: 31
+      spriteId: 52beb7e3233bdc643a7bf6c95fd37986
+    - name: Kaia_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 40
+        y: 34
+        width: 17
+        height: 30
+      spriteId: 70936b28c83d9d84cb30e1d4960b5773
+    - name: Kaia_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 40
+        y: 33
+        width: 19
+        height: 32
+      spriteId: 4f91b112d117ffc4f9a235585ebe804e
+    - name: Kaia_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 39
+        y: 33
+        width: 20
+        height: 33
+      spriteId: 79b0aabfd3eab8d46b5993d412b127cc
+    - name: Kaia_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 41
+        y: 34
+        width: 17
+        height: 30
+      spriteId: 0be8c8dc991011f499a913ff0999bbee
+    - name: Kaia_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 39
+        y: 33
+        width: 19
+        height: 32
+      spriteId: d7e777c95c0594d49be67e5c9f81c997
+    - name: Kaia_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 39
+        y: 32
+        width: 20
+        height: 33
+      spriteId: 014de376061e7be429540cf380f98baa
+    - name: Kaia_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 40
+        y: 33
+        width: 19
+        height: 33
+      spriteId: 6d5de004598b6c346a658080c4994ada
+    - name: Kaia_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 37
+        y: 33
+        width: 23
+        height: 31
+      spriteId: 2886492379fca7b448399600d3bb34f9
+    - name: Kaia_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 40
+        y: 31
+        width: 20
+        height: 32
+      spriteId: c9ac74551b4db9e4bbbb2ad7b1c7632a
+    - name: Kaia_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 39
+        y: 33
+        width: 19
+        height: 33
+      spriteId: 001c64381ef58654aa5770cb4954740b
+    - name: Kaia_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 38
+        y: 33
+        width: 23
+        height: 31
+      spriteId: b6145191daeba36429c087e9ce9357b3
+    - name: Kaia_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 38
+        y: 31
+        width: 20
+        height: 32
+      spriteId: 96f28f5ce266ba94e877fd2c59c30636
+    - name: Kaia_Frame_52
+      frameIndex: 52
+      cellRect:
+        x: 23
+        y: 33
+        width: 33
+        height: 31
+      spriteId: ced311d0ffba09448bf8cbf93efb1652
+    - name: Kaia_Frame_53
+      frameIndex: 53
+      cellRect:
+        x: 30
+        y: 28
+        width: 28
+        height: 35
+      spriteId: f29957e86d3b20b49ab63810cbf63d27
+    - name: Kaia_Frame_54
+      frameIndex: 54
+      cellRect:
+        x: 40
+        y: 32
+        width: 39
+        height: 38
+      spriteId: a85b3d7139390f249b3dec6c7a9876ad
+    - name: Kaia_Frame_55
+      frameIndex: 55
+      cellRect:
+        x: 41
+        y: 33
+        width: 35
+        height: 38
+      spriteId: 284d622a870860e4fa9f3917016d8ecb
+    - name: Kaia_Frame_56
+      frameIndex: 56
+      cellRect:
+        x: 41
+        y: 33
+        width: 24
+        height: 37
+      spriteId: d2536d44e82bae64984d9f0dbd3d9dbd
+    - name: Kaia_Frame_57
+      frameIndex: 57
+      cellRect:
+        x: 42
+        y: 33
+        width: 33
+        height: 31
+      spriteId: b71c6cac2a9f6ea4c80bb115165b5f77
+    - name: Kaia_Frame_58
+      frameIndex: 58
+      cellRect:
+        x: 40
+        y: 28
+        width: 28
+        height: 35
+      spriteId: fb4f0cdc3cc9a9e4e946c5378531ebd1
+    - name: Kaia_Frame_59
+      frameIndex: 59
+      cellRect:
+        x: 19
+        y: 32
+        width: 39
+        height: 38
+      spriteId: d143031da2a60834b9dc84350045b6ca
+    - name: Kaia_Frame_60
+      frameIndex: 60
+      cellRect:
+        x: 22
+        y: 33
+        width: 35
+        height: 38
+      spriteId: 3114ab57a6a98e14cbd2bb710c545b36
+    - name: Kaia_Frame_61
+      frameIndex: 61
+      cellRect:
+        x: 33
+        y: 33
+        width: 24
+        height: 37
+      spriteId: 450094b4a58cb6c46b36495c799d62db
+    - name: Kaia_Frame_62
+      frameIndex: 62
+      cellRect:
+        x: 41
+        y: 34
+        width: 23
+        height: 37
+      spriteId: 6e8c67c06b409794fb3633db5cde12a7
+    - name: Kaia_Frame_63
+      frameIndex: 63
+      cellRect:
+        x: 38
+        y: 34
+        width: 40
+        height: 27
+      spriteId: 16851db94a854e645bdd94c92d7a4a82
+    - name: Kaia_Frame_64
+      frameIndex: 64
+      cellRect:
+        x: 23
+        y: 18
+        width: 48
+        height: 45
+      spriteId: 35ec6714315a6264bb45bf587c3ca0a4
+    - name: Kaia_Frame_65
+      frameIndex: 65
+      cellRect:
+        x: 22
+        y: 25
+        width: 34
+        height: 39
+      spriteId: fd5b11fa8b1b18c45a7902592ff840d2
+    - name: Kaia_Frame_66
+      frameIndex: 66
+      cellRect:
+        x: 26
+        y: 34
+        width: 30
+        height: 30
+      spriteId: b847cdf13dd52434c812836d396ed4f2
+    - name: Kaia_Frame_67
+      frameIndex: 67
+      cellRect:
+        x: 24
+        y: 27
+        width: 33
+        height: 35
+      spriteId: ac81e1e6c8f9b9648bf52fd338aa1e7d
+    - name: Kaia_Frame_68
+      frameIndex: 68
+      cellRect:
+        x: 21
+        y: 32
+        width: 39
+        height: 35
+      spriteId: f07a01e2c4f90864eb0c9bac567f3f6b
+    - name: Kaia_Frame_69
+      frameIndex: 69
+      cellRect:
+        x: 28
+        y: 32
+        width: 48
+        height: 45
+      spriteId: 6084ac0df4b2e9e468ed1f6d545ffa7b
+    - name: Kaia_Frame_70
+      frameIndex: 70
+      cellRect:
+        x: 42
+        y: 32
+        width: 35
+        height: 38
+      spriteId: ab8d96d1bed3cd04db789dd159cbeb99
+    - name: Kaia_Frame_71
+      frameIndex: 71
+      cellRect:
+        x: 42
+        y: 32
+        width: 33
+        height: 29
+      spriteId: dddb4bd59ef20a2418e3ccdd7d2bdb31
+    - name: Kaia_Frame_104
+      frameIndex: 104
+      cellRect:
+        x: 37
+        y: 20
+        width: 24
+        height: 32
+      spriteId: 1f26309ae63e3d246833c529034aff22
+    - name: Kaia_Frame_105
+      frameIndex: 105
+      cellRect:
+        x: 39
+        y: 19
+        width: 20
+        height: 32
+      spriteId: 491ea822d0234da45ab575d3d3303b83
+    - name: Kaia_Frame_106
+      frameIndex: 106
+      cellRect:
+        x: 41
+        y: 20
+        width: 16
+        height: 30
+      spriteId: ad7a882e84948f94ab467530b9c93fb1
+    - name: Kaia_Frame_107
+      frameIndex: 107
+      cellRect:
+        x: 39
+        y: 19
+        width: 20
+        height: 32
+      spriteId: d4e6c0e44a051de4d9e80e09abb0b888
+    - name: Kaia_Frame_108
+      frameIndex: 108
+      cellRect:
+        x: 39
+        y: 19
+        width: 18
+        height: 33
+      spriteId: c99e448ebca2bf34196594eff182fc94
+    - name: Kaia_Frame_109
+      frameIndex: 109
+      cellRect:
+        x: 40
+        y: 18
+        width: 17
+        height: 33
+      spriteId: 8279a3e64d41dcb46806ac44470344f4
+    - name: Kaia_Frame_110
+      frameIndex: 110
+      cellRect:
+        x: 40
+        y: 18
+        width: 17
+        height: 32
+      spriteId: b8630b965b71d504fbb2285b1f0ac63a
+    - name: Kaia_Frame_111
+      frameIndex: 111
+      cellRect:
+        x: 40
+        y: 18
+        width: 17
+        height: 33
+      spriteId: 49d962b558c03fc479abdfffde171ced
+    - name: Kaia_Frame_112
+      frameIndex: 112
+      cellRect:
+        x: 42
+        y: 19
+        width: 18
+        height: 33
+      spriteId: 8d4c114346a6fdb418420e40d1ece21b
+    - name: Kaia_Frame_113
+      frameIndex: 113
+      cellRect:
+        x: 42
+        y: 18
+        width: 17
+        height: 33
+      spriteId: 1699488208fbbfe44be2c879dcad3b5d
+    - name: Kaia_Frame_114
+      frameIndex: 114
+      cellRect:
+        x: 42
+        y: 18
+        width: 17
+        height: 32
+      spriteId: 01ecb7c976c637348a9caef868989487
+    - name: Kaia_Frame_115
+      frameIndex: 115
+      cellRect:
+        x: 42
+        y: 18
+        width: 17
+        height: 33
+      spriteId: 5417e75ac11e8f94e996b6c98bedb002
+    - name: Kaia_Frame_116
+      frameIndex: 116
+      cellRect:
+        x: 37
+        y: 20
+        width: 24
+        height: 31
+      spriteId: cbc7efb7210443045a9a87a0fbc609ff
+    - name: Kaia_Frame_117
+      frameIndex: 117
+      cellRect:
+        x: 39
+        y: 19
+        width: 20
+        height: 31
+      spriteId: c0a6ca1fa89abdf48b20661b702ecd3c
+    - name: Kaia_Frame_118
+      frameIndex: 118
+      cellRect:
+        x: 41
+        y: 18
+        width: 16
+        height: 31
+      spriteId: 74bf57e5ec131fa43a1816d8b26afe57
+    - name: Kaia_Frame_119
+      frameIndex: 119
+      cellRect:
+        x: 39
+        y: 19
+        width: 20
+        height: 31
+      spriteId: 6ba4bfca5da0acc42bca7df2e79d3fd0
+    - name: Kaia_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 41
+        y: 32
+        width: 16
+        height: 33
+      spriteId: 9f9826716fb66e64eb0533d5d526f276
+    - name: Kaia_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 40
+        y: 33
+        width: 16
+        height: 33
+      spriteId: 9c6234afe419a8e4f83f21e19f0318ae
+    - name: Kaia_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 41
+        y: 32
+        width: 17
+        height: 33
+      spriteId: 78447cce2cc16eb4d9498f3c7a458504
+    - name: Kaia_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 42
+        y: 33
+        width: 16
+        height: 33
+      spriteId: 48a898c72a9193b468ec5ecdde604368
+    - name: Kaia_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 40
+        y: 33
+        width: 17
+        height: 31
+      spriteId: 18ff7fcc577c08d4b880054d999c0a77
+    - name: Kaia_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 40
+        y: 33
+        width: 17
+        height: 32
+      spriteId: de96887d9a13f4f44a35b5f7ba286754
+    - name: Kaia_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 41
+        y: 34
+        width: 17
+        height: 32
+      spriteId: cd75488ba755a3746a6baebdcfb2a9de
+    - name: Kaia_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 42
+        y: 33
+        width: 16
+        height: 31
+      spriteId: 61eddfe27e862694594ef98870ca2d49
+    - name: Kaia_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 41
+        y: 33
+        width: 17
+        height: 32
+      spriteId: d1c44f6f0b8b0a34d843453af266a7e5
+    - name: Kaia_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 40
+        y: 34
+        width: 17
+        height: 32
+      spriteId: 1d36ac96e0931f54abc16f34e1d6fc61
+    - name: Kaia_Frame_72
+      frameIndex: 72
+      cellRect:
+        x: 41
+        y: 33
+        width: 20
+        height: 26
+      spriteId: 4137cdcca58373744b14fb8f089826b0
+    - name: Kaia_Frame_73
+      frameIndex: 73
+      cellRect:
+        x: 41
+        y: 35
+        width: 15
+        height: 32
+      spriteId: b71645d21effe344a9f402e74e95c52e
+    - name: Kaia_Frame_74
+      frameIndex: 74
+      cellRect:
+        x: 40
+        y: 38
+        width: 18
+        height: 32
+      spriteId: 5a8b7da68804629488bcb7b36e45fa23
+    - name: Kaia_Frame_75
+      frameIndex: 75
+      cellRect:
+        x: 37
+        y: 36
+        width: 21
+        height: 38
+      spriteId: fa4afe060d2c1eb46beead246583bf1a
+    - name: Kaia_Frame_76
+      frameIndex: 76
+      cellRect:
+        x: 37
+        y: 33
+        width: 20
+        height: 26
+      spriteId: 993f2117cea98eb4c88e9e8d69648f46
+    - name: Kaia_Frame_77
+      frameIndex: 77
+      cellRect:
+        x: 42
+        y: 35
+        width: 15
+        height: 32
+      spriteId: 248fde2a735331341b9942ebee0bf112
+    - name: Kaia_Frame_78
+      frameIndex: 78
+      cellRect:
+        x: 40
+        y: 38
+        width: 18
+        height: 32
+      spriteId: 3a3ef13e975a08c418a8b4ce62a5fa66
+    - name: Kaia_Frame_79
+      frameIndex: 79
+      cellRect:
+        x: 40
+        y: 36
+        width: 21
+        height: 38
+      spriteId: d7ee01e8a45cfad4fafe2157b30b3373
+    - name: Kaia_Frame_80
+      frameIndex: 80
+      cellRect:
+        x: 40
+        y: 33
+        width: 18
+        height: 25
+      spriteId: 486c4dae9c507d04ca61ae836fd2868c
+    - name: Kaia_Frame_81
+      frameIndex: 81
+      cellRect:
+        x: 38
+        y: 36
+        width: 22
+        height: 31
+      spriteId: ffa416ee84408cc428afa26c3780d4d0
+    - name: Kaia_Frame_82
+      frameIndex: 82
+      cellRect:
+        x: 38
+        y: 39
+        width: 22
+        height: 31
+      spriteId: 2521d7d937f9a4b40b234682f41b975f
+    - name: Kaia_Frame_83
+      frameIndex: 83
+      cellRect:
+        x: 36
+        y: 36
+        width: 26
+        height: 36
+      spriteId: 67778abd55d72ef49a1291924b64ac7c
+    - name: Kaia_Frame_84
+      frameIndex: 84
+      cellRect:
+        x: 39
+        y: 32
+        width: 20
+        height: 29
+      spriteId: 81de7d7de975aab43a67ee8aacbf05ca
+    - name: Kaia_Frame_85
+      frameIndex: 85
+      cellRect:
+        x: 39
+        y: 35
+        width: 20
+        height: 32
+      spriteId: e7a39c2fd76c8aa47ad078476a37138b
+    - name: Kaia_Frame_86
+      frameIndex: 86
+      cellRect:
+        x: 38
+        y: 37
+        width: 22
+        height: 32
+      spriteId: a46613ed5ddf9ac4f999014d246e7176
+    - name: Kaia_Frame_87
+      frameIndex: 87
+      cellRect:
+        x: 35
+        y: 35
+        width: 28
+        height: 37
+      spriteId: f24797e2704d46b41a18ece5303e3ff6
+    - name: Kaia_Frame_88
+      frameIndex: 88
+      cellRect:
+        x: 36
+        y: 35
+        width: 23
+        height: 37
+      spriteId: 15864d3bea1ccfe4bb283e8e304b9e05
+    - name: Kaia_Frame_89
+      frameIndex: 89
+      cellRect:
+        x: 37
+        y: 33
+        width: 24
+        height: 28
+      spriteId: 8b0a6ad3abc37644d85cfd44e23b9142
+    - name: Kaia_Frame_90
+      frameIndex: 90
+      cellRect:
+        x: 39
+        y: 33
+        width: 20
+        height: 29
+      spriteId: 4e522c6805493e640b759c7fc7e81a6c
+    - name: Kaia_Frame_91
+      frameIndex: 91
+      cellRect:
+        x: 41
+        y: 33
+        width: 16
+        height: 31
+      spriteId: ab352b1976d48d342b75fee301e2576d
+    - name: Kaia_Frame_92
+      frameIndex: 92
+      cellRect:
+        x: 33
+        y: 32
+        width: 25
+        height: 34
+      spriteId: 7d70b702c6dc9db4b9debaf39acf2cc2
+    - name: Kaia_Frame_93
+      frameIndex: 93
+      cellRect:
+        x: 38
+        y: 32
+        width: 24
+        height: 29
+      spriteId: f58b0659c4ae52946aa2c5126e90656e
+    - name: Kaia_Frame_94
+      frameIndex: 94
+      cellRect:
+        x: 39
+        y: 32
+        width: 23
+        height: 30
+      spriteId: 238549046315d994ab9b75ce89556610
+    - name: Kaia_Frame_95
+      frameIndex: 95
+      cellRect:
+        x: 41
+        y: 33
+        width: 18
+        height: 30
+      spriteId: 2ad8450e17b4258499a1b63baa66170d
+    - name: Kaia_Frame_96
+      frameIndex: 96
+      cellRect:
+        x: 41
+        y: 32
+        width: 25
+        height: 34
+      spriteId: 497ef4d54a43d24408ecd2cd7d186181
+    - name: Kaia_Frame_97
+      frameIndex: 97
+      cellRect:
+        x: 37
+        y: 32
+        width: 24
+        height: 29
+      spriteId: ecd5e51b8aaf6ab4b87e5e9c609b7cb0
+    - name: Kaia_Frame_98
+      frameIndex: 98
+      cellRect:
+        x: 37
+        y: 32
+        width: 23
+        height: 30
+      spriteId: d7206af16edbc9540bd234dd78db2b79
+    - name: Kaia_Frame_99
+      frameIndex: 99
+      cellRect:
+        x: 40
+        y: 33
+        width: 18
+        height: 30
+      spriteId: 4869ce8643fb6344586fccd11a77e8f9
+    - name: Kaia_Frame_100
+      frameIndex: 100
+      cellRect:
+        x: 34
+        y: 32
+        width: 28
+        height: 40
+      spriteId: 5eb48a93838264444af13b37c91de726
+    - name: Kaia_Frame_101
+      frameIndex: 101
+      cellRect:
+        x: 38
+        y: 32
+        width: 22
+        height: 30
+      spriteId: f56db380ba4b26c42b4d7500881a392e
+    - name: Kaia_Frame_102
+      frameIndex: 102
+      cellRect:
+        x: 39
+        y: 32
+        width: 20
+        height: 31
+      spriteId: 59ca01751a0a40640897037f66fc36ad
+    - name: Kaia_Frame_103
+      frameIndex: 103
+      cellRect:
+        x: 41
+        y: 32
+        width: 16
+        height: 32
+      spriteId: 126348ff423245741a9a15ab90010971
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 100, y: 100}
