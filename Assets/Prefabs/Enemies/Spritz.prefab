@@ -223,7 +223,6 @@ MonoBehaviour:
   rb: {fileID: 0}
   currentState: {fileID: 0}
   previousState: {fileID: 0}
-  Attack: {fileID: 0}
   Idle: {fileID: 0}
   Damaged: {fileID: 0}
   Dead: {fileID: 0}

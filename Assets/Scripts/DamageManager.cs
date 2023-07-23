@@ -12,20 +12,8 @@ public class DamageManager
     public delegate void DamageTakenHandler(int amount);
     public event DamageTakenHandler OnDamageTaken;
 
-    public delegate void DamagePopupHandler(Vector3 position, int amount);
+    public delegate void DamagePopupHandler(string poolTag, Vector3 position, int amount);
     public event DamagePopupHandler OnMakePopup;
-
-    //private void Awake()
-    //{
-    //    if (Instance != null && Instance != this)
-    //    {
-    //        Destroy(this);
-    //    }
-    //    else
-    //    {
-    //        Instance = this;
-    //    }
-    //}
 
     static DamageManager()
     {
@@ -37,8 +25,8 @@ public class DamageManager
         OnDamageTaken?.Invoke(amount);
     }
 
-    public void GenerateDamagePopup(Vector3 position, int amount)
+    public void GenerateDamagePopup(string poolTag, Vector3 position, int amount)
     {
-        OnMakePopup?.Invoke(position, amount);
+        OnMakePopup?.Invoke(poolTag, position, amount);
     }
 }

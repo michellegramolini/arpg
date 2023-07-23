@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 using SuperTiled2Unity;
 using System;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IAttackable
 {
     private PlayerInput _playerInput;
 
@@ -89,6 +89,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private int _currentLevel;
     private float _a, _b;
+
+    [Header("Damage and Death")]
+    public bool isKnockedBack;
+    public float knockbackForce;
+    public int health;
 
 
     #region Event Handlers
@@ -219,6 +224,9 @@ public class PlayerController : MonoBehaviour
         currentXP = 0;
         _a = 1;
         _b = 1.1f;
+
+        // Health
+        health = 5;
     }
 
     // Update is called once per frame
@@ -233,7 +241,15 @@ public class PlayerController : MonoBehaviour
             _detectionPoint = new Vector2(transform.position.x, transform.position.y) + facingDirection;
             attackPoint = _detectionPoint;
             interactionCollider.transform.position = _detectionPoint;
-            _adjacentTileDetectionPoint = new Vector2(_feet.position.x, _feet.position.y) + (facingDirection * .6f);
+            //_adjacentTileDetectionPoint = new Vector2(_feet.position.x, _feet.position.y) + (-facingDirection * .6f);
+            if (currentState == Damaged)
+            {
+                _adjacentTileDetectionPoint = GetAdjacentTileDetectionPoint(-facingDirection);
+            }
+            else
+            {
+                _adjacentTileDetectionPoint = GetAdjacentTileDetectionPoint(facingDirection);
+            }
         }
 
         SetFacingDirection();
@@ -243,9 +259,15 @@ public class PlayerController : MonoBehaviour
         currentState.UpdateState(this);
     }
 
+    private Vector2 GetAdjacentTileDetectionPoint(Vector2 orientationVector)
+    {
+        return new Vector2(_feet.position.x, _feet.position.y) + (orientationVector * .6f);
+    }
+
     private void SetCurrentZ()
     {
-        if (currentState == Walk || currentState == Run || currentState == Idle || currentState == Swim)
+        // HACK:
+        if (currentState == Walk || currentState == Run || currentState == Idle || currentState == Swim || currentState == Damaged)
         {
             if (GetCurrentZ() < z)
             {
@@ -256,7 +278,24 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        HandleKnockback();
+
         currentState.FixedUpdateState(this);
+    }
+
+    private void HandleKnockback()
+    {
+        if (isKnockedBack)
+        {
+            if (canMove)
+            {
+                rb.velocity = -facingDirection * knockbackForce;
+            }
+            else
+            {
+                rb.velocity = Vector2.zero;
+            }
+        }
     }
 
     private void LateUpdate()
@@ -295,50 +334,12 @@ public class PlayerController : MonoBehaviour
         return 0;
     }
 
-    // TODO: dictionary or a better structure for this
-    // TODO: we could use facing direction here i believe instead of move vector
-    public string GetTileKeyFromFacingDirection()
+    private void DetectNextTile(Vector2 detectionPoint)
     {
-        if (facingDirection == Vector2.right)
-        {
-            return "right";
-        }
-        else if (facingDirection == Vector2.left)
-        {
-            return "left";
-        }
-        else if (facingDirection == Vector2.up)
-        {
-            return "up";
-        }
-        else if (facingDirection == Vector2.down)
-        {
-            return "down";
-        }
-        else if (facingDirection.x > 0 && moveVector.y > 0)
-        {
-            return "up-right";
-        }
-        else if (facingDirection.x > 0 && moveVector.y < 0)
-        {
-            return "down-right";
-        }
-        else if (facingDirection.x < 0 && moveVector.y > 0)
-        {
-            return "up-left";
-        }
-        else //if (facingDirection.x < 0 && moveVector.y < 0)
-        {
-            return "down-left";
-        }
-    }
-
-    private void DetectNextTile()
-    {
-        SuperTile heightTile = tileDetector.GetHeightTile(_adjacentTileDetectionPoint);
+        SuperTile heightTile = tileDetector.GetHeightTile(detectionPoint);
         CustomProperty heightProp = tileDetector.GetTilePropFromSuperTile(heightTile, "height_value");
 
-        SuperTile terrainTile = tileDetector.GetTerrainTile(_adjacentTileDetectionPoint);
+        SuperTile terrainTile = tileDetector.GetTerrainTile(detectionPoint);
         CustomProperty terrainProp = tileDetector.GetTilePropFromSuperTile(terrainTile, "terrain");
 
         // All walkable tiles should have a height_value property.
@@ -372,7 +373,6 @@ public class PlayerController : MonoBehaviour
                         canMove = false;
                     }
                 }
-
             }
         }
         else
@@ -417,21 +417,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision != null)
-        {
-            if (collision.gameObject.layer == enemyLayerCollision)
-            {
-                Debug.Log($"Player damaged by {collision.gameObject} enemy.");
-            }
-        }
-    }
-
     private void EnableMovement()
     {
         DetectCurrentTile();
-        DetectNextTile();
+        DetectNextTile(_adjacentTileDetectionPoint);
+    }
+
+    public void Hit()
+    {
+        if (currentState != Damaged)
+        {
+            SetState(Damaged);
+        }
     }
 
     #region Experience XP Stuff
@@ -456,11 +453,16 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         // Display the explosion radius when selected
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(_detectionPoint, .5f);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(_adjacentTileDetectionPoint, 0.5f);
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawWireSphere(_detectionPoint, .5f);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(attackPoint, attackRange);
+        //if (currentState == Damaged)
+        //{
+        //    Gizmos.color = Color.red;
+        //    Gizmos.DrawWireSphere(_adjacentTileDetectionPoint, .5f);
+        //}
     }
+
+
 }

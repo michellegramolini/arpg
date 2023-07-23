@@ -47,7 +47,7 @@ namespace Spritz
 
         private void DoPopups()
         {
-            DamageManager.Instance.GenerateDamagePopup(transform.position, 1);
+            DamageManager.Instance.GenerateDamagePopup("damage_popup", transform.position, 1);
         }
 
         private void ResetPhysics()

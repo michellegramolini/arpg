@@ -5,11 +5,11 @@ using TMPro;
 
 public class DamagePopup : MonoBehaviour, IPooledObject
 {
-    private TextMeshPro textMesh;
+    protected TextMeshPro _textMesh;
 
     private void Awake()
     {
-        textMesh = transform.GetComponent<TextMeshPro>();
+        _textMesh = transform.GetComponent<TextMeshPro>();
     }
 
     private void Update()
@@ -20,10 +20,10 @@ public class DamagePopup : MonoBehaviour, IPooledObject
             new Vector2(transform.position.x, transform.position.y + 5f), step);
     }
 
-    public void Setup(int damageAmount)
+    public virtual void Setup(int damageAmount)
     {
-        textMesh.SetText(damageAmount.ToString());
-        textMesh.color = Color.yellow;
+        _textMesh.SetText(damageAmount.ToString());
+        _textMesh.color = Color.yellow;
     }
 
     // TODO: make part of interface potentially
