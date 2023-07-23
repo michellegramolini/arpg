@@ -86,7 +86,7 @@ public class Jump : State
         _switch = true;
         if (_player.facingDirection == Vector2.up || _player.facingDirection == Vector2.down)
         {
-            yield return new WaitForSeconds(_player.jumpDuration + .1f);
+            yield return new WaitForSeconds(_player.jumpDuration);
         }
         else
         {

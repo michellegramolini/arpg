@@ -6,7 +6,9 @@
     "activeFile": "Maps/seaside_playroom.tmx",
     "expandedProjectPaths": [
         ".",
-        "Images"
+        "Images",
+        "Tilesets",
+        "Maps"
     ],
     "file.lastUsedOpenFilter": "Tiled map files (*.tmx)",
     "fileStates": {
@@ -41,11 +43,11 @@
             "expandedGroupLayers": [
                 15
             ],
-            "scale": 3,
-            "selectedLayer": 8,
+            "scale": 8,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 665.6666666666666,
-                "y": 637.8333333333333
+                "x": 859.5625,
+                "y": 655.875
             }
         },
         "Tilesets/collision_map.tsx": {
@@ -104,7 +106,7 @@
             "scaleInEditor": 4
         }
     },
-    "frame.defaultDuration": 200,
+    "frame.defaultDuration": 100,
     "last.externalTilesetPath": "C:/Github/arpg/Assets/Graphics/Tilesets",
     "last.imagePath": "C:/Users/Nick/Desktop/Unity/Seaside/Seaside_Tiled/Tilesets",
     "map.height": 100,
