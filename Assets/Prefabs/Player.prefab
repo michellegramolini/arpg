@@ -470,15 +470,15 @@ MonoBehaviour:
   rb: {fileID: 0}
   col: {fileID: 0}
   moveVector: {x: 0, y: 0}
-  runSpeed: 8
-  walkSpeed: 5
+  runSpeed: 10
+  walkSpeed: 6
   swimSpeed: 4
-  fallSpeed: 8
+  fallSpeed: 12
   jumpSpeed: 6
   idleVector: {x: 0, y: 0}
   facingDirection: {x: 0, y: 0}
   isJumping: 0
-  jumpDuration: 0.2
+  jumpDuration: 0.4
   jumpVector: {x: 0, y: 0}
   isShifting: 0
   isAttacking: 0
