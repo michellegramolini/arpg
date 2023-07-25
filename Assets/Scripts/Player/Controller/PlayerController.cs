@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 using SuperTiled2Unity;
 using System;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : MonoBehaviour, IAttackable
 {
@@ -38,19 +39,59 @@ public class PlayerController : MonoBehaviour, IAttackable
     private InputAction _jumpAction;
     private InputAction _attackAction;
 
-    [Header("Movement")]
-    public Vector2 moveVector;
+    [Header("Movement Speeds")]
+
     public float runSpeed;
     public float walkSpeed;
     public float swimSpeed;
     public float fallSpeed;
     public float jumpSpeed;
+
+    [Header("Movement Vectors")]
+    public Vector2 moveVector;
+    public Vector2 previousMoveVector;
     public Vector2 idleVector;
+    public bool isMovingRight;
+    public bool isMovingLeft;
+    public bool isMovingUp;
+    public bool isMovingDown;
+    public bool isMovingUpRight;
+    public bool isMovingUpLeft;
+    public bool isMovingDownRight;
+    public bool isMovingDownLeft;
+    public bool wasMovingRight;
+    public bool wasMovingLeft;
+    public bool wasMovingUp;
+    public bool wasMovingDown;
+    public bool wasMovingUpRight;
+    public bool wasMovingUpLeft;
+    public bool wasMovingDownRight;
+    public bool wasMovingDownLeft;
+
+    public Vector2 locked_moveVector;
+    public Vector2 locked_previousMoveVector;
+    public bool locked_isMovingRight;
+    public bool locked_isMovingLeft;
+    public bool locked_isMovingUp;
+    public bool locked_isMovingDown;
+    public bool locked_isMovingUpRight;
+    public bool locked_isMovingUpLeft;
+    public bool locked_isMovingDownRight;
+    public bool locked_isMovingDownLeft;
+    public bool locked_wasMovingRight;
+    public bool locked_wasMovingLeft;
+    public bool locked_wasMovingUp;
+    public bool locked_wasMovingDown;
+    public bool locked_wasMovingUpRight;
+    public bool locked_wasMovingUpLeft;
+    public bool locked_wasMovingDownRight;
+    public bool locked_wasMovingDownLeft;
+
+    [Header("Facing Direction")]
     public Vector2 facingDirection;
 
     [Header("Jump")]
     public bool isJumping;
-    public float jumpDuration;
     public Vector2 jumpVector;
 
     [Header("Shifting")]
@@ -227,13 +268,68 @@ public class PlayerController : MonoBehaviour, IAttackable
 
         // Health
         health = 5;
+
+        //// Move Vector
+        //moveVector = idleVector;
+    }
+
+    // TODO: dictionary?
+    private void SetMoveVectors()
+    {
+        // if moveVector is changing
+        if (moveVector != _moveAction.ReadValue<Vector2>())
+        {
+            previousMoveVector = moveVector;
+            // x and y 0, 1, or -1
+            moveVector = _moveAction.ReadValue<Vector2>();
+        }
+
+        isMovingRight = (moveVector == Vector2.right);
+        isMovingLeft = (moveVector == Vector2.left);
+        isMovingUp = (moveVector == Vector2.up);
+        isMovingDown = (moveVector == Vector2.down);
+        isMovingUpRight = (moveVector.x > 0 && moveVector.y > 0);
+        isMovingUpLeft = (moveVector.x < 0 && moveVector.y > 0);
+        isMovingDownRight = (moveVector.x > 0 && moveVector.y < 0);
+        isMovingDownLeft = (moveVector.x < 0 && moveVector.y < 0);
+
+        wasMovingRight = (previousMoveVector == Vector2.right);
+        wasMovingLeft = (previousMoveVector == Vector2.left);
+        wasMovingUp = (previousMoveVector == Vector2.up);
+        wasMovingDown = (previousMoveVector == Vector2.down);
+        wasMovingUpRight = (previousMoveVector.x > 0 && previousMoveVector.y > 0);
+        wasMovingUpLeft = (previousMoveVector.x < 0 && previousMoveVector.y > 0);
+        wasMovingDownRight = (previousMoveVector.x > 0 && previousMoveVector.y < 0);
+        wasMovingDownLeft = (previousMoveVector.x < 0 && previousMoveVector.y < 0);
+    }
+
+    // TODO: dictionary?
+    public void SetLockedMoveVectors()
+    {
+        locked_moveVector = moveVector;
+        locked_previousMoveVector = previousMoveVector;
+        locked_isMovingRight = isMovingRight;
+        locked_isMovingLeft = isMovingLeft;
+        locked_isMovingUp = isMovingUp;
+        locked_isMovingDown = isMovingDown;
+        locked_isMovingUpRight = isMovingUpRight;
+        locked_isMovingUpLeft = isMovingUpLeft;
+        locked_isMovingDownRight = isMovingDownRight;
+        locked_isMovingDownLeft = isMovingDownLeft;
+        locked_wasMovingRight = wasMovingRight;
+        locked_wasMovingLeft = wasMovingLeft;
+        locked_wasMovingUp = wasMovingUp;
+        locked_wasMovingDown = wasMovingDown;
+        locked_wasMovingUpRight = wasMovingUpRight;
+        locked_wasMovingUpLeft = wasMovingUpLeft;
+        locked_wasMovingDownRight = wasMovingDownRight;
+        locked_wasMovingDownLeft = wasMovingDownLeft;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // x and y 0, 1, or -1
-        moveVector = _moveAction.ReadValue<Vector2>();
+        SetMoveVectors();
 
         if (facingDirection != idleVector)
         {
@@ -255,6 +351,12 @@ public class PlayerController : MonoBehaviour, IAttackable
         SetFacingDirection();
         EnableMovement();
         SetCurrentZ();
+
+        // Temporary TODO: Kill her!
+        if (health <= 0)
+        {
+            Debug.Log("She ded.");
+        }
 
         currentState.UpdateState(this);
     }
@@ -315,12 +417,89 @@ public class PlayerController : MonoBehaviour, IAttackable
         state.StartState(this);
     }
 
+    //private void SetFacingDirection()
+    //{
+    //    if (moveVector != idleVector)
+    //    {
+    //        // should stay on latest facing
+    //        facingDirection = moveVector;
+    //    }
+    //}
+
     private void SetFacingDirection()
     {
-        if (moveVector != idleVector)
+        if (wasMovingRight)
         {
-            // should stay on latest facing
-            facingDirection = moveVector;
+            if (isMovingRight || isMovingDownRight || isMovingUpRight)
+            {
+                // face right
+                facingDirection = Vector2.right;
+            }
+            else
+            {
+                DefaultSetFacing();
+            }
+
+        }
+        else if (wasMovingLeft)
+        {
+            if (isMovingLeft || isMovingDownLeft || isMovingUpLeft)
+            {
+                // face left
+                facingDirection = Vector2.left;
+            }
+            else
+            {
+                DefaultSetFacing();
+            }
+        }
+        else if (wasMovingUp)
+        {
+            if (isMovingUp || isMovingUpRight || isMovingUpLeft)
+            {
+                // face up
+                facingDirection = Vector2.up;
+            }
+            else
+            {
+                DefaultSetFacing();
+            }
+        }
+        else if (wasMovingDown)
+        {
+            if (isMovingDown || isMovingDownRight || isMovingDownLeft)
+            {
+                // face down
+                facingDirection = Vector2.down;
+            }
+            else
+            {
+                DefaultSetFacing();
+            }
+        }
+        else
+        {
+            DefaultSetFacing();
+        }
+    }
+
+    private void DefaultSetFacing()
+    {
+        if (moveVector.x > 0f)
+        {
+            facingDirection = Vector2.right;
+        }
+        else if (moveVector.x < 0f)
+        {
+            facingDirection = Vector2.left;
+        }
+        else if (moveVector.x == 0f && moveVector.y > 0f)
+        {
+            facingDirection = Vector2.up;
+        }
+        else
+        {
+            facingDirection = Vector2.down;
         }
     }
 

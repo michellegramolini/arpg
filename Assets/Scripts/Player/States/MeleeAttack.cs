@@ -23,6 +23,7 @@ public class MeleeAttack : State
         this._player = player;
 
         StartCoroutine(MeleeSwitch());
+        _player.SetLockedMoveVectors();
         _startFacingDir = _player.facingDirection;
     }
 
@@ -66,6 +67,7 @@ public class MeleeAttack : State
         {
             _player.animationState.SetAnimationState("player_melee_left");
         }
+
     }
 
     private IEnumerator MeleeSwitch()

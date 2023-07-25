@@ -290,6 +290,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c86dff3537a64dd986b08386ae43ec8, type: 3}
+--- !u!4 &714934679 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3221043153746689265, guid: f5570cbf2761d1f429b14488a464ec9f, type: 3}
+  m_PrefabInstance: {fileID: 1553217361}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &914694440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,7 +430,7 @@ PrefabInstance:
     - target: {fileID: 4492437780323466714, guid: 92e5eb1a2b04d4fbbaff53f99df259b6, type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 714934679}
     - target: {fileID: 4492437780323466715, guid: 92e5eb1a2b04d4fbbaff53f99df259b6, type: 3}
       propertyPath: m_Name
       value: CM vcam1

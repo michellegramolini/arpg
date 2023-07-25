@@ -70,6 +70,64 @@ public class Walk : State
 
     private void Animate()
     {
+        if (_player.wasMovingRight)
+        {
+            if (_player.isMovingRight || _player.isMovingDownRight || _player.isMovingUpRight)
+            {
+                // animate right
+                _player.animationState.SetAnimationState("player_walk_right");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+
+        }
+        else if (_player.wasMovingLeft)
+        {
+            if (_player.isMovingLeft || _player.isMovingDownLeft || _player.isMovingUpLeft)
+            {
+                // animate left
+                _player.animationState.SetAnimationState("player_walk_left");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+        }
+        else if (_player.wasMovingUp)
+        {
+            if (_player.isMovingUp || _player.isMovingUpRight || _player.isMovingUpLeft)
+            {
+                // animate up
+                _player.animationState.SetAnimationState("player_walk_up");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+        }
+        else if (_player.wasMovingDown)
+        {
+            if (_player.isMovingDown || _player.isMovingDownRight || _player.isMovingDownLeft)
+            {
+                // animate up
+                _player.animationState.SetAnimationState("player_walk_down");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+        }
+        else
+        {
+            DefaultAnimate();
+        }
+
+    }
+
+    private void DefaultAnimate()
+    {
         if (_player.moveVector.x > 0f)
         {
             _player.animationState.SetAnimationState("player_walk_right");

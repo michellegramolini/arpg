@@ -8,6 +8,9 @@ public class Jump : State
     bool _switch;
     float _jumpZ;
 
+    //private Vector2 _lockedFacingDirection;
+
+
     public override void FixedUpdateState(PlayerController player)
     {
         if (_switch)
@@ -36,7 +39,11 @@ public class Jump : State
 
         _player.z += (int)_jumpZ;
 
-        StartCoroutine(JumpSwitch());
+        //_lockedFacingDirection = _player.facingDirection;
+        _player.SetLockedMoveVectors();
+
+        StopCoroutine(nameof(JumpSwitch));
+        StartCoroutine(nameof(JumpSwitch));
     }
 
     public override void UpdateState(PlayerController player)
@@ -63,15 +70,73 @@ public class Jump : State
 
     private void Animate()
     {
-        if (_player.facingDirection.x > 0f)
+        if (_player.locked_wasMovingRight)
+        {
+            if (_player.locked_isMovingRight || _player.locked_isMovingDownRight || _player.locked_isMovingUpRight)
+            {
+                // animate right
+                _player.animationState.SetAnimationState("player_jump_right");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+
+        }
+        else if (_player.locked_wasMovingLeft)
+        {
+            if (_player.locked_isMovingLeft || _player.locked_isMovingDownLeft || _player.locked_isMovingUpLeft)
+            {
+                // animate left
+                _player.animationState.SetAnimationState("player_jump_left");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+        }
+        else if (_player.locked_wasMovingUp)
+        {
+            if (_player.locked_isMovingUp || _player.locked_isMovingUpRight || _player.locked_isMovingUpLeft)
+            {
+                // animate up
+                _player.animationState.SetAnimationState("player_jump_up");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+        }
+        else if (_player.locked_wasMovingDown)
+        {
+            if (_player.locked_isMovingDown || _player.locked_isMovingDownRight || _player.locked_isMovingDownLeft)
+            {
+                // animate up
+                _player.animationState.SetAnimationState("player_jump_down");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+        }
+        else
+        {
+            DefaultAnimate();
+        }
+
+    }
+
+    private void DefaultAnimate()
+    {
+        if (_player.locked_moveVector.x > 0f)
         {
             _player.animationState.SetAnimationState("player_jump_right");
         }
-        else if (_player.facingDirection.x < 0f)
+        else if (_player.locked_moveVector.x < 0f)
         {
             _player.animationState.SetAnimationState("player_jump_left");
         }
-        else if (_player.facingDirection.x == 0f && _player.facingDirection.y > 0f)
+        else if (_player.locked_moveVector.x == 0f && _player.locked_moveVector.y > 0f)
         {
             _player.animationState.SetAnimationState("player_jump_up");
         }
@@ -84,14 +149,9 @@ public class Jump : State
     IEnumerator JumpSwitch()
     {
         _switch = true;
-        if (_player.facingDirection == Vector2.up || _player.facingDirection == Vector2.down)
-        {
-            yield return new WaitForSeconds(_player.jumpDuration + .1f);
-        }
-        else
-        {
-            yield return new WaitForSeconds(_player.jumpDuration);
-        }
+        yield return new WaitForSeconds(_player.animationState.GetClipLength("player_jump_right") + .1f);
         _switch = false;
+
+        yield break;
     }
 }
