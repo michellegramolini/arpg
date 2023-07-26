@@ -417,70 +417,65 @@ public class PlayerController : MonoBehaviour, IAttackable
         state.StartState(this);
     }
 
-    //private void SetFacingDirection()
-    //{
-    //    if (moveVector != idleVector)
-    //    {
-    //        // should stay on latest facing
-    //        facingDirection = moveVector;
-    //    }
-    //}
-
     private void SetFacingDirection()
     {
-        if (wasMovingRight)
+        if (moveVector != idleVector)
         {
-            if (isMovingRight || isMovingDownRight || isMovingUpRight)
+            if (wasMovingRight)
             {
-                // face right
-                facingDirection = Vector2.right;
-            }
-            else
-            {
-                DefaultSetFacing();
-            }
+                if (isMovingRight || isMovingDownRight || isMovingUpRight)
+                {
+                    // face right
+                    facingDirection = Vector2.right;
+                }
+                else
+                {
+                    DefaultSetFacing();
+                }
 
-        }
-        else if (wasMovingLeft)
-        {
-            if (isMovingLeft || isMovingDownLeft || isMovingUpLeft)
+            }
+            else if (wasMovingLeft)
             {
-                // face left
-                facingDirection = Vector2.left;
+                if (isMovingLeft || isMovingDownLeft || isMovingUpLeft)
+                {
+                    // face left
+                    facingDirection = Vector2.left;
+                }
+                else
+                {
+                    DefaultSetFacing();
+                }
+            }
+            else if (wasMovingUp)
+            {
+                if (isMovingUp || isMovingUpRight || isMovingUpLeft)
+                {
+                    // face up
+                    facingDirection = Vector2.up;
+                }
+                else
+                {
+                    DefaultSetFacing();
+                }
+            }
+            else if (wasMovingDown)
+            {
+                if (isMovingDown || isMovingDownRight || isMovingDownLeft)
+                {
+                    // face down
+                    facingDirection = Vector2.down;
+                }
+                else
+                {
+                    DefaultSetFacing();
+                }
             }
             else
             {
                 DefaultSetFacing();
             }
         }
-        else if (wasMovingUp)
-        {
-            if (isMovingUp || isMovingUpRight || isMovingUpLeft)
-            {
-                // face up
-                facingDirection = Vector2.up;
-            }
-            else
-            {
-                DefaultSetFacing();
-            }
-        }
-        else if (wasMovingDown)
-        {
-            if (isMovingDown || isMovingDownRight || isMovingDownLeft)
-            {
-                // face down
-                facingDirection = Vector2.down;
-            }
-            else
-            {
-                DefaultSetFacing();
-            }
-        }
-        else
-        {
-            DefaultSetFacing();
-        }
+
     }
 
     private void DefaultSetFacing()
