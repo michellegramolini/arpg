@@ -155,7 +155,7 @@ public class Jump : State
     IEnumerator JumpSwitch()
     {
         _switch = true;
-        yield return new WaitForSeconds(_player.animationState.GetClipLength("player_jump_right") + .1f);
+        yield return new WaitForSeconds(_player.animationState.GetClipLength("player_jump_right"));
         _switch = false;
 
         yield break;
