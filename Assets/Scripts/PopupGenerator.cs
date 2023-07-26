@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class PopupGenerator : MonoBehaviour
 {
-    //// Damage popup prefab
-    //[SerializeField]
-    //private Transform _pfDamagePopup;
-    //// Level Up popup prefab
-    //[SerializeField]
-    //private Transform _pfLevelUpPopup;
-
     private void OnEnable()
     {
         DamageManager.Instance.OnMakePopup += GenerateDamagePopup;
@@ -24,10 +17,10 @@ public class PopupGenerator : MonoBehaviour
     }
 
     // TODO: move to DamagePopup, maybe interface Generate, or spawn from object pool
-    private void GenerateDamagePopup(Vector3 position, int amount)
+    private void GenerateDamagePopup(string tag, Vector3 position, int amount)
     {
         //Transform dp = Instantiate(_pfDamagePopup, position, Quaternion.identity);
-        GameObject dp = ObjectPooler.Instance.SpawnFromPool("damage_popup", position, Quaternion.identity);
+        GameObject dp = ObjectPooler.Instance.SpawnFromPool(tag, position, Quaternion.identity);
         dp.GetComponent<DamagePopup>().Setup(amount);
     }
 

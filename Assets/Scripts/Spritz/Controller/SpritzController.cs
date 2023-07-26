@@ -78,7 +78,7 @@ namespace Spritz
             sr = gameObject.GetComponentInChildren<SpriteRenderer>();
             //
             bc = gameObject.GetComponentInChildren<BoxCollider2D>();
-            rb = gameObject.GetComponent<Rigidbody2D>();
+            rb = gameObject.GetComponentInChildren<Rigidbody2D>();
 
             // Testing
             health = 2;

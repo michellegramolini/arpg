@@ -48,15 +48,79 @@ public class Swim : State
 
     private void Animate()
     {
-        if (_player.moveVector.x > 0f)
+        if (_player.moveVector == _player.idleVector)
+        {
+            DefaultAnimate(_player.facingDirection);
+        }
+        else
+        {
+            if (_player.wasMovingRight)
+            {
+                if (_player.isMovingRight || _player.isMovingDownRight || _player.isMovingUpRight)
+                {
+                    // animate right
+                    _player.animationState.SetAnimationState("player_swim_right");
+                }
+                else
+                {
+                    DefaultAnimate(_player.moveVector);
+                }
+
+            }
+            else if (_player.wasMovingLeft)
+            {
+                if (_player.isMovingLeft || _player.isMovingDownLeft || _player.isMovingUpLeft)
+                {
+                    // animate left
+                    _player.animationState.SetAnimationState("player_swim_left");
+                }
+                else
+                {
+                    DefaultAnimate(_player.moveVector);
+                }
+            }
+            else if (_player.wasMovingUp)
+            {
+                if (_player.isMovingUp || _player.isMovingUpRight || _player.isMovingUpLeft)
+                {
+                    // animate up
+                    _player.animationState.SetAnimationState("player_swim_up");
+                }
+                else
+                {
+                    DefaultAnimate(_player.moveVector);
+                }
+            }
+            else if (_player.wasMovingDown)
+            {
+                if (_player.isMovingDown || _player.isMovingDownRight || _player.isMovingDownLeft)
+                {
+                    // animate up
+                    _player.animationState.SetAnimationState("player_swim_down");
+                }
+                else
+                {
+                    DefaultAnimate(_player.moveVector);
+                }
+            }
+            else
+            {
+                DefaultAnimate(_player.moveVector);
+            }
+        }
+    }
+
+    private void DefaultAnimate(Vector2 vector)
+    {
+        if (vector.x > 0f)
         {
             _player.animationState.SetAnimationState("player_swim_right");
         }
-        else if (_player.moveVector.x < 0f)
+        else if (vector.x < 0f)
         {
             _player.animationState.SetAnimationState("player_swim_left");
         }
-        else if (_player.moveVector.x == 0f && _player.moveVector.y > 0f)
+        else if (vector.x == 0f && vector.y > 0f)
         {
             _player.animationState.SetAnimationState("player_swim_up");
         }

@@ -47,13 +47,16 @@ MonoBehaviour:
   pools:
   - tag: damage_popup
     prefab: {fileID: 2610970444430296555, guid: 7d1827912825d4077acdbcc071e8d97c, type: 3}
-    size: 150
+    size: 50
   - tag: levelup_popup
     prefab: {fileID: 7181032939634599979, guid: 23cbc0979f00f47df9e4ea52c8f1a95c, type: 3}
-    size: 150
+    size: 50
   - tag: kill_effect
     prefab: {fileID: 7080964753523604325, guid: 07901d4d12c0d4b8cb78365bfb8e8e0b, type: 3}
-    size: 150
+    size: 50
   - tag: splash_effect
     prefab: {fileID: 6526783068896415327, guid: 1920513659a064622a5e45f028ccabc2, type: 3}
     size: 25
+  - tag: player_damage_popup
+    prefab: {fileID: 2973119048718856523, guid: f99e7a265fab8493ca1b5c8106e0451c, type: 3}
+    size: 50
