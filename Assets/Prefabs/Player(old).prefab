@@ -498,6 +498,9 @@ MonoBehaviour:
   onWall: 0
   currentXP: 0
   _currentLevel: 0
+  isKnockedBack: 0
+  knockbackForce: 0
+  health: 0
 --- !u!114 &3462501237082333913
 MonoBehaviour:
   m_ObjectHideFlags: 0

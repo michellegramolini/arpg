@@ -469,16 +469,50 @@ MonoBehaviour:
   MeleeAttack: {fileID: 0}
   rb: {fileID: 0}
   col: {fileID: 0}
-  moveVector: {x: 0, y: 0}
-  runSpeed: 10
-  walkSpeed: 6
+  runSpeed: 8
+  walkSpeed: 5
   swimSpeed: 4
-  fallSpeed: 12
+  fallSpeed: 8
   jumpSpeed: 6
+  moveVector: {x: 0, y: 0}
+  previousMoveVector: {x: 0, y: 0}
   idleVector: {x: 0, y: 0}
+  isMovingRight: 0
+  isMovingLeft: 0
+  isMovingUp: 0
+  isMovingDown: 0
+  isMovingUpRight: 0
+  isMovingUpLeft: 0
+  isMovingDownRight: 0
+  isMovingDownLeft: 0
+  wasMovingRight: 0
+  wasMovingLeft: 0
+  wasMovingUp: 0
+  wasMovingDown: 0
+  wasMovingUpRight: 0
+  wasMovingUpLeft: 0
+  wasMovingDownRight: 0
+  wasMovingDownLeft: 0
+  locked_moveVector: {x: 0, y: 0}
+  locked_previousMoveVector: {x: 0, y: 0}
+  locked_isMovingRight: 0
+  locked_isMovingLeft: 0
+  locked_isMovingUp: 0
+  locked_isMovingDown: 0
+  locked_isMovingUpRight: 0
+  locked_isMovingUpLeft: 0
+  locked_isMovingDownRight: 0
+  locked_isMovingDownLeft: 0
+  locked_wasMovingRight: 0
+  locked_wasMovingLeft: 0
+  locked_wasMovingUp: 0
+  locked_wasMovingDown: 0
+  locked_wasMovingUpRight: 0
+  locked_wasMovingUpLeft: 0
+  locked_wasMovingDownRight: 0
+  locked_wasMovingDownLeft: 0
   facingDirection: {x: 0, y: 0}
   isJumping: 0
-  jumpDuration: 0.4
   jumpVector: {x: 0, y: 0}
   isShifting: 0
   isAttacking: 0
@@ -498,6 +532,9 @@ MonoBehaviour:
   onWall: 0
   currentXP: 0
   _currentLevel: 0
+  isKnockedBack: 0
+  knockbackForce: 5
+  health: 0
 --- !u!114 &3221043153746689258
 MonoBehaviour:
   m_ObjectHideFlags: 0
