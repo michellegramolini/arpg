@@ -6,7 +6,6 @@ public class MeleeAttack : State
 {
     private PlayerController _player;
     private bool _melee;
-    private Vector2 _startFacingDir;
 
     public override void FixedUpdateState(PlayerController player)
     {
@@ -23,7 +22,7 @@ public class MeleeAttack : State
         this._player = player;
 
         StartCoroutine(MeleeSwitch());
-        _startFacingDir = _player.facingDirection;
+        _player.SetLockedMoveVectors();
     }
 
     public override void UpdateState(PlayerController player)
@@ -49,16 +48,16 @@ public class MeleeAttack : State
     private void Animate()
     {
         // use facing direction and set facing animation
-        if (_startFacingDir == Vector2.up)
+        if (_player.locked_facingDirection == Vector2.up)
         {
             _player.animationState.SetAnimationState("player_melee_up");
         }
-        else if (_startFacingDir == Vector2.down)
+        else if (_player.locked_facingDirection == Vector2.down)
         {
             _player.animationState.SetAnimationState("player_melee_down");
         }
         // TODO: could handle this at the facingDirection vector level
-        else if (_startFacingDir.x > 0f)
+        else if (_player.locked_facingDirection.x > 0f)
         {
             _player.animationState.SetAnimationState("player_melee_right");
         }
@@ -66,6 +65,7 @@ public class MeleeAttack : State
         {
             _player.animationState.SetAnimationState("player_melee_left");
         }
+
     }
 
     private IEnumerator MeleeSwitch()

@@ -6,8 +6,6 @@ using System;
 public class Walk : State
 {
     private PlayerController _player;
-    //private bool _canMove;
-    //private string _tileKey;
 
     public override void FixedUpdateState(PlayerController player)
     {
@@ -70,12 +68,65 @@ public class Walk : State
         }
     }
 
-    //private void MovePlayer()
-    //{
-    //    _player.rb.velocity = _player.walkSpeed * _player.moveVector;
-    //}
-
     private void Animate()
+    {
+        if (_player.wasMovingRight)
+        {
+            if (_player.isMovingRight || _player.isMovingDownRight || _player.isMovingUpRight)
+            {
+                // animate right
+                _player.animationState.SetAnimationState("player_walk_right");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+
+        }
+        else if (_player.wasMovingLeft)
+        {
+            if (_player.isMovingLeft || _player.isMovingDownLeft || _player.isMovingUpLeft)
+            {
+                // animate left
+                _player.animationState.SetAnimationState("player_walk_left");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+        }
+        else if (_player.wasMovingUp)
+        {
+            if (_player.isMovingUp || _player.isMovingUpRight || _player.isMovingUpLeft)
+            {
+                // animate up
+                _player.animationState.SetAnimationState("player_walk_up");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+        }
+        else if (_player.wasMovingDown)
+        {
+            if (_player.isMovingDown || _player.isMovingDownRight || _player.isMovingDownLeft)
+            {
+                // animate up
+                _player.animationState.SetAnimationState("player_walk_down");
+            }
+            else
+            {
+                DefaultAnimate();
+            }
+        }
+        else
+        {
+            DefaultAnimate();
+        }
+
+    }
+
+    private void DefaultAnimate()
     {
         if (_player.moveVector.x > 0f)
         {
@@ -94,36 +145,5 @@ public class Walk : State
             _player.animationState.SetAnimationState("player_walk_down");
         }
     }
-
-    //private void EnableWalk()
-    //{
-    //    // Get tile key from facing direction...
-    //    _tileKey = _player.GetTileKeyFromFacingDirection();
-
-    //    if (_player.tileDetector.GetTileProp(_tileKey, "height_value") != null)
-    //    {
-    //        int? height = Convert.ToInt32(_player.tileDetector.GetTileProp(_tileKey, "height_value").m_Value);
-    //        // Get tile height from tile key
-    //        if (height != null)
-    //        {
-    //            if (height <= _player.z)
-    //            {
-    //                _canMove = true;
-    //            }
-    //            else
-    //            {
-    //                _canMove = false;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            _canMove = true;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        _canMove = true;
-    //    }
-    //}
 
 }
