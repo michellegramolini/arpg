@@ -70,73 +70,79 @@ public class Jump : State
 
     private void Animate()
     {
-        if (_player.locked_wasMovingRight)
+        if (_player.locked_moveVector == _player.idleVector)
         {
-            if (_player.locked_isMovingRight || _player.locked_isMovingDownRight || _player.locked_isMovingUpRight)
-            {
-                // animate right
-                _player.animationState.SetAnimationState("player_jump_right");
-            }
-            else
-            {
-                DefaultAnimate();
-            }
-
-        }
-        else if (_player.locked_wasMovingLeft)
-        {
-            if (_player.locked_isMovingLeft || _player.locked_isMovingDownLeft || _player.locked_isMovingUpLeft)
-            {
-                // animate left
-                _player.animationState.SetAnimationState("player_jump_left");
-            }
-            else
-            {
-                DefaultAnimate();
-            }
-        }
-        else if (_player.locked_wasMovingUp)
-        {
-            if (_player.locked_isMovingUp || _player.locked_isMovingUpRight || _player.locked_isMovingUpLeft)
-            {
-                // animate up
-                _player.animationState.SetAnimationState("player_jump_up");
-            }
-            else
-            {
-                DefaultAnimate();
-            }
-        }
-        else if (_player.locked_wasMovingDown)
-        {
-            if (_player.locked_isMovingDown || _player.locked_isMovingDownRight || _player.locked_isMovingDownLeft)
-            {
-                // animate up
-                _player.animationState.SetAnimationState("player_jump_down");
-            }
-            else
-            {
-                DefaultAnimate();
-            }
+            DefaultAnimate(_player.locked_facingDirection);
         }
         else
         {
-            DefaultAnimate();
-        }
+            if (_player.locked_wasMovingRight)
+            {
+                if (_player.locked_isMovingRight || _player.locked_isMovingDownRight || _player.locked_isMovingUpRight)
+                {
+                    // animate right
+                    _player.animationState.SetAnimationState("player_jump_right");
+                }
+                else
+                {
+                    DefaultAnimate(_player.locked_moveVector);
+                }
 
+            }
+            else if (_player.locked_wasMovingLeft)
+            {
+                if (_player.locked_isMovingLeft || _player.locked_isMovingDownLeft || _player.locked_isMovingUpLeft)
+                {
+                    // animate left
+                    _player.animationState.SetAnimationState("player_jump_left");
+                }
+                else
+                {
+                    DefaultAnimate(_player.locked_moveVector);
+                }
+            }
+            else if (_player.locked_wasMovingUp)
+            {
+                if (_player.locked_isMovingUp || _player.locked_isMovingUpRight || _player.locked_isMovingUpLeft)
+                {
+                    // animate up
+                    _player.animationState.SetAnimationState("player_jump_up");
+                }
+                else
+                {
+                    DefaultAnimate(_player.locked_moveVector);
+                }
+            }
+            else if (_player.locked_wasMovingDown)
+            {
+                if (_player.locked_isMovingDown || _player.locked_isMovingDownRight || _player.locked_isMovingDownLeft)
+                {
+                    // animate up
+                    _player.animationState.SetAnimationState("player_jump_down");
+                }
+                else
+                {
+                    DefaultAnimate(_player.locked_moveVector);
+                }
+            }
+            else
+            {
+                DefaultAnimate(_player.locked_moveVector);
+            }
+        }
     }
 
-    private void DefaultAnimate()
+    private void DefaultAnimate(Vector2 vector)
     {
-        if (_player.locked_moveVector.x > 0f)
+        if (vector.x > 0f)
         {
             _player.animationState.SetAnimationState("player_jump_right");
         }
-        else if (_player.locked_moveVector.x < 0f)
+        else if (vector.x < 0f)
         {
             _player.animationState.SetAnimationState("player_jump_left");
         }
-        else if (_player.locked_moveVector.x == 0f && _player.locked_moveVector.y > 0f)
+        else if (vector.x == 0f && vector.y > 0f)
         {
             _player.animationState.SetAnimationState("player_jump_up");
         }

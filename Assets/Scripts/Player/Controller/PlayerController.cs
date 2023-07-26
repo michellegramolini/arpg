@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour, IAttackable
 
     [Header("Facing Direction")]
     public Vector2 facingDirection;
+    public Vector2 locked_facingDirection;
 
     [Header("Jump")]
     public bool isJumping;
@@ -306,6 +307,7 @@ public class PlayerController : MonoBehaviour, IAttackable
     // TODO: dictionary?
     public void SetLockedMoveVectors()
     {
+        locked_facingDirection = facingDirection;
         locked_moveVector = moveVector;
         locked_previousMoveVector = previousMoveVector;
         locked_isMovingRight = isMovingRight;
