@@ -101,6 +101,8 @@ namespace Spritz
             facingDirection = Vector2.down;
             moveVector = facingDirection;
 
+            z = GetCurrentZ();
+
             // Init State
             currentState = Spawn;
             currentState.StartState(this);
