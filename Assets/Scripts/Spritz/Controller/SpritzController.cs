@@ -5,7 +5,7 @@ using SuperTiled2Unity;
 
 namespace Spritz
 {
-    public class SpritzController : MonoBehaviour, IEnemy
+    public class SpritzController : MonoBehaviour, IEnemy, IPooledObject
     {
         [Header("Components")]
         public SpriteRenderer sr;
@@ -79,10 +79,6 @@ namespace Spritz
             //
             bc = gameObject.GetComponentInChildren<BoxCollider2D>();
             rb = gameObject.GetComponentInChildren<Rigidbody2D>();
-
-            // Testing
-            health = 2;
-            xpAmount = 2;
 
             // States
             Idle = gameObject.AddComponent<Idle>();
@@ -296,6 +292,24 @@ namespace Spritz
                 SetState(Damaged);
             }
 
+        }
+
+        public void OnObjectSpawn()
+        {
+            // Testing
+            health = 2;
+            xpAmount = 2;
+
+            // Respawn
+            respawnPosition = transform.position;
+
+            facingDirection = Vector2.down;
+            moveVector = facingDirection;
+
+            z = GetCurrentZ();
+
+            // Init State
+            SetState(Spawn);
         }
 
         public IEnumerator Squish(float xSquash, float ySquash, float seconds)
