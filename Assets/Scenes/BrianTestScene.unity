@@ -1078,22 +1078,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2071153528288844148, guid: f5570cbf2761d1f429b14488a464ec9f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -5278472796187899151, guid: ec4339d9ef3a3a142ab0dcbfba37cef8, type: 3}
-    - target: {fileID: 2071153528288844149, guid: f5570cbf2761d1f429b14488a464ec9f, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 922b8ed17a51aac4a974608cef9870fa, type: 2}
-    - target: {fileID: 2071153528288844150, guid: f5570cbf2761d1f429b14488a464ec9f, type: 3}
-      propertyPath: isDamageFrame
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2071153528288844151, guid: f5570cbf2761d1f429b14488a464ec9f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2071153529908525129, guid: f5570cbf2761d1f429b14488a464ec9f, type: 3}
       propertyPath: _heightMap
       value: 

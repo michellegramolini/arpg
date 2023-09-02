@@ -3,10 +3,12 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/seaside_playroom.tmx",
+    "activeFile": "Tilesets/terrain_map.tsx",
     "expandedProjectPaths": [
+        "Images",
+        "Maps",
         ".",
-        "Images"
+        "Tilesets"
     ],
     "file.lastUsedOpenFilter": "Tiled map files (*.tmx)",
     "fileStates": {
@@ -42,10 +44,10 @@
                 15
             ],
             "scale": 3,
-            "selectedLayer": 8,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 665.6666666666666,
-                "y": 637.8333333333333
+                "x": 802,
+                "y": 1143
             }
         },
         "Tilesets/collision_map.tsx": {
@@ -104,7 +106,7 @@
             "scaleInEditor": 4
         }
     },
-    "frame.defaultDuration": 200,
+    "frame.defaultDuration": 100,
     "last.externalTilesetPath": "C:/Github/arpg/Assets/Graphics/Tilesets",
     "last.imagePath": "C:/Users/Nick/Desktop/Unity/Seaside/Seaside_Tiled/Tilesets",
     "map.height": 100,
@@ -124,12 +126,12 @@
     "project": "seaside.tiled-project",
     "property.type": "int",
     "recentFiles": [
+        "Maps/seaside_playroom.tmx",
+        "Tilesets/seaside.tsx",
+        "Tilesets/test_tileset.tsx",
+        "Tilesets/height_map.tsx",
         "Tilesets/collision_map.tsx",
         "Tilesets/terrain_map.tsx",
-        "Tilesets/height_map.tsx",
-        "Tilesets/test_tileset.tsx",
-        "Tilesets/seaside.tsx",
-        "Maps/seaside_playroom.tmx",
         "C:/Github/arpg/Assets/Graphics/Tilesets/sewers.tsx",
         "C:/Github/arpg/Assets/Maps/sewer_playroom.tmx",
         "test_tileset.tsx",
