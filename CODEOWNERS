@@ -1,4 +1,5 @@
 # Universal code owners
 # will be requested for review on all prs to main
-*     @michellegramolini
-*     @snowstriker
+/Assets/Scripts/ @michellegramolini
+/Assets/Animation/ @snowstriker
+/Assets/Environments/ @snowstriker
