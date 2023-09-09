@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// TODO: base popup class
 public class DamagePopup : MonoBehaviour, IPooledObject
 {
     protected TextMeshPro _textMesh;
+    public float destroyTimeSeconds;
 
     private void Awake()
     {
@@ -26,7 +28,6 @@ public class DamagePopup : MonoBehaviour, IPooledObject
         _textMesh.color = Color.yellow;
     }
 
-    // TODO: make part of interface potentially
     private IEnumerator DestroyAfter(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -36,7 +37,7 @@ public class DamagePopup : MonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
         StopCoroutine(nameof(DestroyAfter));
-        StartCoroutine(DestroyAfter(1.1f));
+        StartCoroutine(DestroyAfter(destroyTimeSeconds));
     }
 
 }

@@ -357,7 +357,7 @@ public class PlayerController : MonoBehaviour, IAttackable
         // Temporary TODO: Kill her!
         if (health <= 0)
         {
-            Debug.Log("She ded.");
+            //Debug.Log("She ded.");
         }
 
         currentState.UpdateState(this);

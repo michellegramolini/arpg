@@ -26,12 +26,13 @@ namespace Spritz
 
         public override void UpdateState(SpritzController spritz)
         {
-            Debug.Log("Should be dead dead dead");
+
         }
 
         private void Die()
         {
-            _spritz.gameObject.SetActive(false);
+            //_spritz.gameObject.SetActive(false);
+            ObjectPooler.Instance.Recycle("spritz", _spritz.gameObject);
             // play effect
             GameObject killEffect = ObjectPooler.Instance.SpawnFromPool("kill_effect", _spritz.characterHolder.transform.position, Quaternion.identity);
             XPManager.Instance.AddExperience(_spritz.xpAmount);

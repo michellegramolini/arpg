@@ -241,8 +241,8 @@ MonoBehaviour:
   Dead: {fileID: 0}
   Spawn: {fileID: 0}
   Bounce: {fileID: 0}
-  health: 0
-  xpAmount: 0
+  health: 2
+  xpAmount: 2
   respawnPosition: {x: 0, y: 0, z: 0}
   respawned: 0
   animationState: {fileID: 0}

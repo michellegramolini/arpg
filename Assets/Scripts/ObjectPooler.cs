@@ -35,6 +35,31 @@ public class ObjectPooler : MonoBehaviour
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
+    // Dictionary for mapping object pool tags to the location of the prefab in Assets/Resources.
+    // for this project all prefabs will be in the Poolable directory of Resources.
+    // TODO: Enums baby.
+    public Dictionary<string, string> tagToResourceMap = new()
+    {
+        // Popups
+        { "damage_popup", "Popups/DamagePopup" },
+        { "levelup_popup", "Popups/LevelUpPopup" },
+        { "player_damage_popup", "Popups/PlayerDamagePopup" },
+        // Effects
+        { "kill_effect", "Effects/KillEffect" },
+        { "splash_effect", "Effects/SplashEffect" },
+        // Enemies
+        { "spritz", "Enemies/Spritz" },
+        // Drops / Pickups
+        // TODO:
+    };
+
+    private void Activate(GameObject obj, bool isActivated)
+    {
+        obj.SetActive(isActivated);
+        ChangeColliderState(obj, isActivated);
+        ActivateSprites(obj, isActivated);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +73,7 @@ public class ObjectPooler : MonoBehaviour
             for (int i = 0; i < pool.size; i++)
             {
                 GameObject obj = Instantiate(pool.prefab);
-                obj.SetActive(false);
+                Activate(obj, false);
                 objectPool.Enqueue(obj);
             }
 
@@ -66,28 +91,51 @@ public class ObjectPooler : MonoBehaviour
             return null;
         }
 
-        GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+        IPooledObject pooledObject;
 
-        objectToSpawn.SetActive(true);
-        objectToSpawn.transform.SetPositionAndRotation(position, rotation);
-
-        IPooledObject pooledObject = objectToSpawn.GetComponent<IPooledObject>();
-
-        if (pooledObject != null)
+        if (poolDictionary[tag].TryDequeue(out GameObject objectToSpawn))
         {
-            // custom Start
-            pooledObject.OnObjectSpawn();
+            // Use the dequeuedObject
+            Activate(objectToSpawn, true);
+            objectToSpawn.transform.SetPositionAndRotation(position, rotation);
+            pooledObject = objectToSpawn.GetComponent<IPooledObject>();
+        }
+        else
+        {
+            // Handle when the queue is empty
+            Debug.LogWarning("Object queue is empty.");
+
+            // Get path to resource via pool tag
+            if (tagToResourceMap.ContainsKey(tag))
+            {
+                string resource = tagToResourceMap[tag];
+                // Prefabs will be in the Prefabs directory of Resources.
+                GameObject prefab = Resources.Load<GameObject>($"Prefabs/{resource}");
+                if (!prefab)
+                {
+                    Debug.LogWarning($"Cannot find prefab in Resources with given path Assets/Resources/Poolable/{resource}");
+                    return null;
+                }
+
+                objectToSpawn = Instantiate(prefab, position, rotation);
+                Activate(objectToSpawn, true);
+                pooledObject = objectToSpawn.GetComponent<IPooledObject>();
+            }
+            else
+            {
+                Debug.LogWarning($"Could not find Resources location for this tag {tag}.");
+                return null;
+            }
         }
 
-        // FIXME: should be on destroy?
-        // recycle
-        //poolDictionary[tag].Enqueue(objectToSpawn);
+        // custom Start
+        pooledObject?.OnObjectSpawn();
 
         return objectToSpawn;
     }
 
-    // FIXME: testing!
-    public void Recycle(string tag, GameObject gameObject)
+    // TODO: I think this works like, yeah? probably?
+    public void Recycle(string tag, GameObject obj)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -95,10 +143,35 @@ public class ObjectPooler : MonoBehaviour
             return;
         }
         // deactivate
-        gameObject.SetActive(false);
+        Activate(obj, false);
         // recycle
-        poolDictionary[tag].Enqueue(gameObject);
+        poolDictionary[tag].Enqueue(obj);
     }
 
-}
 
+    private void ChangeColliderState(GameObject obj, bool state)
+    {
+        if (obj.TryGetComponent(out BoxCollider2D collider))
+        {
+            //Debug.Log($"Changing collider state of {gameObject.name} to {state}");
+            collider.enabled = state;
+        }
+        if (obj.TryGetComponent(out Rigidbody2D rigidbody))
+        {
+            //Debug.Log($"Changing rigidbody state of {gameObject.name} to {state}");
+            rigidbody.simulated = state;
+        }
+    }
+
+    private void ActivateSprites(GameObject obj, bool state)
+    {
+        // Get all SpriteRenderer components attached to this GameObject and its children
+        SpriteRenderer[] spriteRenderers = obj.GetComponentsInChildren<SpriteRenderer>();
+
+        // Loop through each SpriteRenderer and do something
+        foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+        {
+            spriteRenderer.enabled = state;
+        }
+    }
+}

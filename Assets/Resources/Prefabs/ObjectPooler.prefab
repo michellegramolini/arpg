@@ -60,3 +60,6 @@ MonoBehaviour:
   - tag: player_damage_popup
     prefab: {fileID: 2973119048718856523, guid: f99e7a265fab8493ca1b5c8106e0451c, type: 3}
     size: 50
+  - tag: spritz
+    prefab: {fileID: 2623663074468477221, guid: 3315a947d93039745b25d72ff83dbb0a, type: 3}
+    size: 50
