@@ -1,3 +1,11 @@
+Basic 2D-pixel, Terranigma-inspired ARPG Unity project. 
+
+![seaside-1](https://github.com/michellegramolini/arpg/assets/112978754/a2d41396-c704-4dee-9905-8d5d221b2477)
+
+Run, jump, fight and swim your way through a hostile island landscape.
+
+![seaside-2](https://github.com/michellegramolini/arpg/assets/112978754/bbf8bddc-9a98-4b21-a245-cd476d0e59cb)
+
 ## To run project:
 clone and open in Unity. currently running on version 2021.3.21f1. select a scene and hit play in editor.
 
